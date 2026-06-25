@@ -1,0 +1,62 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import CTA from '../../components/CTA.astro';
+import { resources } from '../../data/resources';
+
+export function getStaticPaths() {
+  return resources.map((r) => ({
+    params: { slug: r.slug },
+    props: { resource: r },
+  }));
+}
+
+const { resource } = Astro.props;
+---
+<PageLayout
+  title={`${resource.title} — Syvidea Resources`}
+  description={resource.description}
+>
+  <Hero
+    eyebrow={resource.category}
+    title={resource.title}
+    subtitle={resource.description}
+  />
+
+  <Section
+    eyebrow="Items in this section"
+    title="Latest entries"
+    align="left"
+  >
+    <div class="space-y-4">
+      {resource.items.map((item) => (
+        <article class="card">
+          <h3 class="text-lg font-semibold">{item.title}</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">{item.excerpt}</p>
+          <div class="mt-4 text-sm text-slate-500">
+            Full article will be published in this section. Submit feedback or topic requests via the contact form.
+          </div>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Have a topic in mind?"
+    title="Suggest a guide, setup, or troubleshooting entry"
+    align="left"
+  >
+    <div class="card">
+      <p class="text-slate-600 dark:text-slate-400">
+        Resources are shaped by real questions from founding users. If there is a workflow, model, or
+        configuration note you would like covered, send it via the contact form and we will prioritize it.
+      </p>
+      <div class="mt-4">
+        <a href="/contact" class="btn-primary">Suggest a topic</a>
+      </div>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

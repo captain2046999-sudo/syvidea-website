@@ -1,0 +1,89 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CTA from '../components/CTA.astro';
+---
+<PageLayout
+  title="How It Works — Syvidea"
+  description="The quote-based ordering process: inquiry, configuration confirmation, quote, payment link, and delivery to the US/Canada."
+>
+  <Hero
+    eyebrow="How it works"
+    title="From inquiry to delivery, with a real person on the other side"
+    subtitle="Quote-based ordering keeps the trust barrier low for high-value purchases. There is no add-to-cart and no online full-payment checkout. The process is designed to confirm configuration, availability, and price before any payment is taken."
+  />
+
+  <Section
+    eyebrow="The process"
+    title="Four steps from inquiry to delivery"
+    align="left"
+  >
+    <div class="space-y-6">
+      {[
+        {
+          step: '01',
+          title: 'Submit a request',
+          desc: 'Fill in the Tally form with your use case, preferred partner brand, destination country (US or Canada), and any specific requirements. The form is the official way to start an order.',
+        },
+        {
+          step: '02',
+          title: 'Configuration confirmation',
+          desc: 'We review your request, confirm the platform fits your workflow, and check availability for the partner brand you prefer. We may ask follow-up questions about model size, context length, peripheral needs, and supply timing.',
+        },
+        {
+          step: '03',
+          title: 'Receive a written quote',
+          desc: 'You receive a written quote with the exact configuration, the partner brand, the price, the shipping option, the estimated delivery window, and any applicable duties or taxes for your destination.',
+        },
+        {
+          step: '04',
+          title: 'Approve and pay',
+          desc: 'Once you approve the quote, we share a payment link or deposit arrangement. We do not store payment information on this website. After payment is confirmed, we coordinate shipment to your US or Canada address.',
+        },
+      ].map((s) => (
+        <div class="card">
+          <div class="flex items-start gap-4">
+            <span class="text-3xl font-bold text-primary-600 dark:text-primary-400">{s.step}</span>
+            <div>
+              <h3 class="text-xl font-semibold">{s.title}</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">{s.desc}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="What we do not do"
+    title="Why this is not a standard e-commerce checkout"
+    align="left"
+  >
+    <div class="card border-amber-300 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20">
+      <ul class="space-y-2 text-slate-700 dark:text-slate-300">
+        <li>• <strong>No add-to-cart.</strong> Price is over USD 3,000 and depends on configuration, partner brand, and supply batch.</li>
+        <li>• <strong>No automatic full-payment checkout.</strong> Payment is via a personal payment link or deposit after the quote is approved.</li>
+        <li>• <strong>No user account, no order dashboard.</strong> Status updates are sent by email from the Syvidea team.</li>
+        <li>• <strong>No automatic inventory system.</strong> Stock and supply windows are confirmed by a real person for each request.</li>
+      </ul>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="What you can do today"
+    title="Start with a quote request"
+  >
+    <div class="card text-center">
+      <p class="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
+        The fastest way to start is to submit the contact form with your use case and destination.
+        We typically reply within one business day with configuration questions or a written quote.
+      </p>
+      <div class="mt-6">
+        <a href="/contact" class="btn-primary">Request a Quote</a>
+      </div>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

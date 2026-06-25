@@ -1,0 +1,130 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import CTA from '../../components/CTA.astro';
+import { sharedPlatform } from '../../data/platform';
+import { brands } from '../../data/brands';
+
+const specRows = [
+  { group: 'Processor', label: sharedPlatform.processor.name, detail: `${sharedPlatform.processor.architecture} • ${sharedPlatform.processor.cores} • ${sharedPlatform.processor.boost}` },
+  { group: 'NPU / AI', label: sharedPlatform.processor.npu, detail: sharedPlatform.processor.aiPerformance },
+  { group: 'Memory', label: sharedPlatform.memory.capacity, detail: `${sharedPlatform.memory.type} • ${sharedPlatform.memory.bandwidth}` },
+  { group: 'Storage', label: sharedPlatform.storage.capacity, detail: sharedPlatform.storage.slots },
+  { group: 'Graphics', label: sharedPlatform.graphics.integrated, detail: sharedPlatform.graphics.architecture },
+  { group: 'Connectivity', label: sharedPlatform.connectivity.usb4, detail: `${sharedPlatform.connectivity.networking} • ${sharedPlatform.connectivity.wireless}` },
+  { group: 'Form factor', label: sharedPlatform.formFactor.class, detail: sharedPlatform.formFactor.benefit },
+  { group: 'Cooling', label: sharedPlatform.powerAndCooling.cooling, detail: sharedPlatform.powerAndCooling.power },
+];
+---
+<PageLayout
+  title="AMD Strix Halo Local AI Workstation Platform — Syvidea"
+  description="Shared platform specification for Syvidea's curated partner workstation options. AMD Ryzen AI Max+ 395, 128GB LPDDR5X unified memory, 2TB SSD, dual PCIe 4.0 SSD."
+>
+  <Hero
+    eyebrow="Shared platform specification"
+    title={sharedPlatform.name}
+    subtitle={sharedPlatform.tagline}
+    primaryCta={{ label: 'Request a Quote', href: '/contact' }}
+    secondaryCta={{ label: 'Compare partner brands', href: '/workstations' }}
+  />
+
+  <Section
+    eyebrow="Why a shared platform page"
+    title="Because the three partner brands share the same core spec"
+    subtitle="This page describes the shared platform that all three partner workstation options are built on. For brand-specific differences (chassis, I/O details, dimensions, wireless, thermals, BIOS, packaging, warranty, supply), see each brand's detail page."
+    align="left"
+  >
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {brands.map((b) => (
+        <a href={`/workstations/${b.slug}`} class="card flex flex-col">
+          <h3 class="text-lg font-semibold">{b.name}</h3>
+          <p class="mt-1 text-sm text-slate-500">{b.positioning}</p>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 flex-1">{b.note}</p>
+          <div class="mt-4 text-sm font-medium text-primary-600 dark:text-primary-400">View {b.name} details →</div>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Specification"
+    title="Shared platform spec"
+    subtitle="Identical across Bosgame, PELAND, and bitpc configurations."
+    align="left"
+  >
+    <div class="card overflow-hidden p-0">
+      <table class="w-full">
+        <thead class="bg-slate-50 dark:bg-slate-900/50">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Group</th>
+            <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Item</th>
+            <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Detail</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+          {specRows.map((row) => (
+            <tr>
+              <td class="px-6 py-4 text-sm font-medium text-slate-500">{row.group}</td>
+              <td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-slate-100">{row.label}</td>
+              <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">{row.detail}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Why this platform"
+    title="Designed for local LLM, RAG, agents, and multimodal AI"
+  >
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="card">
+        <h3 class="text-lg font-semibold">Large unified memory pool</h3>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">
+          128GB LPDDR5X with a 256-bit memory interface gives local AI workflows the headroom to run
+          70B-class quantized models, private RAG contexts, and multi-tool agent stacks on a single machine.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold">Modern I/O and storage</h3>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">
+          Dual M.2 PCIe 4.0 SSD slots support fast local model storage and dataset expansion. USB4 / Thunderbolt-class
+          high-speed ports enable modern peripherals and external GPU or storage expansion.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold">Compact 1L-class form factor</h3>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">
+          A compact footprint makes the platform suitable for desk-side deployment, homelab racks, and small-team
+          shared environments where space and noise matter.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold">NPU + integrated GPU</h3>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">
+          AMD XDNA 2 NPU and Radeon 8060S integrated graphics provide on-device AI acceleration suitable for
+          inference, multimodal workflows, and supported creative tooling.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="What this platform is not for"
+    title="Honest trade-offs"
+    align="left"
+  >
+    <div class="card border-amber-300 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20">
+      <ul class="space-y-2 text-slate-700 dark:text-slate-300">
+        <li>• Not the fastest CUDA image-generation box. If your only goal is maximum Flux or SDXL speed with CUDA / TensorRT, an NVIDIA RTX 5090 workstation is a better fit.</li>
+        <li>• Not for large-scale model training.</li>
+        <li>• Not positioned as a cheap office Mini PC.</li>
+        <li>• Not for users who want direct full-payment online checkout without communication.</li>
+      </ul>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

@@ -1,0 +1,38 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  eyebrow?: string;
+  align?: 'left' | 'center';
+}
+const {
+  title,
+  subtitle,
+  primaryCta,
+  secondaryCta,
+  eyebrow,
+  align = 'center',
+} = Astro.props;
+---
+<section class:list={["section relative overflow-hidden", align === 'center' && "text-center"]}>
+  <div class="absolute inset-0 grid-bg opacity-50 -z-10"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-primary-50/40 via-transparent to-transparent dark:from-primary-950/20 -z-10"></div>
+  <div class="container-page">
+    {eyebrow && (
+      <div class:list={["mb-4", align === 'center' && "flex justify-center"]}>
+        <span class="badge">{eyebrow}</span>
+      </div>
+    )}
+    {title && <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl gradient-text">{title}</h1>}
+    {subtitle && <p class:list={["mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-3xl text-balance", align === 'center' && "mx-auto"]}>{subtitle}</p>}
+    {(primaryCta || secondaryCta) && (
+      <div class:list={["mt-8 flex flex-wrap gap-3", align === 'center' && "justify-center"]}>
+        {primaryCta && <a href={primaryCta.href} class="btn-primary">{primaryCta.label}</a>}
+        {secondaryCta && <a href={secondaryCta.href} class="btn-secondary">{secondaryCta.label}</a>}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>

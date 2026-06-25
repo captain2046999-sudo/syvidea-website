@@ -1,0 +1,83 @@
+---
+import { siteConfig } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+
+const isActive = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath.startsWith(href + '/');
+};
+---
+<header class="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/80">
+  <div class="container-page flex h-16 items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-bold text-lg">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-primary-600 to-accent-500 text-white font-bold">
+        S
+      </span>
+      <span class="tracking-tight">Syvidea</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-1">
+      {siteConfig.nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'px-3 py-2 text-sm font-medium rounded-md transition-colors',
+            isActive(item.href)
+              ? 'text-primary-600 dark:text-primary-400'
+              : 'text-slate-700 hover:text-primary-600 dark:text-slate-300 dark:hover:text-primary-400',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="/contact" class="hidden sm:inline-flex btn-primary text-sm">
+        Request Quote
+      </a>
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+        aria-label="Toggle menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800">
+    <div class="container-page py-3 space-y-1">
+      {siteConfig.nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'block px-3 py-2 text-sm font-medium rounded-md',
+            isActive(item.href)
+              ? 'bg-primary-50 text-primary-700 dark:bg-primary-950 dark:text-primary-300'
+              : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/contact" class="block px-3 py-2 text-sm font-medium rounded-md bg-primary-600 text-white text-center">
+        Request Quote
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

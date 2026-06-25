@@ -1,0 +1,206 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CTA from '../components/CTA.astro';
+import { brands, useCases } from '../data/brands';
+import { sharedPlatform } from '../data/platform';
+import { siteConfig } from '../data/site';
+---
+<PageLayout
+  title="Syvidea — Local AI Workstation Sourcing & Advisory"
+  description="Syvidea helps developers, creators and small teams choose and source selected local AI workstations from hardware partners. AMD Strix Halo / AI Max+ 395, 128GB unified memory."
+>
+  <Hero
+    eyebrow="Local AI Workstation Sourcing & Advisory"
+    title="Most mini PC brands sell specs. We help you choose one for real AI workloads."
+    subtitle="Syvidea is a sourcing and advisory service for local AI workstations built on the AMD Strix Halo / AI Max+ 395 platform. We help you compare partner options (Bosgame, PELAND, bitpc), match the configuration to your actual AI workflow, and coordinate quote-based ordering for the US and Canada."
+    primaryCta={{ label: 'Request a Quote', href: '/contact' }}
+    secondaryCta={{ label: 'Explore Workstations', href: '/workstations' }}
+  />
+
+  <!-- Trust strip -->
+  <section class="border-y border-slate-200 bg-slate-50/60 dark:border-slate-800 dark:bg-slate-900/40">
+    <div class="container-page py-6">
+      <div class="grid grid-cols-2 gap-4 text-center text-sm sm:grid-cols-4">
+        <div>
+          <div class="text-2xl font-bold text-slate-900 dark:text-slate-100">128GB</div>
+          <div class="text-slate-500">Unified memory</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-slate-900 dark:text-slate-100">2TB</div>
+          <div class="text-slate-500">PCIe 4.0 SSD</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-slate-900 dark:text-slate-100">3</div>
+          <div class="text-slate-500">Curated partner brands</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-slate-900 dark:text-slate-100">US/CA</div>
+          <div class="text-slate-500">Quote-based ordering</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Positioning -->
+  <Section
+    eyebrow="What Syvidea is"
+    title="Not a hardware brand. A sourcing and advisory service."
+    subtitle="Syvidea does not manufacture workstations. We curate AMD Strix Halo / AI Max+ 395 partner options and help you choose, compare, and source the right one for your AI workflow."
+    align="left"
+  >
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="card">
+        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Other stores</div>
+        <h3 class="mt-2 text-xl font-semibold">Generic mini PC listings</h3>
+        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-400">
+          <li>• Hardware specs first, AI workflows second</li>
+          <li>• Compete on chip names and lowest price</li>
+          <li>• Add to cart, full online payment</li>
+        </ul>
+      </div>
+      <div class="card border-primary-300 dark:border-primary-800 ring-1 ring-primary-200 dark:ring-primary-900">
+        <div class="text-xs font-semibold uppercase tracking-wider text-primary-600">Syvidea</div>
+        <h3 class="mt-2 text-xl font-semibold">Local AI infrastructure advisor</h3>
+        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-400">
+          <li>• AI workflows first, then hardware fit</li>
+          <li>• Curated partner options, not infinite SKUs</li>
+          <li>• Quote-based ordering, with personal confirmation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Not a fit</div>
+        <h3 class="mt-2 text-xl font-semibold">Be honest about trade-offs</h3>
+        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-400">
+          <li>• Not the fastest CUDA image-generation box</li>
+          <li>• Not for large-scale model training</li>
+          <li>• Not a cheap office Mini PC</li>
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Use cases -->
+  <Section
+    eyebrow="Real AI workloads"
+    title="Designed around how you actually run local AI"
+    subtitle="The shared platform is selected to support these workflows. The exact software stack and validated model list will be confirmed with you during the quote."
+  >
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {useCases.map((useCase) => (
+        <div class="card">
+          <h3 class="text-lg font-semibold">{useCase.title}</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">{useCase.description}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {useCase.models.slice(0, 3).map((m) => (
+              <span class="text-xs rounded-md bg-slate-100 px-2 py-1 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                {m}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Partner brands -->
+  <Section
+    eyebrow="Curated partner options"
+    title="Three partner brands. One shared platform."
+    subtitle="Bosgame, PELAND, and bitpc all build on the same AMD Strix Halo / AI Max+ 395 platform. Differences live in chassis, I/O details, dimensions, wireless, thermals, BIOS, packaging, warranty, and supply batches."
+  >
+    <div class="grid gap-6 md:grid-cols-3">
+      {brands.map((brand) => (
+        <a href={`/workstations/${brand.slug}`} class="card group">
+          <h3 class="text-xl font-semibold group-hover:text-primary-600 dark:group-hover:text-primary-400">
+            {brand.name}
+          </h3>
+          <p class="mt-2 text-sm text-slate-500">{brand.region}</p>
+          <p class="mt-3 text-slate-600 dark:text-slate-400">{brand.summary}</p>
+          <div class="mt-4 flex items-center text-sm font-medium text-primary-600 dark:text-primary-400">
+            View details
+            <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Shared platform summary -->
+  <Section
+    eyebrow="Shared platform"
+    title="One specification, three partners"
+    subtitle="A compact 1L-class local AI workstation platform built around AMD Strix Halo, high-bandwidth LPDDR5X memory, dual PCIe 4.0 SSD slots and modern high-speed I/O."
+  >
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Processor</div>
+        <div class="mt-2 text-lg font-bold">{sharedPlatform.processor.name}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          {sharedPlatform.processor.cores} • {sharedPlatform.processor.boost}
+        </p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Memory</div>
+        <div class="mt-2 text-lg font-bold">{sharedPlatform.memory.capacity}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          {sharedPlatform.memory.type} • {sharedPlatform.memory.bandwidth}
+        </p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Storage</div>
+        <div class="mt-2 text-lg font-bold">{sharedPlatform.storage.capacity}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          {sharedPlatform.storage.slots}
+        </p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Graphics</div>
+        <div class="mt-2 text-lg font-bold">{sharedPlatform.graphics.integrated}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          {sharedPlatform.graphics.architecture}
+        </p>
+      </div>
+    </div>
+    <div class="mt-8 text-center">
+      <a href={`/workstations/${sharedPlatform.slug}`} class="btn-primary">
+        See the full shared platform spec
+      </a>
+    </div>
+  </Section>
+
+  <!-- How it works (brief) -->
+  <Section
+    eyebrow="How it works"
+    title="From inquiry to delivery, in four steps"
+    subtitle="Quote-based ordering. No add-to-cart, no online full-payment checkout."
+  >
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        { step: '1', title: 'Submit a request', desc: 'Tell us your use case, destination, and preferred partner brand via the Tally form.' },
+        { step: '2', title: 'Receive a quote', desc: 'We confirm configuration, availability, and a written quote for your destination.' },
+        { step: '3', title: 'Confirm and pay', desc: 'Approve the quote and arrange payment via a payment link or deposit.' },
+        { step: '4', title: 'Delivery & support', desc: 'We coordinate shipment to the US/Canada and share setup resources.' },
+      ].map((s) => (
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary-100 text-primary-700 font-bold dark:bg-primary-950 dark:text-primary-300">
+              {s.step}
+            </span>
+            <h3 class="text-lg font-semibold">{s.title}</h3>
+          </div>
+          <p class="mt-3 text-slate-600 dark:text-slate-400">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-8 text-center">
+      <a href="/how-it-works" class="btn-secondary">Read the full process</a>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

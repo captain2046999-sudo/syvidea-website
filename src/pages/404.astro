@@ -1,0 +1,22 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import FAQ from '../components/FAQ.astro';
+import { faqs } from '../data/faqs';
+
+const allFaqs = faqs.flatMap((g) => g.items);
+---
+<PageLayout title="404 — Syvidea" description="Page not found.">
+  <section class="section">
+    <div class="container-page max-w-2xl text-center">
+      <div class="text-7xl font-bold gradient-text">404</div>
+      <h1 class="mt-4 text-3xl font-bold">Page not found</h1>
+      <p class="mt-3 text-slate-600 dark:text-slate-400">
+        The page you are looking for does not exist or has been moved.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="/workstations" class="btn-secondary">Browse Workstations</a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

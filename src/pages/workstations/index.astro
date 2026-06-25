@@ -1,0 +1,82 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import CTA from '../../components/CTA.astro';
+import { brands } from '../../data/brands';
+import { sharedPlatform } from '../../data/platform';
+---
+<PageLayout
+  title="Workstations — Syvidea"
+  description="Curated partner workstation options on the AMD Strix Halo / AI Max+ 395 platform. Compare Bosgame, PELAND, and bitpc configurations."
+>
+  <Hero
+    eyebrow="Workstations"
+    title="Curated partner workstation options"
+    subtitle="All options share the same AMD Strix Halo / AI Max+ 395 platform. Choose the brand option that best matches your chassis, I/O, and supply preferences."
+  />
+
+  <Section
+    eyebrow="Shared platform"
+    title="One platform, three partner brands"
+    subtitle="Bosgame, PELAND, and bitpc all build on the AMD Strix Halo / AI Max+ 395 platform. Differences are in chassis, I/O, dimensions, wireless, thermals, BIOS, packaging, warranty, and supply."
+  >
+    <div class="card mb-8">
+      <h3 class="text-xl font-semibold">{sharedPlatform.name}</h3>
+      <p class="mt-2 text-slate-600 dark:text-slate-400">{sharedPlatform.tagline}</p>
+      <a href={`/workstations/${sharedPlatform.slug}`} class="mt-4 inline-flex items-center text-sm font-medium text-primary-600 dark:text-primary-400">
+        See full shared platform spec
+        <svg class="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Partner brand options"
+    title="Choose a brand option"
+  >
+    <div class="grid gap-6 lg:grid-cols-3">
+      {brands.map((brand) => (
+        <a href={`/workstations/${brand.slug}`} class="card group flex flex-col">
+          <h3 class="text-2xl font-bold group-hover:text-primary-600 dark:group-hover:text-primary-400">{brand.name}</h3>
+          <p class="mt-1 text-sm text-slate-500">{brand.region}</p>
+          <p class="mt-3 text-slate-600 dark:text-slate-400">{brand.summary}</p>
+          <div class="mt-4">
+            <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Highlights</div>
+            <ul class="mt-2 space-y-1 text-sm text-slate-600 dark:text-slate-400">
+              {brand.highlights.map((h) => <li>• {h}</li>)}
+            </ul>
+          </div>
+          <p class="mt-4 text-xs text-slate-500 italic">{brand.note}</p>
+          <div class="mt-6 flex items-center text-sm font-medium text-primary-600 dark:text-primary-400">
+            View {brand.name} details
+            <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Important note"
+    title="What Syvidea is not"
+    align="left"
+  >
+    <div class="card border-amber-300 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20">
+      <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+        Syvidea is not the manufacturer of these workstations. They are produced by our hardware partners
+        (Bosgame, PELAND, bitpc). Syvidea acts as a sourcing and advisory layer, helping you choose the right
+        option, get a quote, and coordinate delivery. The three brand options share the same core AMD Strix
+        Halo / AI Max+ 395 platform, but they are not identical units.
+      </p>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

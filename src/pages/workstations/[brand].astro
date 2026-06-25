@@ -1,0 +1,127 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import CTA from '../../components/CTA.astro';
+import { brands } from '../../data/brands';
+import { sharedPlatform } from '../../data/platform';
+
+export function getStaticPaths() {
+  return brands.map((brand) => ({
+    params: { brand: brand.slug },
+    props: { brand },
+  }));
+}
+
+const { brand } = Astro.props;
+---
+<PageLayout
+  title={`${brand.name} — Local AI Workstation Option | Syvidea`}
+  description={`${brand.summary} Curated partner option on the AMD Strix Halo / AI Max+ 395 platform.`}
+>
+  <Hero
+    eyebrow="Partner brand option"
+    title={brand.name}
+    subtitle={brand.summary}
+    primaryCta={{ label: 'Request a Quote', href: '/contact' }}
+    secondaryCta={{ label: 'See shared platform spec', href: `/workstations/${sharedPlatform.slug}` }}
+  />
+
+  <Section
+    eyebrow="Positioning"
+    title={`${brand.name} on the shared platform`}
+    align="left"
+  >
+    <div class="card">
+      <h3 class="text-xl font-semibold">{brand.positioning}</h3>
+      <p class="mt-2 text-slate-600 dark:text-slate-400">
+        {brand.name} workstations are built on the shared AMD Strix Halo / AI Max+ 395 platform. The core
+        processor, memory, storage, and I/O capabilities are the same as other partner options. The differences
+        live in chassis, port layout, dimensions, wireless modules, thermals, BIOS tuning, packaging, warranty,
+        and supply batches.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Highlights"
+    title={`${brand.name} configuration highlights`}
+  >
+    <ul class="grid gap-3 sm:grid-cols-2">
+      {brand.highlights.map((h) => (
+        <li class="card flex items-start gap-3">
+          <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-950 dark:text-primary-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <span class="text-slate-700 dark:text-slate-300">{h}</span>
+        </li>
+      ))}
+    </ul>
+  </Section>
+
+  <Section
+    eyebrow="Shared spec"
+    title="The platform behind the option"
+    align="left"
+  >
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Processor</div>
+        <div class="mt-2 font-bold">{sharedPlatform.processor.name}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.processor.cores}</p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Memory</div>
+        <div class="mt-2 font-bold">{sharedPlatform.memory.capacity}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.memory.bandwidth}</p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Storage</div>
+        <div class="mt-2 font-bold">{sharedPlatform.storage.capacity}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.storage.slots}</p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Form factor</div>
+        <div class="mt-2 font-bold">{sharedPlatform.formFactor.class}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Compact workstation</p>
+      </div>
+    </div>
+    <div class="mt-6 text-sm text-slate-600 dark:text-slate-400">
+      See the full shared platform spec on the
+      <a href={`/workstations/${sharedPlatform.slug}`} class="text-primary-600 dark:text-primary-400 underline">shared platform page</a>.
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Note"
+    title="Brand-specific differences"
+    align="left"
+  >
+    <div class="card border-amber-300 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20">
+      <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+        {brand.note} The exact configuration, BIOS, thermals, packaging, accessories, warranty terms, and
+        supply batches vary by partner. Submit a quote request and we will share the latest configuration
+        details, photos, and price quote for {brand.name} for your destination.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Not a fit?"
+    title="See other partner options"
+  >
+    <div class="grid gap-6 sm:grid-cols-2">
+      {brands.filter((b) => b.slug !== brand.slug).map((b) => (
+        <a href={`/workstations/${b.slug}`} class="card group">
+          <h3 class="text-lg font-semibold group-hover:text-primary-600 dark:group-hover:text-primary-400">{b.name}</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">{b.summary}</p>
+          <div class="mt-3 text-sm font-medium text-primary-600 dark:text-primary-400">View details →</div>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

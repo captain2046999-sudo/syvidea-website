@@ -1,0 +1,30 @@
+---
+const { ga4Id } = { ga4Id: import.meta.env.PUBLIC_GA4_ID };
+const tallyFormId = import.meta.env.PUBLIC_TALLY_QUOTE_FORM_ID || '81ryAo';
+---
+<section class="section bg-gradient-to-br from-primary-600 via-primary-700 to-accent-600 text-white">
+  <div class="container-page text-center max-w-3xl">
+    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-balance">
+      Ready to source your local AI workstation?
+    </h2>
+    <p class="mt-4 text-lg text-primary-50 text-balance">
+      Submit a request and we'll reply with a confirmed quote, available configurations, and an estimated delivery window for your destination.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a
+        href={`https://tally.so/r/${tallyFormId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn bg-white text-primary-700 hover:bg-slate-100"
+      >
+        Request Quote
+      </a>
+      <a href="/how-it-works" class="btn border border-white/30 text-white hover:bg-white/10">
+        How It Works
+      </a>
+    </div>
+    <p class="mt-6 text-sm text-primary-100">
+      No add-to-cart. No online full-payment checkout. Quote-based, with personal confirmation.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,75 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CTA from '../components/CTA.astro';
+---
+<PageLayout
+  title="About — Syvidea"
+  description="About Syvidea: a sourcing and advisory service for AMD Strix Halo / AI Max+ 395 local AI workstations serving the US and Canada."
+>
+  <Hero
+    eyebrow="About"
+    title="A sourcing and advisory service, not a hardware brand"
+    subtitle="Syvidea helps developers, creators, and small teams in the US and Canada choose, compare, and source local AI workstations built on the AMD Strix Halo / AI Max+ 395 platform."
+  />
+
+  <Section
+    eyebrow="What we do"
+    title="Six things Syvidea does"
+    align="left"
+  >
+    <div class="grid gap-6 sm:grid-cols-2">
+      {[
+        { title: 'Multi-brand selection advisor', desc: 'Help you compare Bosgame, PELAND, and bitpc options built on the same shared platform.' },
+        { title: 'Local AI workflow explainer', desc: 'Translate local AI workflows (LLM, RAG, agents, multimodal) into the right hardware and configuration choices.' },
+        { title: 'Quote and pricing service', desc: 'Provide a written quote with configuration, price, shipping, and any duties for your destination.' },
+        { title: 'Supply and delivery coordination', desc: 'Coordinate the supply batch, shipping to US/Canada, and any cross-border handling.' },
+        { title: 'Setup and resources', desc: 'Share setup guides, model compatibility notes, troubleshooting, and driver entry points.' },
+        { title: 'Market validation for future products', desc: 'Help validate whether a future Syvidea Edition or co-branded product makes sense for the market.' },
+      ].map((item) => (
+        <div class="card">
+          <h3 class="text-lg font-semibold">{item.title}</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="What we are not"
+    title="Six things Syvidea is not"
+    align="left"
+  >
+    <div class="card border-amber-300 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20">
+      <ul class="space-y-2 text-slate-700 dark:text-slate-300">
+        <li>• Not a hardware manufacturer</li>
+        <li>• Not a factory</li>
+        <li>• Not a "Syvidea AI Max+ 395 Workstation" brand</li>
+        <li>• Not a standard mini PC e-commerce store</li>
+        <li>• Not a cheap office mini PC shop</li>
+        <li>• Not a "plug-and-play AI magic box" promise</li>
+      </ul>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Region"
+    title="Who we serve"
+    align="left"
+  >
+    <div class="card">
+      <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+        Syvidea currently serves customers in the United States and Canada. We are not yet a registered
+        Hong Kong company and we do not process full credit-card payments online. Orders are quote-based
+        with personal confirmation and a payment link after the quote is approved.
+      </p>
+      <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+        If you are outside the US and Canada and would like to inquire, send a message via the contact form
+        and we will let you know whether we can support your destination.
+      </p>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

@@ -1,0 +1,41 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import CTA from '../../components/CTA.astro';
+import { resources } from '../../data/resources';
+---
+<PageLayout
+  title="Resources — Syvidea"
+  description="Guides, model compatibility notes, setup walkthroughs, troubleshooting, and driver download entry points for Syvidea's curated partner workstations."
+>
+  <Hero
+    eyebrow="Resources"
+    title="Local AI resources for the AMD Strix Halo platform"
+    subtitle="Guides, model compatibility, setup, troubleshooting, and driver entry points. Content is organized by the question you actually have, not by chip names."
+  />
+
+  <Section
+    eyebrow="Browse resources"
+    title="Pick what you need"
+  >
+    <div class="grid gap-6 md:grid-cols-2">
+      {resources.map((r) => (
+        <a href={`/resources/${r.slug}`} class="card group">
+          <div class="text-xs font-semibold uppercase tracking-wider text-primary-600">{r.category}</div>
+          <h3 class="mt-1 text-xl font-bold group-hover:text-primary-600 dark:group-hover:text-primary-400">{r.title}</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">{r.description}</p>
+          <div class="mt-4 flex items-center text-sm font-medium text-primary-600 dark:text-primary-400">
+            Open section
+            <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

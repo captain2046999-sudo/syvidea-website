@@ -1,0 +1,84 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CTA from '../components/CTA.astro';
+import { siteConfig } from '../data/site';
+---
+<PageLayout
+  title="Contact & Request a Quote — Syvidea"
+  description="Contact Syvidea and request a quote for an AMD Strix Halo / AI Max+ 395 local AI workstation. Serving the US and Canada."
+>
+  <Hero
+    eyebrow="Contact"
+    title="Request a quote, check model compatibility, or ask about availability"
+    subtitle="The fastest way to start is the Tally form below. Tell us your use case, destination (US or Canada), and preferred partner brand. We will reply with a written quote or follow-up questions."
+  />
+
+  <Section
+    eyebrow="Request form"
+    title="Submit a request"
+    align="left"
+  >
+    <div class="grid gap-8 lg:grid-cols-3">
+      <!-- Tally embed -->
+      <div class="lg:col-span-2">
+        <div class="card p-0 overflow-hidden">
+          <iframe
+            src="https://tally.so/embed/81ryAo?hideTitle=1&transparentBackground=1"
+            width="100%"
+            height="540"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Syvidea Request Form"
+            class="w-full"
+            style="min-height: 540px;"
+          ></iframe>
+        </div>
+        <p class="mt-4 text-sm text-slate-500">
+          Form submissions are stored in Tally, not in this website. See the
+          <a href="/privacy" class="text-primary-600 dark:text-primary-400 underline">privacy policy</a>
+          for details.
+        </p>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-4">
+        <div class="card">
+          <h3 class="text-lg font-semibold">Email</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm">
+            Prefer email? Reach the Syvidea team at:
+          </p>
+          <a href={`mailto:${siteConfig.email}`} class="mt-2 inline-block font-mono text-primary-600 dark:text-primary-400">
+            {siteConfig.email}
+          </a>
+        </div>
+        <div class="card">
+          <h3 class="text-lg font-semibold">Region</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm">
+            We currently serve the US and Canada. For other destinations, send a message and we will respond
+            with availability.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-lg font-semibold">What to include</h3>
+          <ul class="mt-2 space-y-1 text-sm text-slate-600 dark:text-slate-400">
+            <li>• Your AI use case (LLM, RAG, agent, multimodal)</li>
+            <li>• Destination country (US or Canada)</li>
+            <li>• Preferred partner brand (Bosgame, PELAND, bitpc)</li>
+            <li>• Any timing or supply requirements</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-lg font-semibold">Response time</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm">
+            We typically reply within one business day with either follow-up questions or a written quote.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

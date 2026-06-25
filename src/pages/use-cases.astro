@@ -1,0 +1,92 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CTA from '../components/CTA.astro';
+import { useCases } from '../data/brands';
+import { sharedPlatform } from '../data/platform';
+---
+<PageLayout
+  title="Use Cases — Syvidea"
+  description="Real local AI workflows supported by the AMD Strix Halo / AI Max+ 395 platform: local LLMs, private RAG, AI agents, multimodal, homelab, and small team AI."
+>
+  <Hero
+    eyebrow="Use cases"
+    title="Local AI workflows the shared platform is built for"
+    subtitle="Use cases are organized by real workflows, not by chip names. Use this page to check whether the AMD Strix Halo / AI Max+ 395 platform is a fit for what you actually run."
+  />
+
+  <Section
+    eyebrow="Platform at a glance"
+    title="Why this platform fits these workflows"
+    align="left"
+  >
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Memory</div>
+        <div class="mt-2 font-bold">{sharedPlatform.memory.capacity}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.memory.bandwidth}</p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">NPU + iGPU</div>
+        <div class="mt-2 font-bold">{sharedPlatform.processor.npu}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.graphics.integrated}</p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Storage</div>
+        <div class="mt-2 font-bold">{sharedPlatform.storage.capacity}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.storage.slots}</p>
+      </div>
+      <div class="card">
+        <div class="text-sm font-semibold text-primary-600">Form factor</div>
+        <div class="mt-2 font-bold">{sharedPlatform.formFactor.class}</div>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Compact workstation</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Detailed use cases"
+    title="Six workflows, one shared platform"
+  >
+    <div class="space-y-6">
+      {useCases.map((useCase, idx) => (
+        <div class="card">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="md:col-span-1">
+              <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Use case {idx + 1}</div>
+              <h3 class="mt-1 text-2xl font-bold">{useCase.title}</h3>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-slate-600 dark:text-slate-400 leading-relaxed">{useCase.description}</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                {useCase.models.map((m) => (
+                  <span class="text-xs rounded-md bg-slate-100 px-2 py-1 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                    {m}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Honest boundary"
+    title="Where this platform is not the right tool"
+    align="left"
+  >
+    <div class="card border-amber-300 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20">
+      <ul class="space-y-2 text-slate-700 dark:text-slate-300">
+        <li>• <strong>Not the fastest image-generation box.</strong> If you only need maximum Flux / SDXL speed with CUDA / TensorRT, an NVIDIA RTX 5090 workstation is a better fit.</li>
+        <li>• <strong>Not for large-scale model training.</strong> The shared platform is built for inference, RAG, agents, and multi-tool local AI workflows.</li>
+        <li>• <strong>Not for users who want online full-payment checkout.</strong> We use a quote-based ordering flow for high-trust purchases.</li>
+        <li>• <strong>Not a plug-and-play AI magic box.</strong> Local AI workflows still need setup, model selection, and configuration.</li>
+      </ul>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>
