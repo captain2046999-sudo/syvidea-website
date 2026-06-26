@@ -6,6 +6,13 @@
   "installCommand": "npm install",
   "trailingSlash": false,
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/workstations/amd-strix-halo-platform", "destination": "/workstations/platform", "permanent": true },
+    { "source": "/workstations/amd-strix-halo-platform/:path*", "destination": "/workstations/platform/:path*", "permanent": true },
+    { "source": "/workstations/bosgame-ai-max-395", "destination": "/workstations/bosgame", "permanent": true },
+    { "source": "/workstations/peland-ai-max-395", "destination": "/workstations/peland", "permanent": true },
+    { "source": "/workstations/bitpc-ai-max-395", "destination": "/workstations/bitpc", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

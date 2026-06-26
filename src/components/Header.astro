@@ -8,13 +8,13 @@ const isActive = (href: string) => {
   return currentPath === href || currentPath.startsWith(href + '/');
 };
 ---
-<header class="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/80">
+<header class="sticky top-0 z-40 w-full border-b border-slate-800/60 bg-dark-999/80 backdrop-blur-lg">
   <div class="container-page flex h-16 items-center justify-between">
     <a href="/" class="flex items-center gap-2 font-bold text-lg">
-      <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-primary-600 to-accent-500 text-white font-bold">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-neon-purple to-neon-pink text-white font-bold shadow-lg shadow-neon-purple/30">
         S
       </span>
-      <span class="tracking-tight">Syvidea</span>
+      <span class="tracking-tight text-white">Syvidea</span>
     </a>
 
     <nav class="hidden md:flex items-center gap-1">
@@ -24,8 +24,8 @@ const isActive = (href: string) => {
           class:list={[
             'px-3 py-2 text-sm font-medium rounded-md transition-colors',
             isActive(item.href)
-              ? 'text-primary-600 dark:text-primary-400'
-              : 'text-slate-700 hover:text-primary-600 dark:text-slate-300 dark:hover:text-primary-400',
+              ? 'text-neon-purple'
+              : 'text-slate-400 hover:text-white',
           ]}
         >
           {item.label}
@@ -34,12 +34,12 @@ const isActive = (href: string) => {
     </nav>
 
     <div class="flex items-center gap-2">
-      <a href="/contact" class="hidden sm:inline-flex btn-primary text-sm">
-        Request Quote
+      <a href="/request-quote" class="hidden sm:inline-flex btn-primary text-sm">
+        Request a configuration quote
       </a>
       <button
         id="mobile-menu-toggle"
-        class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+        class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-400 hover:bg-dark-800"
         aria-label="Toggle menu"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -52,7 +52,7 @@ const isActive = (href: string) => {
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/60 bg-dark-900/95 backdrop-blur-lg">
     <div class="container-page py-3 space-y-1">
       {siteConfig.nav.map((item) => (
         <a
@@ -60,15 +60,15 @@ const isActive = (href: string) => {
           class:list={[
             'block px-3 py-2 text-sm font-medium rounded-md',
             isActive(item.href)
-              ? 'bg-primary-50 text-primary-700 dark:bg-primary-950 dark:text-primary-300'
-              : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800',
+              ? 'bg-neon-purple/10 text-neon-purple'
+              : 'text-slate-400 hover:bg-dark-800 hover:text-white',
           ]}
         >
           {item.label}
         </a>
       ))}
-      <a href="/contact" class="block px-3 py-2 text-sm font-medium rounded-md bg-primary-600 text-white text-center">
-        Request Quote
+      <a href="/request-quote" class="block px-3 py-2 text-sm font-medium rounded-md bg-gradient-to-r from-neon-purple to-neon-pink text-white text-center shadow-lg shadow-neon-purple/30">
+        Request a configuration quote
       </a>
     </div>
   </div>

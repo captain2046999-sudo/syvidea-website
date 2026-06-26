@@ -1,0 +1,233 @@
+---
+const useCases = [
+  { value: '', label: 'Select your primary use case *' },
+  { value: 'local-llm', label: 'Local LLM Development' },
+  { value: 'rag', label: 'Private RAG System' },
+  { value: 'agent', label: 'AI Agent / Coding Workflow' },
+  { value: 'multimodal', label: 'Multimodal AI Workflow' },
+  { value: 'homelab', label: 'Personal / Homelab AI' },
+  { value: 'team', label: 'Team Deployment' },
+];
+
+const modelSizes = [
+  { value: '', label: 'Model size (optional)' },
+  { value: '7b-13b', label: '7B / 13B' },
+  { value: '34b', label: '34B' },
+  { value: '70b+', label: '70B+' },
+  { value: 'unsure', label: 'Not sure' },
+];
+
+const memoryOptions = [
+  { value: '', label: 'Memory requirement (optional)' },
+  { value: '32gb', label: '32GB' },
+  { value: '64gb', label: '64GB' },
+  { value: '128gb', label: '128GB' },
+  { value: 'unsure', label: 'Not sure' },
+];
+
+const brands = [
+  { value: '', label: 'Preferred brand (optional)' },
+  { value: 'bosgame', label: 'BOSGAME' },
+  { value: 'peland', label: 'PELAND' },
+  { value: 'bitpc', label: 'BITPC' },
+  { value: 'none', label: 'No preference' },
+];
+
+const budgets = [
+  { value: '', label: 'Budget range (optional)' },
+  { value: 'under-2000', label: '< $2000' },
+  { value: '2000-3000', label: '$2000–$3000' },
+  { value: '3000-5000', label: '$3000–$5000' },
+  { value: '5000+', label: '$5000+' },
+];
+---
+
+<form id="quote-form" onsubmit="return validateQuoteForm(this)" class="p-6 space-y-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+  <div>
+    <label class="block text-sm font-medium text-white mb-2">
+      Use Case <span class="text-neon-orange">*</span>
+    </label>
+    <div class="relative">
+      <select
+        name="use-case"
+        required
+        class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
+      >
+        {useCases.map((option) => (
+          <option value={option.value} class="bg-[#0f0f23] text-white">
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-sm font-medium text-white mb-2">Model size</label>
+      <div class="relative">
+        <select
+          name="model-size"
+          class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
+        >
+          {modelSizes.map((option) => (
+            <option value={option.value} class="bg-[#0f0f23] text-white">
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-white mb-2">Memory requirement</label>
+      <div class="relative">
+        <select
+          name="memory"
+          class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
+        >
+          {memoryOptions.map((option) => (
+            <option value={option.value} class="bg-[#0f0f23] text-white">
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-sm font-medium text-white mb-2">Preferred brand</label>
+      <div class="relative">
+        <select
+          name="brand"
+          class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
+        >
+          {brands.map((option) => (
+            <option value={option.value} class="bg-[#0f0f23] text-white">
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-white mb-2">Budget range</label>
+      <div class="relative">
+        <select
+          name="budget"
+          class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
+        >
+          {budgets.map((option) => (
+            <option value={option.value} class="bg-[#0f0f23] text-white">
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium text-white mb-2">Delivery region</label>
+    <input
+      type="text"
+      name="country"
+      placeholder="Country (e.g., United States, Canada, Germany)"
+      class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all"
+    />
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium text-white mb-2">Email</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="your@email.com"
+      class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all"
+    />
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium text-white mb-2">Additional requirements</label>
+    <textarea
+      name="requirements"
+      placeholder="Describe any specific requirements, software compatibility needs, or additional details about your workload..."
+      rows={4}
+      class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all resize-none"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="w-full py-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 btn-primary hover:shadow-lg hover:shadow-neon-purple/30"
+  >
+    Request configuration review
+    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  </button>
+
+  <p class="text-xs text-white/60 text-center">
+    By submitting this form, you agree to our privacy policy. Your information will be used solely for processing your quote request.
+  </p>
+</form>
+
+<script is:inline>
+function validateQuoteForm(form) {
+  const useCase = form['use-case'].value;
+  const modelSize = form['model-size'].value;
+  const memory = form['memory'].value;
+  const budget = form['budget'].value;
+  const email = form['email'].value;
+
+  const hasConstraint = modelSize || memory || budget;
+
+  if (!useCase) {
+    alert('Please select your primary use case.');
+    form['use-case'].focus();
+    return false;
+  }
+
+  if (!hasConstraint) {
+    alert('Please provide at least one constraint (model size, memory, or budget) to generate a valid configuration.');
+    form['model-size'].focus();
+    return false;
+  }
+
+  if (!email) {
+    alert('Please provide your email address so we can send you the quote.');
+    form['email'].focus();
+    return false;
+  }
+
+  trackEvent('quote_submit', {
+    useCase: useCase,
+    modelSize: modelSize,
+    memory: memory,
+    brand: form['brand'].value,
+    budget: budget,
+    email: email ? 'provided' : 'not_provided'
+  });
+
+  return true;
+}
+</script>

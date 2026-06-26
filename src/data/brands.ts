@@ -5,23 +5,23 @@
 
 export const brands = [
   {
-    name: 'Bosgame',
-    slug: 'bosgame-ai-max-395',
+    name: 'BOSGAME',
+    slug: 'bosgame',
     region: 'Partner brand — global sourcing',
-    summary: 'A compact 1L-class local AI workstation built around the AMD Strix Halo platform with 128GB unified memory and dual PCIe 4.0 SSD slots.',
+    summary: 'A compact local AI workstation built around the AMD Strix Halo platform with 128GB unified memory and dual PCIe 4.0 SSD slots.',
     positioning: 'Compact, well-rounded option for developers and homelab users',
     highlights: [
-      'Compact 1L-class chassis',
+      'Compact desktop chassis',
       '128GB LPDDR5X unified memory',
       'Dual M.2 PCIe 4.0 SSD slots',
       'USB4 / high-speed I/O',
       'Active cooling design',
     ],
-    note: 'Bosgame-specific chassis, port layout, and supply batches apply.',
+    note: 'BOSGAME-specific chassis, port layout, and supply batches apply.',
   },
   {
     name: 'PELAND',
-    slug: 'peland-ai-max-395',
+    slug: 'peland',
     region: 'Partner brand — global sourcing',
     summary: 'A local AI workstation built on the AMD Strix Halo platform with 128GB unified memory, designed for sustained local LLM and RAG workloads.',
     positioning: 'Sustained-workload option for AI builders',
@@ -35,8 +35,8 @@ export const brands = [
     note: 'PELAND-specific BIOS tuning, thermals, and warranty terms apply.',
   },
   {
-    name: 'bitpc',
-    slug: 'bitpc-ai-max-395',
+    name: 'BITPC',
+    slug: 'bitpc',
     region: 'Partner brand — global sourcing',
     summary: 'A compact AMD Strix Halo local AI workstation with 128GB unified memory, positioned for developers, creators, and small AI teams.',
     positioning: 'Developer-focused compact AI workstation',
@@ -47,7 +47,7 @@ export const brands = [
       'Modern high-speed I/O',
       'Brand-specific chassis and port layout',
     ],
-    note: 'bitpc-specific chassis, accessories, and packaging configuration apply.',
+    note: 'BITPC-specific chassis, accessories, and packaging configuration apply.',
   },
 ];
 
@@ -75,7 +75,7 @@ export const useCases = [
   },
   {
     title: 'Homelab & Personal AI Server',
-    description: 'A compact 1L-class local AI server for always-available personal AI infrastructure without recurring cloud GPU bills.',
+    description: 'A compact local AI server for always-available personal AI infrastructure without recurring cloud GPU bills.',
     models: ['Multi-tool AI stacks', 'Local model management', 'Private experiments'],
   },
   {

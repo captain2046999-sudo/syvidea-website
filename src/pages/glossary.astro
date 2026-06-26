@@ -1,0 +1,112 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/Section.astro';
+
+const terms = [
+  {
+    term: 'Large Language Model (LLM)',
+    definition: 'A neural network trained to predict and generate text. Local LLMs run entirely on your own hardware instead of through a cloud API.',
+  },
+  {
+    term: 'Quantization',
+    definition: 'A technique that reduces the numerical precision of model weights, typically from 16-bit to 4-bit or 8-bit, to lower memory usage and increase inference speed.',
+  },
+  {
+    term: 'KV cache',
+    definition: 'Key-value cache. Memory used during text generation to store intermediate attention states, allowing the model to generate subsequent tokens without recomputing the entire context.',
+  },
+  {
+    term: 'Unified memory',
+    definition: 'A memory architecture where the CPU, GPU, and other accelerators share a single pool of RAM, eliminating copies across PCIe.',
+  },
+  {
+    term: 'Memory bandwidth',
+    definition: 'The rate at which data can be read from or written to memory. For large-model inference, bandwidth is often the limiting factor.',
+  },
+  {
+    term: 'Mixture of Experts (MoE)',
+    definition: 'A model architecture that uses multiple specialized sub-networks (experts) and a routing mechanism, activating only a subset per token.',
+  },
+  {
+    term: 'Retrieval-Augmented Generation (RAG)',
+    definition: 'A pattern where a model retrieves relevant documents from a knowledge base before generating a response, keeping answers grounded in private data.',
+  },
+  {
+    term: 'AI agent',
+    definition: 'A system that uses a language model to plan and execute multi-step tasks, often invoking tools such as search, code execution, or APIs.',
+  },
+  {
+    term: 'NPU',
+    definition: 'Neural Processing Unit. A dedicated accelerator for AI inference, typically optimized for low-power, sustained neural-network execution.',
+  },
+  {
+    term: 'iGPU',
+    definition: 'Integrated GPU. A graphics processor built into the same chip as the CPU, sharing system or unified memory.',
+  },
+  {
+    term: 'VRAM',
+    definition: 'Video RAM. Dedicated memory on a discrete graphics card. Systems without discrete GPUs, such as Strix Halo, use unified memory instead.',
+  },
+  {
+    term: 'TOPS',
+    definition: 'Tera Operations Per Second. A marketing metric for AI compute throughput, commonly used for NPU performance claims.',
+  },
+  {
+    term: 'Context length',
+    definition: 'The maximum amount of text a model can consider at once. Longer contexts require more memory and bandwidth.',
+  },
+  {
+    term: 'Token',
+    definition: 'A unit of text processed by a language model. Tokens can be words, parts of words, or characters, depending on the tokenizer.',
+  },
+  {
+    term: 'Inference',
+    definition: 'The process of running a trained model to generate outputs, as opposed to training the model.',
+  },
+  {
+    term: 'ROCm',
+    definition: "AMD's open-source GPU compute stack, roughly equivalent to NVIDIA's CUDA for running AI and HPC workloads on AMD GPUs.",
+  },
+];
+---
+<PageLayout
+  title="Glossary — Syvidea"
+  description="Glossary of terms used across the Syvidea website, including local AI, quantization, memory architecture, and workstation hardware concepts."
+>
+  <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+    <div class="absolute inset-0 bg-dark-999"></div>
+    <div class="absolute inset-0 cyber-bg"></div>
+    <div class="absolute inset-0 grid-bg opacity-20"></div>
+    <div class="glow-bg top-10 left-1/3 h-96 w-96 bg-neon-purple/15 animate-glow-pulse"></div>
+
+    <div class="container-page relative">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="mb-5 flex justify-center">
+          <span class="badge">Wiki</span>
+        </div>
+        <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl gradient-text">
+          Glossary
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400 text-balance">
+          Definitions for the technical terms used on this site. The goal is consistency: when a word appears
+          in multiple places, it should mean the same thing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Section
+    eyebrow="Terms"
+    title="Common terms"
+    align="left"
+  >
+    <div class="grid gap-4 md:grid-cols-2">
+      {terms.map((item) => (
+        <div class="card">
+          <h3 class="text-lg font-semibold text-slate-200">{item.term}</h3>
+          <p class="mt-2 text-slate-400 leading-relaxed">{item.definition}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+</PageLayout>

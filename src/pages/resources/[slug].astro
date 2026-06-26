@@ -2,7 +2,6 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Section from '../../components/Section.astro';
-import CTA from '../../components/CTA.astro';
 import { resources } from '../../data/resources';
 
 export function getStaticPaths() {
@@ -53,10 +52,8 @@ const { resource } = Astro.props;
         configuration note you would like covered, send it via the contact form and we will prioritize it.
       </p>
       <div class="mt-4">
-        <a href="/contact" class="btn-primary">Suggest a topic</a>
+        <a href="/contact" class="text-neon-purple hover:underline">Suggest a topic →</a>
       </div>
     </div>
   </Section>
-
-  <CTA />
 </PageLayout>

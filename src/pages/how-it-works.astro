@@ -6,7 +6,7 @@ import CTA from '../components/CTA.astro';
 ---
 <PageLayout
   title="How It Works — Syvidea"
-  description="The quote-based ordering process: inquiry, configuration confirmation, quote, payment link, and delivery to the US/Canada."
+  description="The quote-based ordering process: inquiry, configuration confirmation, quote, payment link, and delivery."
 >
   <Hero
     eyebrow="How it works"
@@ -24,7 +24,7 @@ import CTA from '../components/CTA.astro';
         {
           step: '01',
           title: 'Submit a request',
-          desc: 'Fill in the Tally form with your use case, preferred partner brand, destination country (US or Canada), and any specific requirements. The form is the official way to start an order.',
+          desc: 'Fill in the Tally form with your use case, preferred partner brand, destination country, and any specific requirements. The form is the official way to start an order.',
         },
         {
           step: '02',
@@ -39,7 +39,7 @@ import CTA from '../components/CTA.astro';
         {
           step: '04',
           title: 'Approve and pay',
-          desc: 'Once you approve the quote, we share a payment link or deposit arrangement. We do not store payment information on this website. After payment is confirmed, we coordinate shipment to your US or Canada address.',
+          desc: 'Once you approve the quote, we share a payment link or deposit arrangement. We do not store payment information on this website. After payment is confirmed, we coordinate shipment to your destination address.',
         },
       ].map((s) => (
         <div class="card">
@@ -80,7 +80,7 @@ import CTA from '../components/CTA.astro';
         We typically reply within one business day with configuration questions or a written quote.
       </p>
       <div class="mt-6">
-        <a href="/contact" class="btn-primary">Request a Quote</a>
+        <a href="/request-quote" class="btn-primary">Request a configuration quote</a>
       </div>
     </div>
   </Section>

@@ -1,30 +1,42 @@
 ---
-const { ga4Id } = { ga4Id: import.meta.env.PUBLIC_GA4_ID };
 const tallyFormId = import.meta.env.PUBLIC_TALLY_QUOTE_FORM_ID || '81ryAo';
 ---
-<section class="section bg-gradient-to-br from-primary-600 via-primary-700 to-accent-600 text-white">
-  <div class="container-page text-center max-w-3xl">
-    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-balance">
-      Ready to source your local AI workstation?
+<section class="section relative overflow-hidden bg-dark-999">
+  <div class="absolute inset-0 cyber-bg"></div>
+  <div class="glow-bg top-0 left-1/4 h-96 w-96 bg-neon-purple/20 animate-glow-pulse"></div>
+  <div class="glow-bg bottom-0 right-1/4 h-80 w-80 bg-neon-cyan/15 animate-glow-pulse" style="animation-delay:-2s;"></div>
+  <div class="absolute inset-0 grid-bg opacity-20"></div>
+
+  <div class="container-page relative text-center max-w-3xl">
+    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-balance gradient-text">
+      Ready to move forward?
     </h2>
-    <p class="mt-4 text-lg text-primary-50 text-balance">
-      Submit a request and we'll reply with a confirmed quote, available configurations, and an estimated delivery window for your destination.
+    <p class="mt-4 text-lg text-slate-300 text-balance">
+      Choose the inquiry path that matches where you are in the decision process.
+      All options route to the Syvidea team — no checkout, no online full payment.
     </p>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
       <a
         href={`https://tally.so/r/${tallyFormId}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn bg-white text-primary-700 hover:bg-slate-100"
+        class="btn-primary cta-hint"
       >
-        Request Quote
+        Request a configuration quote
+        <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
       </a>
-      <a href="/how-it-works" class="btn border border-white/30 text-white hover:bg-white/10">
-        How It Works
+      <a href="/check-compatibility" class="btn-secondary cta-hint">
+        Check compatibility
+      </a>
+      <a href="/availability" class="btn border border-slate-700 bg-transparent text-slate-200 hover:border-neon-purple/50 hover:bg-dark-800 hover:text-white cta-hint">
+        Ask Availability
       </a>
     </div>
-    <p class="mt-6 text-sm text-primary-100">
-      No add-to-cart. No online full-payment checkout. Quote-based, with personal confirmation.
+    <p class="mt-6 text-sm text-slate-400">
+      Quote-based inquiry only. No shopping cart. No payment on this site.
     </p>
   </div>
 </section>

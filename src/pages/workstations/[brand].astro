@@ -1,8 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import Hero from '../../components/Hero.astro';
 import Section from '../../components/Section.astro';
-import CTA from '../../components/CTA.astro';
+import ProductMock from '../../components/ProductMock.astro';
 import { brands } from '../../data/brands';
 import { sharedPlatform } from '../../data/platform';
 
@@ -14,27 +13,83 @@ export function getStaticPaths() {
 }
 
 const { brand } = Astro.props;
+
+const brandTheme = brand.name === 'BOSGAME' 
+  ? { primary: 'neon-purple', secondary: 'neon-pink', gradient: 'from-neon-purple via-neon-pink to-neon-cyan', glow: 'shadow-neon-purple/30' }
+  : brand.name === 'PELAND'
+  ? { primary: 'neon-cyan', secondary: 'neon-blue', gradient: 'from-neon-cyan via-neon-blue to-neon-green', glow: 'shadow-neon-cyan/30' }
+  : { primary: 'neon-orange', secondary: 'neon-yellow', gradient: 'from-neon-orange via-neon-yellow to-neon-pink', glow: 'shadow-neon-orange/30' };
+
+const brandBadgeClass = brand.name === 'BOSGAME' ? 'badge' : brand.name === 'PELAND' ? 'badge-cyan' : 'badge-orange';
+const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === 'PELAND' ? 'card-cyan' : 'card-orange';
 ---
 <PageLayout
   title={`${brand.name} — Local AI Workstation Option | Syvidea`}
   description={`${brand.summary} Curated partner option on the AMD Strix Halo / AI Max+ 395 platform.`}
 >
-  <Hero
-    eyebrow="Partner brand option"
-    title={brand.name}
-    subtitle={brand.summary}
-    primaryCta={{ label: 'Request a Quote', href: '/contact' }}
-    secondaryCta={{ label: 'See shared platform spec', href: `/workstations/${sharedPlatform.slug}` }}
-  />
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+    <div class="absolute inset-0 bg-dark-999"></div>
+    <div class="absolute inset-0 cyber-bg"></div>
+    <div class="absolute inset-0 grid-bg opacity-20"></div>
+    <div class="glow-bg top-10 left-1/4 h-96 w-96" style={`background:var(--color-${brandTheme.primary});opacity:0.20;animation:glowPulse 2s ease-in-out infinite;`}></div>
+    <div class="glow-bg top-20 right-1/4 h-80 w-80" style={`background:var(--color-${brandTheme.secondary});opacity:0.15;animation:glowPulse 2s ease-in-out infinite;animation-delay:-2s;`}></div>
 
+    <div class="container-page relative">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <div class="mb-5 inline-flex">
+            <span class="badge">Partner brand option</span>
+          </div>
+          <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl" style={`background:linear-gradient(90deg,var(--color-${brandTheme.primary}),var(--color-${brandTheme.secondary}));-webkit-background-clip:text;background-clip:text;color:transparent;`}>
+            {brand.name}
+          </h1>
+          <p class="mt-6 text-lg text-slate-400 text-balance max-w-xl">
+            {brand.summary}
+          </p>
+          <div class="mt-4">
+            <span class={`inline-flex items-center rounded-full border border-${brandTheme.primary}/30 bg-${brandTheme.primary}/10 px-3 py-1 text-xs font-medium text-${brandTheme.primary}`}>{brand.positioning}</span>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/request-quote" class="text-neon-purple hover:underline">Request a configuration quote →</a>
+            <a href={`/workstations/${sharedPlatform.slug}`} class="text-slate-400 hover:text-white">See shared platform spec →</a>
+          </div>
+
+          <div class="mt-10 grid grid-cols-3 gap-4">
+            <div>
+              <div class="text-2xl font-bold gradient-text-cyan">128GB</div>
+              <div class="text-xs text-slate-400">Unified memory</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold gradient-text-purple">2TB</div>
+              <div class="text-xs text-slate-400">PCIe 4.0 SSD</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold gradient-text-orange">AI Max+</div>
+              <div class="text-xs text-slate-400">395 processor</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -inset-8 rounded-[3rem]" style={`background:linear-gradient(135deg,var(--color-${brandTheme.primary})20,var(--color-${brandTheme.secondary})15,transparent);filter:blur(3rem);`}></div>
+          <div class="relative overflow-hidden rounded-3xl border border-slate-800/60 bg-dark-900/50 shadow-2xl shadow-black/40 backdrop-blur-xl">
+            <ProductMock variant="hero" brand={brand.name} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Positioning -->
   <Section
     eyebrow="Positioning"
     title={`${brand.name} on the shared platform`}
     align="left"
   >
-    <div class="card">
-      <h3 class="text-xl font-semibold">{brand.positioning}</h3>
-      <p class="mt-2 text-slate-600 dark:text-slate-400">
+    <div class={`card border-${brandTheme.primary}/30 bg-dark-900/60 shadow-lg ${brandTheme.glow}`}>
+      <h3 class="text-xl font-bold text-white">{brand.positioning}</h3>
+      <p class="mt-3 text-slate-300 leading-relaxed">
         {brand.name} workstations are built on the shared AMD Strix Halo / AI Max+ 395 platform. The core
         processor, memory, storage, and I/O capabilities are the same as other partner options. The differences
         live in chassis, port layout, dimensions, wireless modules, thermals, BIOS tuning, packaging, warranty,
@@ -43,85 +98,112 @@ const { brand } = Astro.props;
     </div>
   </Section>
 
+  <!-- Highlights -->
   <Section
     eyebrow="Highlights"
     title={`${brand.name} configuration highlights`}
   >
-    <ul class="grid gap-3 sm:grid-cols-2">
+    <div class="grid gap-4 sm:grid-cols-2">
       {brand.highlights.map((h) => (
-        <li class="card flex items-start gap-3">
-          <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-950 dark:text-primary-300">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <div class="spec-card flex items-start gap-4">
+          <span class={`mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-${brandTheme.primary} to-${brandTheme.secondary} text-white shadow-lg ${brandTheme.glow}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </span>
-          <span class="text-slate-700 dark:text-slate-300">{h}</span>
-        </li>
+          <span class="text-slate-300 font-medium">{h}</span>
+        </div>
       ))}
-    </ul>
+    </div>
   </Section>
 
+  <!-- Shared spec -->
   <Section
     eyebrow="Shared spec"
     title="The platform behind the option"
     align="left"
   >
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <div class="card">
-        <div class="text-sm font-semibold text-primary-600">Processor</div>
-        <div class="mt-2 font-bold">{sharedPlatform.processor.name}</div>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.processor.cores}</p>
+      <div class="spec-card">
+        <div class={`text-xs font-semibold uppercase tracking-wider text-${brandTheme.primary}`}>Processor</div>
+        <div class="mt-3 text-xl font-bold gradient-text-purple">{sharedPlatform.processor.name}</div>
+        <p class="mt-2 text-sm text-slate-400">{sharedPlatform.processor.cores}</p>
       </div>
-      <div class="card">
-        <div class="text-sm font-semibold text-primary-600">Memory</div>
-        <div class="mt-2 font-bold">{sharedPlatform.memory.capacity}</div>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.memory.bandwidth}</p>
+      <div class="spec-card">
+        <div class={`text-xs font-semibold uppercase tracking-wider text-${brandTheme.primary}`}>Memory</div>
+        <div class="mt-3 text-xl font-bold gradient-text-cyan">{sharedPlatform.memory.capacity}</div>
+        <p class="mt-2 text-sm text-slate-400">{sharedPlatform.memory.bandwidth}</p>
       </div>
-      <div class="card">
-        <div class="text-sm font-semibold text-primary-600">Storage</div>
-        <div class="mt-2 font-bold">{sharedPlatform.storage.capacity}</div>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{sharedPlatform.storage.slots}</p>
+      <div class="spec-card">
+        <div class={`text-xs font-semibold uppercase tracking-wider text-${brandTheme.primary}`}>Storage</div>
+        <div class="mt-3 text-xl font-bold gradient-text-orange">{sharedPlatform.storage.capacity}</div>
+        <p class="mt-2 text-sm text-slate-400">{sharedPlatform.storage.slots}</p>
       </div>
-      <div class="card">
-        <div class="text-sm font-semibold text-primary-600">Form factor</div>
-        <div class="mt-2 font-bold">{sharedPlatform.formFactor.class}</div>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Compact workstation</p>
+      <div class="spec-card">
+        <div class={`text-xs font-semibold uppercase tracking-wider text-${brandTheme.primary}`}>Form factor</div>
+        <div class="mt-3 text-xl font-bold gradient-text">{sharedPlatform.formFactor.class}</div>
+        <p class="mt-2 text-sm text-slate-400">Compact workstation</p>
       </div>
     </div>
-    <div class="mt-6 text-sm text-slate-600 dark:text-slate-400">
+    <div class="mt-8 text-sm text-slate-400">
       See the full shared platform spec on the
-      <a href={`/workstations/${sharedPlatform.slug}`} class="text-primary-600 dark:text-primary-400 underline">shared platform page</a>.
+      <a href={`/workstations/${sharedPlatform.slug}`} class={`text-${brandTheme.primary} underline`}>shared platform page</a>.
     </div>
   </Section>
 
+  <!-- Brand-specific note -->
   <Section
     eyebrow="Note"
     title="Brand-specific differences"
     align="left"
   >
-    <div class="card border-amber-300 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20">
-      <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-        {brand.note} The exact configuration, BIOS, thermals, packaging, accessories, warranty terms, and
-        supply batches vary by partner. Submit a quote request and we will share the latest configuration
-        details, photos, and price quote for {brand.name} for your destination.
-      </p>
+    <div class={`card border-${brandTheme.primary}/30 bg-dark-900/60`}>
+      <div class="flex items-start gap-4">
+        <div class="shrink-0">
+          <div class={`inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-${brandTheme.primary} to-${brandTheme.secondary} text-white shadow-lg ${brandTheme.glow}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+          </div>
+        </div>
+        <p class="text-slate-300 leading-relaxed">
+          {brand.note} The exact configuration, BIOS, thermals, packaging, accessories, warranty terms, and
+          supply batches vary by partner. Submit a quote request and we will share the latest configuration
+          details, photos, and price quote for {brand.name} for your destination.
+        </p>
+      </div>
     </div>
   </Section>
 
+  <!-- Other options -->
   <Section
     eyebrow="Not a fit?"
     title="See other partner options"
   >
-    <div class="grid gap-6 sm:grid-cols-2">
-      {brands.filter((b) => b.slug !== brand.slug).map((b) => (
-        <a href={`/workstations/${b.slug}`} class="card group">
-          <h3 class="text-lg font-semibold group-hover:text-primary-600 dark:group-hover:text-primary-400">{b.name}</h3>
-          <p class="mt-2 text-slate-600 dark:text-slate-400">{b.summary}</p>
-          <div class="mt-3 text-sm font-medium text-primary-600 dark:text-primary-400">View details →</div>
-        </a>
-      ))}
+    <div class="grid gap-8 sm:grid-cols-2">
+      {brands.filter((b) => b.slug !== brand.slug).map((b) => {
+        const otherBrandTheme = b.name === 'BOSGAME' ? 'card-neon' : b.name === 'PELAND' ? 'card-cyan' : 'card-orange';
+        const otherBadgeClass = b.name === 'BOSGAME' ? 'badge' : b.name === 'PELAND' ? 'badge-cyan' : 'badge-orange';
+        const otherTextClass = b.name === 'BOSGAME' ? 'text-neon-purple' : b.name === 'PELAND' ? 'text-neon-cyan' : 'text-neon-orange';
+        return (
+          <a href={`/workstations/${b.slug}`} class={`group relative flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-2 ${otherBrandTheme} shadow-xl shadow-black/20`}>
+            <div class="relative overflow-hidden">
+              <ProductMock variant="card" brand={b.name} />
+              <div class="absolute top-4 left-4">
+                <span class={otherBadgeClass}>{b.region}</span>
+              </div>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="text-xl font-bold text-white">{b.name}</h3>
+              <p class="mt-2 text-slate-400 flex-1">{b.summary}</p>
+              <div class={`mt-5 text-sm font-medium ${otherTextClass}`}>View details →</div>
+            </div>
+          </a>
+        );
+      })}
     </div>
   </Section>
 
-  <CTA />
 </PageLayout>

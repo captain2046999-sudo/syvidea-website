@@ -1,13 +1,13 @@
 // Shared AMD Strix Halo / AI Max+ 395 Platform Specifications
-// All three partner brands (Bosgame, PELAND, bitpc) use this shared platform
+// All three partner brands (BOSGAME, PELAND, BITPC) use this shared platform
 // Brand-specific differences are in chassis, I/O details, dimensions, wireless,
 // thermals, BIOS, packaging, warranty, and supply batches
 
 export const sharedPlatform = {
   name: 'AMD Strix Halo Local AI Workstation Platform',
   shortName: 'AMD Strix Halo Platform',
-  slug: 'amd-strix-halo-platform',
-  tagline: 'A compact 1L-class local AI workstation platform built around AMD Strix Halo, high-bandwidth LPDDR5X memory, dual PCIe 4.0 SSD slots and modern high-speed I/O.',
+  slug: 'platform',
+  tagline: 'A compact local AI workstation platform built around AMD Strix Halo, high-bandwidth LPDDR5X memory, dual PCIe 4.0 SSD slots and modern high-speed I/O.',
   positioning: 'Shared platform specification across all curated partner workstation options',
   processor: {
     name: 'AMD Ryzen AI Max+ 395',
@@ -40,7 +40,7 @@ export const sharedPlatform = {
     wireless: 'Bluetooth 5.x',
   },
   formFactor: {
-    class: '1L-class compact workstation',
+    class: 'Compact desktop workstation',
     benefit: 'Compact footprint suitable for desk-side or homelab deployment',
   },
   powerAndCooling: {

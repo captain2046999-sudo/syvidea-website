@@ -2,7 +2,7 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
-import CTA from '../components/CTA.astro';
+import PlatformNotice from '../components/PlatformNotice.astro';
 import { useCases } from '../data/brands';
 import { sharedPlatform } from '../data/platform';
 ---
@@ -10,6 +10,7 @@ import { sharedPlatform } from '../data/platform';
   title="Use Cases — Syvidea"
   description="Real local AI workflows supported by the AMD Strix Halo / AI Max+ 395 platform: local LLMs, private RAG, AI agents, multimodal, homelab, and small team AI."
 >
+  <PlatformNotice />
   <Hero
     eyebrow="Use cases"
     title="Local AI workflows the shared platform is built for"
@@ -43,6 +44,57 @@ import { sharedPlatform } from '../data/platform';
         <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Compact workstation</p>
       </div>
     </div>
+    <div class="mt-6 card border-neon-purple/30 bg-dark-900/50">
+      <p class="text-sm font-medium text-neon-purple">What this means for you:</p>
+      <p class="mt-2 text-sm text-slate-400">
+        The shared platform specifications ensure consistent performance across all three partner brands. Your choice comes down to chassis preference, I/O requirements, and supply availability, not raw specs.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Use case mapping"
+    title="Workload → Recommended brand"
+    align="left"
+  >
+    <div class="card">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-slate-700">
+              <th class="text-left py-3 px-4 font-semibold text-slate-300">Use Case</th>
+              <th class="text-left py-3 px-4 font-semibold text-slate-300">Recommended Hardware</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-800">
+              <td class="py-3 px-4 text-slate-400">Local LLM Development</td>
+              <td class="py-3 px-4 text-neon-cyan font-semibold">PELAND</td>
+            </tr>
+            <tr class="border-b border-slate-800">
+              <td class="py-3 px-4 text-slate-400">Private RAG Systems</td>
+              <td class="py-3 px-4 text-neon-cyan font-semibold">PELAND</td>
+            </tr>
+            <tr class="border-b border-slate-800">
+              <td class="py-3 px-4 text-slate-400">AI Agents & Coding Agents</td>
+              <td class="py-3 px-4 text-neon-purple font-semibold">BOSGAME</td>
+            </tr>
+            <tr class="border-b border-slate-800">
+              <td class="py-3 px-4 text-slate-400">Multimodal AI Workflows</td>
+              <td class="py-3 px-4 text-neon-purple font-semibold">BOSGAME</td>
+            </tr>
+            <tr class="border-b border-slate-800">
+              <td class="py-3 px-4 text-slate-400">Homelab / Personal AI</td>
+              <td class="py-3 px-4 text-neon-orange font-semibold">BITPC</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 text-slate-400">Small Team AI Workspace</td>
+              <td class="py-3 px-4 text-neon-orange font-semibold">BITPC</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </Section>
 
   <Section
@@ -50,9 +102,31 @@ import { sharedPlatform } from '../data/platform';
     title="Six workflows, one shared platform"
   >
     <div class="space-y-6">
-      {useCases.map((useCase, idx) => (
-        <div class="card">
-          <div class="grid gap-6 md:grid-cols-3">
+      {useCases.map((useCase, idx) => {
+        const getRecommendedBrand = () => {
+          switch(useCase.title) {
+            case 'Local LLM Development': return 'PELAND';
+            case 'Private RAG Systems': return 'PELAND';
+            case 'AI Agents & Coding Agents': return 'BOSGAME';
+            case 'Multimodal AI Workflows': return 'BOSGAME';
+            case 'Homelab & Personal AI Server': return 'BITPC';
+            case 'Small Team AI Workspace': return 'BITPC';
+            default: return 'BOSGAME / PELAND / BITPC';
+          }
+        };
+        const getBrandColor = (brand: string) => {
+          switch(brand) {
+            case 'PELAND': return 'text-neon-cyan';
+            case 'BOSGAME': return 'text-neon-purple';
+            case 'BITPC': return 'text-neon-orange';
+            default: return 'text-slate-400';
+          }
+        };
+        const recommendedBrand = getRecommendedBrand();
+        const colorClass = getBrandColor(recommendedBrand);
+        return (
+          <div class="card">
+            <div class="grid gap-6 md:grid-cols-3" onclick="trackEvent('use_case_click', { useCase: `${useCase.title}`, recommendedBrand: `${recommendedBrand}` })">
             <div class="md:col-span-1">
               <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Use case {idx + 1}</div>
               <h3 class="mt-1 text-2xl font-bold">{useCase.title}</h3>
@@ -66,10 +140,16 @@ import { sharedPlatform } from '../data/platform';
                   </span>
                 ))}
               </div>
+              <p class="mt-4 text-sm text-slate-500">
+                <span class="font-medium">Recommended hardware:</span>{' '}
+                <span class={`font-semibold ${colorClass}`}>{recommendedBrand}</span>
+                {' '}(based on workload intensity and memory demand)
+              </p>
             </div>
           </div>
-        </div>
-      ))}
+          </div>
+        );
+      })}
     </div>
   </Section>
 
@@ -87,6 +167,4 @@ import { sharedPlatform } from '../data/platform';
       </ul>
     </div>
   </Section>
-
-  <CTA />
 </PageLayout>

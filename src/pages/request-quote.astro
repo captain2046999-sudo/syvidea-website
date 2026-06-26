@@ -1,0 +1,221 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/Section.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+---
+<PageLayout
+  title="Request a Configuration Quote — Syvidea"
+  description="Request a tailored workstation configuration quote. We review your workload and match it with the most suitable BOSGAME, PELAND, or BITPC configuration."
+>
+  <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+    <div class="absolute inset-0 bg-dark-999"></div>
+    <div class="absolute inset-0 cyber-bg"></div>
+    <div class="absolute inset-0 grid-bg opacity-20"></div>
+    <div class="glow-bg top-10 left-1/3 h-96 w-96 bg-neon-purple/20 animate-glow-pulse"></div>
+    <div class="glow-bg bottom-10 right-1/3 h-80 w-80 bg-neon-cyan/15 animate-glow-pulse" style="animation-delay: -2s;"></div>
+
+    <div class="container-page relative">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="mb-5 flex justify-center">
+          <span class="badge">Action</span>
+        </div>
+        <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          <span class="gradient-text">Request a configuration quote</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400 text-balance">
+          We will review your workload and match it with the most suitable workstation configuration across BOSGAME, PELAND, or BITPC.
+        </p>
+        <div class="mx-auto mt-4 max-w-xl">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-900/50 border border-neon-purple/30">
+            <svg class="h-4 w-4 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <span class="text-sm text-slate-400">
+              This is not an instant checkout system. Every configuration is reviewed manually to ensure compatibility and performance fit.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Section
+    eyebrow="Process"
+    title="How the process works"
+    subtitle="Three simple steps to get your tailored configuration"
+    align="left"
+  >
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="card border-neon-purple/30 bg-dark-900/50">
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-neon-purple/20 text-neon-purple font-bold text-xl">1</div>
+        <h3 class="mt-4 text-lg font-semibold text-white">Submit your requirements</h3>
+        <p class="mt-2 text-slate-400 text-sm">Describe your workload, model size, and usage scenario.</p>
+      </div>
+      <div class="card border-neon-cyan/30 bg-dark-900/50">
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-neon-cyan/20 text-neon-cyan font-bold text-xl">2</div>
+        <h3 class="mt-4 text-lg font-semibold text-white">Configuration review</h3>
+        <p class="mt-2 text-slate-400 text-sm">We map your requirements to the Strix Halo platform and partner options.</p>
+      </div>
+      <div class="card border-neon-orange/30 bg-dark-900/50">
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-neon-orange/20 text-neon-orange font-bold text-xl">3</div>
+        <h3 class="mt-4 text-lg font-semibold text-white">Receive a quote</h3>
+        <p class="mt-2 text-slate-400 text-sm">You receive a structured quote with configuration, pricing, and delivery estimate.</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Get your quote"
+    title="Submit your requirements"
+    align="left"
+  >
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div class="card">
+        <QuoteForm />
+      </div>
+
+      <div class="space-y-6">
+        <div class="card border-neon-purple/30 bg-dark-900/50">
+          <h3 class="text-lg font-semibold text-neon-purple">What you will receive</h3>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="h-5 w-5 text-neon-cyan shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-slate-300">A validated hardware configuration</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-5 w-5 text-neon-cyan shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-slate-300">Recommended partner brand (BOSGAME / PELAND / BITPC)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-5 w-5 text-neon-cyan shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-slate-300">Estimated shipping timeline</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-5 w-5 text-neon-cyan shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-slate-300">Total cost breakdown</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-5 w-5 text-neon-cyan shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-slate-300">Compatibility confirmation with your workload</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card border-neon-orange/30 bg-dark-900/50">
+          <h3 class="text-lg font-semibold text-neon-orange">Typical response time</h3>
+          <p class="mt-3 text-slate-300">
+            We usually respond within 24–48 hours with a structured configuration proposal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Not ready to submit?"
+    title="Still unsure about your requirements?"
+    align="left"
+  >
+    <div class="card border-neon-yellow/30 bg-dark-900/50 text-center">
+      <p class="text-lg text-slate-300">
+        Not ready to submit details yet?
+      </p>
+      <div class="mt-6">
+        <a href="/recommendation-engine" onclick="trackEvent('fallback_cta', { action: 'recommendation_engine' })" class="btn-secondary inline-flex items-center">
+          Try recommendation engine first
+          <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Why different"
+    title="Why this is not a standard checkout"
+    align="left"
+  >
+    <div class="card">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-12 h-12 rounded-full bg-dark-800 flex items-center justify-center">
+            <svg class="h-6 w-6 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </div>
+          <h4 class="mt-3 text-sm font-semibold text-white">No instant payment</h4>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-12 h-12 rounded-full bg-dark-800 flex items-center justify-center">
+            <svg class="h-6 w-6 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </div>
+          <h4 class="mt-3 text-sm font-semibold text-white">No auto-generated configurations</h4>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-12 h-12 rounded-full bg-dark-800 flex items-center justify-center">
+            <svg class="h-6 w-6 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <h4 class="mt-3 text-sm font-semibold text-white">Every request is reviewed manually</h4>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-12 h-12 rounded-full bg-dark-800 flex items-center justify-center">
+            <svg class="h-6 w-6 text-neon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <h4 class="mt-3 text-sm font-semibold text-white">Compatibility is validated before quoting</h4>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <section class="relative overflow-hidden py-20">
+    <div class="absolute inset-0 bg-dark-999"></div>
+    <div class="absolute inset-0 cyber-bg"></div>
+    <div class="glow-bg top-0 left-1/2 -translate-x-1/2 h-64 w-96 bg-neon-purple/10 animate-glow-pulse"></div>
+
+    <div class="container-page relative">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          <span class="gradient-text">Ready to get a configuration that actually fits your workload?</span>
+        </h2>
+        <p class="mx-auto mt-6 max-w-xl text-lg text-slate-400">
+          We will match your requirements with real hardware constraints — not generic product listings.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#quote-form" class="btn-primary inline-flex items-center justify-center">
+            Request configuration review
+            <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a href="/check-compatibility" class="btn-secondary inline-flex items-center justify-center">
+            Check compatibility first
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

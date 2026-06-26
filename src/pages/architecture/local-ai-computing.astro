@@ -1,0 +1,145 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Section from '../../components/Section.astro';
+---
+<PageLayout
+  title="Local AI Computing Options — Syvidea"
+  description="Compare local inference on AMD Strix Halo, cloud GPU services, and NVIDIA RTX workstations. Understand the trade-offs for privacy, latency, cost, and setup complexity."
+>
+  <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+    <div class="absolute inset-0 bg-dark-999"></div>
+    <div class="absolute inset-0 cyber-bg"></div>
+    <div class="absolute inset-0 grid-bg opacity-20"></div>
+    <div class="glow-bg top-10 right-1/3 h-96 w-96 bg-neon-cyan/15 animate-glow-pulse"></div>
+
+    <div class="container-page relative">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="mb-5 flex justify-center">
+          <span class="badge">Architecture</span>
+        </div>
+        <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl gradient-text">
+          Local AI computing
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400 text-balance">
+          Three common ways to run AI workloads: local unified-memory systems, cloud GPU instances, and
+          dedicated NVIDIA RTX workstations. Each has different strengths and ownership trade-offs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Section
+    eyebrow="Comparison"
+    title="Strix Halo vs. cloud GPU vs. RTX workstation"
+    align="left"
+  >
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="border-b border-slate-700 text-slate-400">
+            <th class="py-3 pr-4">Dimension</th>
+            <th class="py-3 pr-4">Strix Halo local</th>
+            <th class="py-3 pr-4">Cloud GPU</th>
+            <th class="py-3">RTX workstation</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-300">
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4 font-medium text-slate-200">Memory model</td>
+            <td class="py-4 pr-4">128 GB unified memory</td>
+            <td class="py-4 pr-4">Split vRAM / system RAM</td>
+            <td class="py-4">Discrete VRAM + system RAM</td>
+          </tr>
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4 font-medium text-slate-200">Data privacy</td>
+            <td class="py-4 pr-4">Data stays on your hardware</td>
+            <td class="py-4 pr-4">Sent to provider</td>
+            <td class="py-4">Data stays on your hardware</td>
+          </tr>
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4 font-medium text-slate-200">Latency</td>
+            <td class="py-4 pr-4">Local, predictable</td>
+            <td class="py-4 pr-4">Network dependent</td>
+            <td class="py-4">Local, predictable</td>
+          </tr>
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4 font-medium text-slate-200">Operating cost</td>
+            <td class="py-4 pr-4">One-time hardware cost</td>
+            <td class="py-4 pr-4">Per-hour or subscription</td>
+            <td class="py-4">One-time hardware cost</td>
+          </tr>
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4 font-medium text-slate-200">CUDA / TensorRT</td>
+            <td class="py-4 pr-4">Not available</td>
+            <td class="py-4 pr-4">Available on NVIDIA instances</td>
+            <td class="py-4">Available</td>
+          </tr>
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4 font-medium text-slate-200">Setup effort</td>
+            <td class="py-4 pr-4">Moderate; ROCm / iGPU stack</td>
+            <td class="py-4 pr-4">Low; provider-managed</td>
+            <td class="py-4">Moderate; CUDA stack</td>
+          </tr>
+          <tr>
+            <td class="py-4 pr-4 font-medium text-slate-200">Typical fit</td>
+            <td class="py-4 pr-4">Private LLM, RAG, agents, homelab</td>
+            <td class="py-4 pr-4">Burst training, large models</td>
+            <td class="py-4">Fast inference, CUDA workflows</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="When Strix Halo fits"
+    title="Where local unified memory wins"
+    align="left"
+  >
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="card">
+        <h3 class="text-lg font-semibold text-slate-200">Privacy-by-default workflows</h3>
+        <p class="mt-2 text-slate-400">
+          Documents, prompts, and model weights stay on hardware you control. Suitable for sensitive RAG,
+          legal, medical, or proprietary research use cases.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-slate-200">Predictable long-term cost</h3>
+        <p class="mt-2 text-slate-400">
+          No per-token or per-hour cloud fees. The cost model is hardware plus electricity, which can be
+          favorable for sustained daily usage.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-slate-200">Large single-model memory</h3>
+        <p class="mt-2 text-slate-400">
+          128 GB of unified memory lets you load a single 70B-class quantized model with room for context
+          and KV cache, without model parallelism.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-slate-200">Offline and low-latency access</h3>
+        <p class="mt-2 text-slate-400">
+          Local inference does not depend on internet latency or provider availability. Useful for always-on
+          agents and homelab servers.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="When to look elsewhere"
+    title="Where other options are stronger"
+    align="left"
+  >
+    <div class="card border-neon-orange/30 bg-dark-900/60">
+      <ul class="space-y-2 text-slate-300">
+        <li>• Maximum CUDA image-generation throughput — RTX 4090 / 5090 systems are typically faster for Flux / SDXL.</li>
+        <li>• Large-scale model training — cloud clusters or multi-GPU RTX / datacenter systems are more suitable.</li>
+        <li>• Zero setup — managed cloud APIs require the least configuration.</li>
+        <li>• Lowest upfront cost — hourly cloud usage avoids hardware purchase.</li>
+      </ul>
+    </div>
+  </Section>
+</PageLayout>

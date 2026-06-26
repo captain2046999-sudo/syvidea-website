@@ -1,0 +1,58 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/Section.astro';
+import { RecommendationEngine } from '../components/RecommendationEngine';
+---
+<PageLayout
+  title="Which AI Workstation Should You Choose? — Syvidea"
+  description="Simple rule-based recommendation engine to help you decide whether an AMD Strix Halo / AI Max+ 395 local AI workstation fits your use case."
+>
+  <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+    <div class="absolute inset-0 bg-dark-999"></div>
+    <div class="absolute inset-0 cyber-bg"></div>
+    <div class="absolute inset-0 grid-bg opacity-20"></div>
+    <div class="glow-bg top-10 left-1/3 h-96 w-96 bg-neon-purple/20 animate-glow-pulse"></div>
+
+    <div class="container-page relative">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="mb-5 flex justify-center">
+          <span class="badge">Decision support</span>
+        </div>
+        <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl gradient-text">
+          Which system should you choose?
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400 text-balance">
+          Answer a few questions about your use case, model size, privacy needs, and software dependencies.
+          This tool gives a directional recommendation only — not a purchase path.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Section
+    eyebrow="Recommendation engine"
+    title="Directional matcher"
+    align="left"
+  >
+    <RecommendationEngine client:load />
+    <p class="mt-6 text-center text-sm text-slate-500">
+      This is a rule-based MVP. Results are based on typical workload characteristics, not a detailed
+      technical audit. For a definitive answer, submit a compatibility request.
+    </p>
+  </Section>
+
+  <Section
+    eyebrow="What this is not"
+    title="Boundaries"
+    align="left"
+  >
+    <div class="card border-neon-orange/30 bg-dark-900/60">
+      <ul class="space-y-2 text-slate-300">
+        <li>• Not a product configurator — it does not generate SKU-level specifications.</li>
+        <li>• Not a pricing calculator — no prices are shown or computed.</li>
+        <li>• Not a guarantee of compatibility — final validation requires a human review of your software stack.</li>
+        <li>• Not AI — this is a static decision tree running in the browser.</li>
+      </ul>
+    </div>
+  </Section>
+</PageLayout>

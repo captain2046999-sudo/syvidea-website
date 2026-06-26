@@ -14,7 +14,7 @@ export const resources = [
         excerpt: 'A positioning comparison to help you decide between unified memory local AI and dedicated CUDA GPUs.',
       },
       {
-        title: 'How to compare Bosgame, PELAND, and bitpc',
+        title: 'How to compare BOSGAME, PELAND, and BITPC',
         excerpt: 'Where the three partner brands differ in chassis, I/O, thermals, BIOS, warranty, and supply.',
       },
     ],
@@ -63,7 +63,7 @@ export const resources = [
     items: [
       { title: 'AMD Ryzen AI Max drivers', excerpt: 'Official AMD driver package entry point.' },
       { title: 'Radeon 8060S graphics drivers', excerpt: 'AMD Adrenalin / integrated GPU drivers.' },
-      { title: 'Partner brand firmware & BIOS notes', excerpt: 'Brand-specific firmware / BIOS entry points (Bosgame, PELAND, bitpc).' },
+      { title: 'Partner brand firmware & BIOS notes', excerpt: 'Brand-specific firmware / BIOS entry points (BOSGAME, PELAND, BITPC).' },
     ],
   },
 ];

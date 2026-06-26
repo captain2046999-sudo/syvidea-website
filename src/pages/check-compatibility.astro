@@ -1,0 +1,131 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/Section.astro';
+import CTA from '../components/CTA.astro';
+---
+<PageLayout
+  title="Check Compatibility — Syvidea"
+  description="Check whether your AI workload, model size, and software dependencies are a fit for the AMD Strix Halo / AI Max+ 395 platform."
+>
+  <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+    <div class="absolute inset-0 bg-dark-999"></div>
+    <div class="absolute inset-0 cyber-bg"></div>
+    <div class="absolute inset-0 grid-bg opacity-20"></div>
+    <div class="glow-bg top-10 left-1/3 h-96 w-96 bg-neon-cyan/15 animate-glow-pulse"></div>
+
+    <div class="container-page relative">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="mb-5 flex justify-center">
+          <span class="badge">Action</span>
+        </div>
+        <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl gradient-text">
+          Check compatibility
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400 text-balance">
+          Send us your model list, workload description, and software stack. We will review whether the
+          shared platform is likely to support it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Section
+    eyebrow="What to include"
+    title="Send details for review"
+    align="left"
+  >
+    <div class="grid gap-6 lg:grid-cols-2">
+      <div class="card">
+        <h3 class="text-lg font-semibold text-slate-200">Model information</h3>
+        <ul class="mt-3 space-y-2 text-slate-400">
+          <li>• Model names and sizes (e.g., Qwen3 70B, Llama 3.1 70B)</li>
+          <li>• Expected quantization (4-bit, 8-bit, FP16)</li>
+          <li>• Typical context length</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-slate-200">Workload information</h3>
+        <ul class="mt-3 space-y-2 text-slate-400">
+          <li>• Primary use case (LLM, RAG, agent, multimodal)</li>
+          <li>• Expected concurrency</li>
+          <li>• Latency or throughput requirements</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-slate-200">Software stack</h3>
+        <ul class="mt-3 space-y-2 text-slate-400">
+          <li>• Ollama, LM Studio, Open WebUI, ComfyUI, etc.</li>
+          <li>• CUDA dependencies, if any</li>
+          <li>• Operating system preference</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-slate-200">Environment</h3>
+        <ul class="mt-3 space-y-2 text-slate-400">
+          <li>• Destination country</li>
+          <li>• Preferred partner brand, if any</li>
+          <li>• Timing or batch requirements</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 text-center">
+      <a href="/request-quote" class="btn-primary">Submit a compatibility request</a>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Quick reference"
+    title="Typical memory requirements"
+    align="left"
+  >
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="border-b border-slate-700 text-slate-400">
+            <th class="py-3 pr-4">Model size</th>
+            <th class="py-3 pr-4">4-bit quantized</th>
+            <th class="py-3 pr-4">8-bit quantized</th>
+            <th class="py-3">Fit on 128 GB unified memory</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-300">
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4">7B</td>
+            <td class="py-4 pr-4">~4 GB</td>
+            <td class="py-4 pr-4">~7 GB</td>
+            <td class="py-4 text-neon-green">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4">13B</td>
+            <td class="py-4 pr-4">~8 GB</td>
+            <td class="py-4 pr-4">~13 GB</td>
+            <td class="py-4 text-neon-green">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4">30B – 40B</td>
+            <td class="py-4 pr-4">~18 – 24 GB</td>
+            <td class="py-4 pr-4">~35 – 48 GB</td>
+            <td class="py-4 text-neon-green">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-800">
+            <td class="py-4 pr-4">70B</td>
+            <td class="py-4 pr-4">~40 GB</td>
+            <td class="py-4 pr-4">~80 GB</td>
+            <td class="py-4 text-neon-yellow">Yes, with context limits</td>
+          </tr>
+          <tr>
+            <td class="py-4 pr-4">MoE 8x22B</td>
+            <td class="py-4 pr-4">Variable</td>
+            <td class="py-4 pr-4">Variable</td>
+            <td class="py-4 text-neon-orange">Depends on active experts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-sm text-slate-500">
+      Estimates include weights only. Context length, KV cache, and software overhead will increase memory use.
+    </p>
+  </Section>
+
+  <CTA />
+</PageLayout>

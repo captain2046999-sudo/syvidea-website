@@ -1,0 +1,153 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Section from '../../components/Section.astro';
+import ProductMock from '../../components/ProductMock.astro';
+import { brands } from '../../data/brands';
+
+const differenceAreas = [
+  'Chassis design and dimensions',
+  'Port layout and I/O selection',
+  'Wireless module and antenna implementation',
+  'Thermal solution and acoustic profile',
+  'BIOS tuning and firmware features',
+  'Packaging and included accessories',
+  'Warranty terms and regional support path',
+  'Supply batch timing and availability',
+];
+
+const brandTheme = (name: string) => {
+  if (name === 'BOSGAME') return { card: 'card-neon', badge: 'badge', text: 'text-neon-purple' };
+  if (name === 'PELAND') return { card: 'card-cyan', badge: 'badge-cyan', text: 'text-neon-cyan' };
+  return { card: 'card-orange', badge: 'badge-orange', text: 'text-neon-orange' };
+};
+---
+<PageLayout
+  title="Compare Partner Workstation Options — Syvidea"
+  description="Compare BOSGAME, PELAND, and BITPC options built on the shared AMD Strix Halo / AI Max+ 395 platform. Differences are in chassis, I/O, thermals, BIOS, warranty, and supply."
+>
+  <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+    <div class="absolute inset-0 bg-dark-999"></div>
+    <div class="absolute inset-0 cyber-bg"></div>
+    <div class="absolute inset-0 grid-bg opacity-20"></div>
+    <div class="glow-bg top-10 left-1/3 h-96 w-96 bg-neon-purple/20 animate-glow-pulse"></div>
+    <div class="glow-bg bottom-10 right-1/3 h-80 w-80 bg-neon-cyan/15 animate-glow-pulse" style="animation-delay:-2s;"></div>
+
+    <div class="container-page relative">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="mb-5 flex justify-center">
+          <span class="badge">Decision support</span>
+        </div>
+        <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl gradient-text">
+          Compare the three partner options
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400 text-balance">
+          All three options share the same AMD Strix Halo / AI Max+ 395 platform. This page explains where they differ,
+          so you can choose the brand option that fits your chassis, I/O, thermal, and supply preferences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Section
+    eyebrow="Shared foundation"
+    title="What is identical across all three options"
+    align="left"
+  >
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="spec-card">
+        <div class="text-xs font-semibold uppercase tracking-wider text-neon-purple">Processor</div>
+        <div class="mt-3 text-xl font-bold gradient-text-purple">AMD Ryzen AI Max+ 395</div>
+        <p class="mt-2 text-sm text-slate-400">16 cores / 32 threads</p>
+      </div>
+      <div class="spec-card">
+        <div class="text-xs font-semibold uppercase tracking-wider text-neon-cyan">Memory</div>
+        <div class="mt-3 text-xl font-bold gradient-text-cyan">128GB Unified Memory</div>
+        <p class="mt-2 text-sm text-slate-400">LPDDR5X • 256-bit</p>
+      </div>
+      <div class="spec-card">
+        <div class="text-xs font-semibold uppercase tracking-wider text-neon-orange">Storage</div>
+        <div class="mt-3 text-xl font-bold gradient-text-orange">2TB SSD</div>
+        <p class="mt-2 text-sm text-slate-400">2× M.2 PCIe 4.0</p>
+      </div>
+      <div class="spec-card">
+        <div class="text-xs font-semibold uppercase tracking-wider text-neon-pink">Graphics</div>
+        <div class="mt-3 text-xl font-bold gradient-text">Radeon 8060S</div>
+        <p class="mt-2 text-sm text-slate-400">RDNA 3.5</p>
+      </div>
+    </div>
+    <div class="mt-8 text-center">
+      <a href="/workstations/platform" class="btn-secondary">See the full shared platform spec</a>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Where they differ"
+    title="Brand-specific difference areas"
+    align="left"
+  >
+    <div class="grid gap-4 sm:grid-cols-2">
+      {differenceAreas.map((area) => (
+        <div class="spec-card flex items-start gap-3">
+          <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-neon-purple/10 text-neon-purple text-xs">•</span>
+          <span class="text-slate-300">{area}</span>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6 text-slate-400">
+      Syvidea does not rank these options. The right choice depends on your deployment environment,
+      peripheral requirements, noise tolerance, warranty region, and current supply batch.
+    </p>
+  </Section>
+
+  <Section
+    eyebrow="Side by side"
+    title="Option overview"
+  >
+    <div class="grid gap-8 lg:grid-cols-3">
+      {brands.map((brand) => {
+        const theme = brandTheme(brand.name);
+        return (
+          <div class={`${theme.card} flex flex-col`}>
+            <div class="relative overflow-hidden rounded-2xl">
+              <ProductMock variant="card" brand={brand.name} />
+              <div class="absolute top-3 left-3">
+                <span class={theme.badge}>{brand.region}</span>
+              </div>
+            </div>
+            <div class="mt-5 flex-1">
+              <h3 class="text-2xl font-bold text-white">{brand.name}</h3>
+              <p class="mt-1 text-sm text-slate-400">{brand.positioning}</p>
+              <p class="mt-3 text-sm text-slate-300">{brand.summary}</p>
+              <div class="mt-4">
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Highlights</div>
+                <ul class="mt-2 space-y-1 text-sm text-slate-400">
+                  {brand.highlights.map((h) => <li>• {h}</li>)}
+                </ul>
+              </div>
+              <p class="mt-4 text-xs italic text-slate-500">{brand.note}</p>
+            </div>
+            <div class="mt-6">
+              <a href={`/workstations/${brand.slug}`} class={`text-sm font-medium ${theme.text}`}>View {brand.name} details →</a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Still deciding?"
+    title="Use the recommendation engine"
+    align="left"
+  >
+    <div class="card text-center">
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+        Answer a few questions about your use case, model size, and preferences. The engine will suggest
+        whether a Strix Halo workstation is a fit and which partner option may be suitable.
+      </p>
+      <div class="mt-6">
+        <a href="/recommendation-engine" class="text-neon-purple hover:underline">Start recommendation →</a>
+      </div>
+    </div>
+  </Section>
+</PageLayout>
