@@ -1,55 +1,57 @@
 ---
 const useCases = [
   { value: '', label: 'Select your primary use case *' },
-  { value: 'local-llm', label: 'Local LLM Development' },
-  { value: 'rag', label: 'Private RAG System' },
-  { value: 'agent', label: 'AI Agent / Coding Workflow' },
-  { value: 'multimodal', label: 'Multimodal AI Workflow' },
-  { value: 'homelab', label: 'Personal / Homelab AI' },
-  { value: 'team', label: 'Team Deployment' },
+  { value: 'Local LLM Development', label: 'Local LLM Development' },
+  { value: 'Private RAG System', label: 'Private RAG System' },
+  { value: 'AI Agent / Coding Workflow', label: 'AI Agent / Coding Workflow' },
+  { value: 'Multimodal AI Workflow', label: 'Multimodal AI Workflow' },
+  { value: 'Personal / Homelab AI', label: 'Personal / Homelab AI' },
+  { value: 'Team Deployment', label: 'Team Deployment' },
 ];
 
 const modelSizes = [
   { value: '', label: 'Model size (optional)' },
-  { value: '7b-13b', label: '7B / 13B' },
-  { value: '34b', label: '34B' },
-  { value: '70b+', label: '70B+' },
-  { value: 'unsure', label: 'Not sure' },
+  { value: '7B / 13B', label: '7B / 13B' },
+  { value: '34B', label: '34B' },
+  { value: '70B+', label: '70B+' },
+  { value: 'Not sure', label: 'Not sure' },
 ];
 
 const memoryOptions = [
   { value: '', label: 'Memory requirement (optional)' },
-  { value: '32gb', label: '32GB' },
-  { value: '64gb', label: '64GB' },
-  { value: '128gb', label: '128GB' },
-  { value: 'unsure', label: 'Not sure' },
+  { value: '32GB', label: '32GB' },
+  { value: '64GB', label: '64GB' },
+  { value: '128GB', label: '128GB' },
+  { value: 'Not sure', label: 'Not sure' },
 ];
 
 const brands = [
   { value: '', label: 'Preferred brand (optional)' },
-  { value: 'bosgame', label: 'BOSGAME' },
-  { value: 'peland', label: 'PELAND' },
-  { value: 'bitpc', label: 'BITPC' },
-  { value: 'none', label: 'No preference' },
+  { value: 'BOSGAME', label: 'BOSGAME' },
+  { value: 'PELAND', label: 'PELAND' },
+  { value: 'BITPC', label: 'BITPC' },
+  { value: 'No preference', label: 'No preference' },
 ];
 
 const budgets = [
   { value: '', label: 'Budget range (optional)' },
-  { value: 'under-2000', label: '< $2000' },
-  { value: '2000-3000', label: '$2000–$3000' },
-  { value: '3000-5000', label: '$3000–$5000' },
-  { value: '5000+', label: '$5000+' },
+  { value: '< $2000', label: '< $2000' },
+  { value: '$2000–$3000', label: '$2000–$3000' },
+  { value: '$3000–$5000', label: '$3000–$5000' },
+  { value: '$5000+', label: '$5000+' },
 ];
 ---
 
-<form id="quote-form" onsubmit="return validateQuoteForm(this)" class="p-6 space-y-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+<form id="quote-form" action="https://api.tally.so/forms/81ryAo/respond" method="POST" onsubmit="return validateQuoteForm(this)" class="p-6 space-y-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+  <input type="hidden" name="formId" value="81ryAo" />
+
   <div>
     <label class="block text-sm font-medium text-white mb-2">
       Use Case <span class="text-neon-orange">*</span>
     </label>
     <div class="relative">
       <select
-        name="use-case"
+        name="What would you use this for?"
         required
         class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
       >
@@ -70,7 +72,7 @@ const budgets = [
       <label class="block text-sm font-medium text-white mb-2">Model size</label>
       <div class="relative">
         <select
-          name="model-size"
+          name="What model would you like to run?"
           class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
         >
           {modelSizes.map((option) => (
@@ -89,7 +91,7 @@ const budgets = [
       <label class="block text-sm font-medium text-white mb-2">Memory requirement</label>
       <div class="relative">
         <select
-          name="memory"
+          name="Memory requirement"
           class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
         >
           {memoryOptions.map((option) => (
@@ -110,7 +112,7 @@ const budgets = [
       <label class="block text-sm font-medium text-white mb-2">Preferred brand</label>
       <div class="relative">
         <select
-          name="brand"
+          name="Preferred brand"
           class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
         >
           {brands.map((option) => (
@@ -129,7 +131,7 @@ const budgets = [
       <label class="block text-sm font-medium text-white mb-2">Budget range</label>
       <div class="relative">
         <select
-          name="budget"
+          name="Budget"
           class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all appearance-none cursor-pointer"
         >
           {budgets.map((option) => (
@@ -149,7 +151,7 @@ const budgets = [
     <label class="block text-sm font-medium text-white mb-2">Delivery region</label>
     <input
       type="text"
-      name="country"
+      name="Delivery region"
       placeholder="Country (e.g., United States, Canada, Germany)"
       class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all"
     />
@@ -159,7 +161,7 @@ const budgets = [
     <label class="block text-sm font-medium text-white mb-2">Email</label>
     <input
       type="email"
-      name="email"
+      name="Email"
       placeholder="your@email.com"
       class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all"
     />
@@ -168,7 +170,7 @@ const budgets = [
   <div>
     <label class="block text-sm font-medium text-white mb-2">Additional requirements</label>
     <textarea
-      name="requirements"
+      name="Additional requirements"
       placeholder="Describe any specific requirements, software compatibility needs, or additional details about your workload..."
       rows={4}
       class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all resize-none"
@@ -193,29 +195,29 @@ const budgets = [
 
 <script is:inline>
 function validateQuoteForm(form) {
-  const useCase = form['use-case'].value;
-  const modelSize = form['model-size'].value;
-  const memory = form['memory'].value;
-  const budget = form['budget'].value;
-  const email = form['email'].value;
+  const useCase = form['What would you use this for?'].value;
+  const modelSize = form['What model would you like to run?'].value;
+  const memory = form['Memory requirement'].value;
+  const budget = form['Budget'].value;
+  const email = form['Email'].value;
 
   const hasConstraint = modelSize || memory || budget;
 
   if (!useCase) {
     alert('Please select your primary use case.');
-    form['use-case'].focus();
+    form['What would you use this for?'].focus();
     return false;
   }
 
   if (!hasConstraint) {
     alert('Please provide at least one constraint (model size, memory, or budget) to generate a valid configuration.');
-    form['model-size'].focus();
+    form['What model would you like to run?'].focus();
     return false;
   }
 
   if (!email) {
     alert('Please provide your email address so we can send you the quote.');
-    form['email'].focus();
+    form['Email'].focus();
     return false;
   }
 
@@ -223,7 +225,7 @@ function validateQuoteForm(form) {
     useCase: useCase,
     modelSize: modelSize,
     memory: memory,
-    brand: form['brand'].value,
+    brand: form['Preferred brand'].value,
     budget: budget,
     email: email ? 'provided' : 'not_provided'
   });
