@@ -1,20 +1,16 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import CTA from '../components/CTA.astro';
 import ProductMock from '../components/ProductMock.astro';
 import { AnimatedCard, AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated';
-import { brands, useCases } from '../data/brands';
-import { sharedPlatform } from '../data/platform';
-import { siteConfig } from '../data/site';
+import { useCases } from '../data/brands';
 ---
 <PageLayout
-  title="Syvidea — Local AI Workstation Sourcing & Advisory"
+  title="Syvidea - Local AI Workstation Sourcing & Advisory"
   description="Syvidea helps developers, creators and small teams choose and source selected local AI workstations from hardware partners. AMD Strix Halo / AI Max+ 395, 128GB unified memory."
 >
-  <!-- Hero -->
-  <section class="relative overflow-hidden pt-16 pb-24 sm:pt-24 sm:pb-32">
+  <section class="relative overflow-hidden pt-8 pb-10 sm:pt-10 sm:pb-12">
     <div class="absolute inset-0 bg-dark-999"></div>
     <div class="absolute inset-0 cyber-bg"></div>
     <div class="absolute inset-0 grid-bg opacity-30"></div>
@@ -23,7 +19,7 @@ import { siteConfig } from '../data/site';
     <div class="glow-bg bottom-0 left-1/3 h-64 w-64 bg-neon-orange/10 animate-glow-pulse" style="animation-delay: -1s;"></div>
 
     <div class="container-page relative">
-      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div class="grid items-center gap-12 lg:grid-cols-[45%_55%] lg:gap-16">
         <div>
           <div class="mb-6 inline-flex">
             <span class="badge">
@@ -32,16 +28,75 @@ import { siteConfig } from '../data/site';
             </span>
           </div>
           <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            <AnimatedText delay={0.1} class="gradient-text">Most mini PC brands sell specs.</AnimatedText>
+            <AnimatedText delay={0.1} class="gradient-text">Run 70B-class AI models locally</AnimatedText>
             <br />
-            <AnimatedText delay={0.2} class="text-white">We help you choose one for real AI workloads.</AnimatedText>
+            <AnimatedText delay={0.2} class="text-white">-- without recurring cloud GPU bills.</AnimatedText>
           </h1>
           <AnimatedText delay={0.3}>
             <p class="mt-6 text-lg text-slate-400 text-balance max-w-xl">
-              Syvidea is a sourcing and advisory service for local AI workstations built on the AMD Strix Halo / AI Max+ 395 platform.
-              We help you compare partner options (BOSGAME, PELAND, BITPC), match the configuration to your actual AI workflow,
-              and coordinate quote-based ordering.
+              Syvidea provides a workload-driven evaluation layer for local AI infrastructure,
+              mapping inference requirements to optimized AMD Strix Halo configurations across
+              BOSGAME, PELAND, and BITPC systems.
             </p>
+          </AnimatedText>
+          <AnimatedText delay={0.35}>
+            <p class="mt-3 text-sm text-neon-cyan font-medium max-w-xl">
+              Stop paying for cloud GPUs. Get dedicated local inference infrastructure.
+            </p>
+          </AnimatedText>
+          <AnimatedText delay={0.4}>
+            <div class="mt-6 p-4 rounded-xl border border-neon-purple/30 bg-dark-900/50 max-w-xl">
+              <p class="text-sm font-medium text-neon-purple">What this means for you:</p>
+              <p class="mt-2 text-sm text-slate-400">
+                You receive a structured configuration proposal instead of manually comparing specs.
+                All recommendations are manually reviewed and validated within 24-48 hours.
+              </p>
+            </div>
+          </AnimatedText>
+          <AnimatedText delay={0.5}>
+            <div class="mt-6 grid grid-cols-2 gap-4 max-w-xl">
+              <div class="flex items-center gap-3 p-3 rounded-xl border border-neon-purple/20 bg-dark-900/30">
+                <svg class="h-5 w-5 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+                <div>
+                  <div class="text-sm font-bold text-white">128GB</div>
+                  <div class="text-xs text-slate-500">Unified Memory</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl border border-neon-cyan/20 bg-dark-900/30">
+                <svg class="h-5 w-5 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+                <div>
+                  <div class="text-sm font-bold text-white">50+ TOPS</div>
+                  <div class="text-xs text-slate-500">NPU AI</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl border border-neon-orange/20 bg-dark-900/30">
+                <svg class="h-5 w-5 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <div>
+                  <div class="text-sm font-bold text-white">3 Brands</div>
+                  <div class="text-xs text-slate-500">Curated</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl border border-neon-green/20 bg-dark-900/30">
+                <svg class="h-5 w-5 text-neon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <circle cx="8" cy="21" r="2" />
+                  <circle cx="16" cy="21" r="2" />
+                </svg>
+                <div>
+                  <div class="text-sm font-bold text-white">AMD</div>
+                  <div class="text-xs text-slate-500">Strix Halo</div>
+                </div>
+              </div>
+            </div>
           </AnimatedText>
           <div class="mt-8 flex flex-wrap gap-3">
             <AnimatedLink href="/request-quote" class="btn-primary inline-flex items-center">
@@ -76,6 +131,35 @@ import { siteConfig } from '../data/site';
               Quote-based ordering
             </div>
           </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-500">
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Manual configuration review
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              24-48h response time
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+              Private data, local control
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-neon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+              Workload-based optimization
+            </div>
+          </div>
         </div>
 
         <div class="relative">
@@ -98,9 +182,8 @@ import { siteConfig } from '../data/site';
     </div>
   </section>
 
-  <!-- Trust strip -->
   <section class="border-y border-slate-800 bg-dark-900/30">
-    <div class="container-page py-8">
+    <div class="container-page py-4">
       <div class="grid grid-cols-2 gap-6 text-center sm:grid-cols-3">
         <div>
           <div class="text-3xl font-bold gradient-text-cyan">128<span class="text-lg">GB</span></div>
@@ -118,154 +201,350 @@ import { siteConfig } from '../data/site';
     </div>
   </section>
 
-  <!-- Positioning -->
+  <section class="py-4 bg-gradient-to-r from-neon-purple/10 via-dark-900 to-neon-cyan/10">
+    <div class="container-page">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-neon-orange/20 flex items-center justify-center">
+            <svg class="h-6 w-6 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-sm font-medium text-white">Why Not Cloud?</div>
+            <div class="text-xs text-slate-400">CAPEX vs OPEX: One-time cost vs recurring cloud GPU bills</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-6 text-sm">
+          <div class="text-center">
+            <div class="text-lg font-bold gradient-text-orange">~$3-4k</div>
+            <div class="text-xs text-slate-500">One-time cost</div>
+          </div>
+          <div class="w-px h-8 bg-slate-700"></div>
+          <div class="text-center">
+            <div class="text-lg font-bold text-slate-400">~$500+/mo</div>
+            <div class="text-xs text-slate-500">Cloud GPU</div>
+          </div>
+          <div class="w-px h-8 bg-slate-700"></div>
+          <div class="text-center">
+            <div class="text-lg font-bold gradient-text-green">6-8 months</div>
+            <div class="text-xs text-slate-500">ROI break-even</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <Section
-    eyebrow="What Syvidea is"
-    title="Not a hardware brand. A sourcing and advisory service."
-    subtitle="Syvidea does not manufacture workstations. We curate AMD Strix Halo / AI Max+ 395 partner options and help you choose, compare, and source the right one for your AI workflow."
+    eyebrow="Why Syvidea?"
+    title="Three reasons to work with us"
+    subtitle="We don't just sell hardware. We help you build local AI infrastructure that actually works."
+  >
+    <div class="grid gap-6 md:grid-cols-3">
+      <AnimatedCard class="card text-center" delay={0.1}>
+        <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-neon-purple/20 mb-4">
+          <svg class="h-7 w-7 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-white">Curated Selection</h3>
+        <p class="mt-2 text-sm text-slate-400">We hand-pick ODMs, we don't resell everything. Quality over quantity.</p>
+      </AnimatedCard>
+      <AnimatedCard class="card text-center" delay={0.2}>
+        <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-neon-cyan/20 mb-4">
+          <svg class="h-7 w-7 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-white">Workload Mapping</h3>
+        <p class="mt-2 text-sm text-slate-400">We match your AI task to the right hardware, not just specs on a page.</p>
+      </AnimatedCard>
+      <AnimatedCard class="card text-center" delay={0.3}>
+        <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-neon-green/20 mb-4">
+          <svg class="h-7 w-7 text-neon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-white">Human Validation</h3>
+        <p class="mt-2 text-sm text-slate-400">Every config is checked by our team before you pay.</p>
+      </AnimatedCard>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Your AI workstation partner"
+    title="We help you source the right local AI workstation"
+    subtitle="Syvidea curates AMD Strix Halo / AI Max+ 395 partner options and helps you choose, compare, and source the right one for your AI workflow."
     align="left"
   >
+    <p class="text-sm text-slate-400 mb-6">Every configuration is validated against your workload before quoting. We evaluate memory, compute, and workflow requirements to match the right hardware.</p>
     <div class="grid gap-6 md:grid-cols-3">
       <AnimatedCard class="card" delay={0.1}>
         <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Other stores</div>
         <h3 class="mt-2 text-xl font-semibold text-slate-200">Generic mini PC listings</h3>
         <ul class="mt-4 space-y-2 text-slate-400">
-          <li>• Hardware specs first, AI workflows second</li>
-          <li>• Compete on chip names and lowest price</li>
-          <li>• Add to cart, full online payment</li>
+          <li>- Hardware specs first, AI workflows second</li>
+          <li>- Compete on chip names and lowest price</li>
+          <li>- Add to cart, full online payment</li>
         </ul>
       </AnimatedCard>
       <GlowingCard class="card-neon" glowColor="purple" delay={0.2}>
         <div class="text-xs font-semibold uppercase tracking-wider text-neon-purple">Syvidea</div>
         <h3 class="mt-2 text-xl font-semibold text-white">Local AI infrastructure advisor</h3>
         <ul class="mt-4 space-y-2 text-slate-300">
-          <li>• AI workflows first, then hardware fit</li>
-          <li>• Curated partner options, not infinite SKUs</li>
-          <li>• Quote-based ordering, with personal confirmation</li>
+          <li>- AI workflows first, then hardware fit</li>
+          <li>- Curated partner options, not infinite SKUs</li>
+          <li>- Quote-based ordering, with personal confirmation</li>
         </ul>
       </GlowingCard>
       <AnimatedCard class="card" delay={0.3}>
-        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Not a fit</div>
-        <h3 class="mt-2 text-xl font-semibold text-slate-200">Be honest about trade-offs</h3>
+        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Focus</div>
+        <h3 class="mt-2 text-xl font-semibold text-slate-200">Optimized for local AI</h3>
         <ul class="mt-4 space-y-2 text-slate-400">
-          <li>• Not the fastest CUDA image-generation box</li>
-          <li>• Not for large-scale model training</li>
-          <li>• Not a cheap office Mini PC</li>
+          <li>- 128GB unified memory for large models</li>
+          <li>- Integrated NPU for AI acceleration</li>
+          <li>- Compact form factor for desk deployment</li>
         </ul>
       </AnimatedCard>
     </div>
   </Section>
 
-  <!-- Use cases -->
   <Section
     eyebrow="Real AI workloads"
     title="Designed around how you actually run local AI"
     subtitle="The shared platform is selected to support these workflows. The exact software stack and validated model list will be confirmed with you during the quote."
   >
+    <p class="text-sm text-slate-400 mb-6">Each use case maps to specific hardware optimization requirements. We evaluate your workload intensity and memory demand to recommend the right configuration.</p>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {useCases.map((useCase, i) => (
-        <AnimatedCard class="spec-card" delay={0.1 + i * 0.1}>
-          <h3 class="text-lg font-semibold text-slate-200">{useCase.title}</h3>
-          <p class="mt-2 text-slate-400">{useCase.description}</p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            {useCase.models.slice(0, 3).map((m) => (
-              <span class="text-xs rounded-lg bg-slate-800/50 border border-slate-700/50 px-2.5 py-1 text-slate-300">
-                {m}
-              </span>
-            ))}
-          </div>
-        </AnimatedCard>
-      ))}
-    </div>
-  </Section>
-
-  <!-- Partner brands -->
-  <Section
-    eyebrow="Curated partner options"
-    title="Three partner brands. One shared platform."
-    subtitle="BOSGAME, PELAND, and BITPC all build on the same AMD Strix Halo / AI Max+ 395 platform. Differences live in chassis, I/O details, dimensions, wireless, thermals, BIOS, packaging, warranty, and supply batches."
-  >
-    <div class="grid gap-8 md:grid-cols-3">
-      {brands.map((brand, i) => {
-        const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === 'PELAND' ? 'card-cyan' : 'card-orange';
-        const brandBadgeClass = brand.name === 'BOSGAME' ? 'badge' : brand.name === 'PELAND' ? 'badge-cyan' : 'badge-orange';
-        const glowColor = brand.name === 'BOSGAME' ? 'purple' : brand.name === 'PELAND' ? 'cyan' : 'orange';
+      {useCases.map((useCase, i) => {
+        const gradientColors = [
+          'from-neon-purple to-neon-pink',
+          'from-neon-cyan to-neon-blue',
+          'from-neon-orange to-neon-yellow',
+          'from-neon-green to-neon-cyan',
+          'from-neon-pink to-neon-orange',
+          'from-neon-blue to-neon-purple',
+        ];
         return (
-          <GlowingCard class={`group relative flex flex-col overflow-hidden rounded-3xl shadow-xl shadow-black/20 ${brandCardClass.replace('card-', 'border-slate-800/60 bg-dark-900/50 ')}`} glowColor={glowColor} delay={0.1 + i * 0.1}>
-            <a href={`/workstations/${brand.slug}`} class="flex flex-1 flex-col">
-              <div class="relative overflow-hidden">
-                <ProductMock variant="card" brand={brand.name} />
-                <div class="absolute top-4 left-4">
-                  <span class={brandBadgeClass}>{brand.region}</span>
-                </div>
+          <AnimatedCard class="group relative overflow-hidden rounded-3xl border border-slate-800/60 bg-dark-900/50 p-6 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1" delay={0.1 + i * 0.1}>
+            <div class="relative h-32 mb-6 overflow-hidden rounded-2xl bg-dark-800/50">
+              <img
+                src={`https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=${encodeURIComponent(useCase.imagePrompt)}&image_size=landscape_16_9`}
+                alt={useCase.title}
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-999 via-dark-999/50 to-transparent"></div>
+              <div class="absolute bottom-3 left-3">
+                <span class={`inline-flex items-center gap-2 text-xs font-medium text-white`}>
+                  <span class={`h-1.5 w-1.5 rounded-full bg-gradient-to-r ${gradientColors[i % gradientColors.length]}`}></span>
+                  {useCase.title}
+                </span>
               </div>
-              <div class="flex flex-1 flex-col p-6">
-                <h3 class="text-xl font-bold text-white">{brand.name}</h3>
-                <p class="mt-1 text-sm text-slate-400">{brand.positioning}</p>
-                <p class="mt-3 text-sm text-slate-300 flex-1">{brand.summary}</p>
-                <div class="mt-5 flex items-center text-sm font-medium">
-                  <span class={brand.name === 'BOSGAME' ? 'text-neon-purple' : brand.name === 'PELAND' ? 'text-neon-cyan' : 'text-neon-orange'}>View details</span>
-                  <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </div>
-              </div>
-            </a>
-          </GlowingCard>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-200">{useCase.title}</h3>
+            <p class="mt-2 text-sm text-slate-400">{useCase.description}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {useCase.models.slice(0, 3).map((m) => (
+                <span class="text-xs rounded-lg bg-slate-800/50 border border-slate-700/50 px-2.5 py-1 text-slate-300">
+                  {m}
+                </span>
+              ))}
+            </div>
+            <div class="mt-4 text-xs text-slate-500">
+              Recommended: {useCase.recommended}
+            </div>
+          </AnimatedCard>
         );
       })}
     </div>
   </Section>
 
-  <!-- Shared platform summary -->
   <Section
-    eyebrow="Shared platform"
-    title="One specification, three partners"
-    subtitle="A compact local AI workstation platform built around AMD Strix Halo, high-bandwidth LPDDR5X memory, dual PCIe 4.0 SSD slots and modern high-speed I/O."
+    eyebrow="Partner brands"
+    title="Three ODM Partners, One Unified Platform"
+    subtitle="We source from three trusted ODM partners. While all share the same AMD Strix Halo core specifications (128GB/2TB), they differ in chassis design and thermal solutions to suit different deployment environments."
   >
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <AnimatedCard class="spec-card" delay={0.1}>
-        <div class="text-xs font-semibold uppercase tracking-wider text-neon-purple">Processor</div>
-        <div class="mt-3 text-2xl font-bold gradient-text-purple">{sharedPlatform.processor.name}</div>
-        <p class="mt-2 text-sm text-slate-400">
-          {sharedPlatform.processor.cores} • {sharedPlatform.processor.boost}
+    <div class="card border border-slate-800/60 bg-dark-900/50 rounded-3xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-slate-700/50">
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Brand</th>
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Design Focus</th>
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Best For</th>
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Thermal Solution</th>
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Form Factor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-700/30 hover:bg-dark-800/30 transition-colors">
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <span class="badge">BOSGAME</span>
+                </div>
+              </td>
+              <td class="p-4 text-sm text-slate-300">Performance tuning & active cooling</td>
+              <td class="p-4 text-sm text-slate-300">Developers needing sustained loads</td>
+              <td class="p-4 text-sm text-slate-300">Dual-fan, high airflow design</td>
+              <td class="p-4 text-sm text-slate-300">Mid-sized desktop</td>
+            </tr>
+            <tr class="border-b border-slate-700/30 hover:bg-dark-800/30 transition-colors">
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <span class="badge-cyan">PELAND</span>
+                </div>
+              </td>
+              <td class="p-4 text-sm text-slate-300">Compact form factor, quiet operation</td>
+              <td class="p-4 text-sm text-slate-300">Space-constrained deployments</td>
+              <td class="p-4 text-sm text-slate-300">Single-fan, low-noise design</td>
+              <td class="p-4 text-sm text-slate-300">Mini-PC form factor</td>
+            </tr>
+            <tr class="hover:bg-dark-800/30 transition-colors">
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <span class="badge-orange">BITPC</span>
+                </div>
+              </td>
+              <td class="p-4 text-sm text-slate-300">Enterprise-grade build quality</td>
+              <td class="p-4 text-sm text-slate-300">Office/professional environments</td>
+              <td class="p-4 text-sm text-slate-300">Optimized for 24/7 operation</td>
+              <td class="p-4 text-sm text-slate-300">Professional desktop</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="p-4 bg-dark-800/50 border-t border-slate-700/50">
+        <p class="text-xs text-slate-500 text-center">
+          *All brands support the same AI workloads and performance targets. The core AMD Strix Halo specifications (128GB LPDDR5X, 2TB SSD, 50 TOPS NPU) are identical across all partners.*
         </p>
-      </AnimatedCard>
-      <AnimatedCard class="spec-card" delay={0.2}>
-        <div class="text-xs font-semibold uppercase tracking-wider text-neon-cyan">Memory</div>
-        <div class="mt-3 text-2xl font-bold gradient-text-cyan">{sharedPlatform.memory.capacity}</div>
-        <p class="mt-2 text-sm text-slate-400">
-          {sharedPlatform.memory.type} • {sharedPlatform.memory.bandwidth}
-        </p>
-      </AnimatedCard>
-      <AnimatedCard class="spec-card" delay={0.3}>
-        <div class="text-xs font-semibold uppercase tracking-wider text-neon-orange">Storage</div>
-        <div class="mt-3 text-2xl font-bold gradient-text-orange">{sharedPlatform.storage.capacity}</div>
-        <p class="mt-2 text-sm text-slate-400">
-          {sharedPlatform.storage.slots}
-        </p>
-      </AnimatedCard>
-      <AnimatedCard class="spec-card" delay={0.4}>
-        <div class="text-xs font-semibold uppercase tracking-wider text-neon-pink">Graphics</div>
-        <div class="mt-3 text-2xl font-bold gradient-text">{sharedPlatform.graphics.integrated}</div>
-        <p class="mt-2 text-sm text-slate-400">
-          {sharedPlatform.graphics.architecture}
-        </p>
-      </AnimatedCard>
-    </div>
-    <div class="mt-10 text-center">
-      <AnimatedLink href={`/workstations/${sharedPlatform.slug}`} class="btn-primary inline-flex items-center">
-        See the full shared platform spec
-        <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12" />
-          <polyline points="12 5 19 12 12 19" />
-        </svg>
-      </AnimatedLink>
+      </div>
     </div>
   </Section>
 
-  <!-- How it works (brief) -->
+  <Section
+    eyebrow="The Architecture"
+    title="The Architecture Behind Local 70B Inference"
+    subtitle="All Syvidea configurations are built on the AMD Ryzen™ AI Max+ 395 platform, featuring a unified memory architecture designed for large language models."
+  >
+    <div class="card border border-neon-purple/30 bg-dark-900/60 rounded-3xl p-8">
+      <div class="grid gap-8 lg:grid-cols-2">
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">Key Specifications (Standard Across All Models)</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-800/50">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-neon-cyan/20 flex items-center justify-center">
+                <svg class="h-6 w-6 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-sm font-medium text-white">Memory</div>
+                <div class="text-xs text-slate-400">128GB LPDDR5X (8000MHz)</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-800/50">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-neon-orange/20 flex items-center justify-center">
+                <svg class="h-6 w-6 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <circle cx="8" cy="21" r="2" />
+                  <circle cx="16" cy="21" r="2" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-sm font-medium text-white">Storage</div>
+                <div class="text-xs text-slate-400">2TB NVMe SSD</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-800/50">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-neon-purple/20 flex items-center justify-center">
+                <svg class="h-6 w-6 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-sm font-medium text-white">NPU</div>
+                <div class="text-xs text-slate-400">50 TOPS XDNA 2</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-800/50">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center">
+                <svg class="h-6 w-6 text-neon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-sm font-medium text-white">Unified Memory</div>
+                <div class="text-xs text-slate-400">Up to 96GB dynamically allocated for GPU tasks</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">Performance Benchmarks (Local Inference)</h3>
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-gradient-to-r from-neon-purple/20 to-neon-pink/20 border border-neon-purple/30">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm font-medium text-white">Qwen3 235B</span>
+                <span class="text-xs badge">FP8 Quantization</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-2xl font-bold gradient-text-purple">0.03s</div>
+                  <div class="text-xs text-slate-400">First token</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold gradient-text-purple">11</div>
+                  <div class="text-xs text-slate-400">tokens/s</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 border border-neon-cyan/30">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm font-medium text-white">Llama 4 109B</span>
+                <span class="text-xs badge-cyan">Q4KM Quantization</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-2xl font-bold gradient-text-cyan">0.02s</div>
+                  <div class="text-xs text-slate-400">First token</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold gradient-text-cyan">13.8</div>
+                  <div class="text-xs text-slate-400">tokens/s</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-gradient-to-r from-neon-orange/20 to-neon-yellow/20 border border-neon-orange/30">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm font-medium text-white">DeepSeek-R1 70B</span>
+                <span class="text-xs badge-orange">FP8 Quantization</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-2xl font-bold gradient-text-orange">0.05s</div>
+                  <div class="text-xs text-slate-400">First token</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold gradient-text-orange">9.3</div>
+                  <div class="text-xs text-slate-400">tokens/s</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-xs text-slate-500 italic">*Benchmarks measured on Windows 11 with LM Studio, specific model versions may vary.</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
   <Section
     eyebrow="How it works"
     title="From inquiry to delivery, in four steps"

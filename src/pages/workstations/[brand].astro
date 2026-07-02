@@ -81,6 +81,73 @@ const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === '
     </div>
   </section>
 
+  {brand.images && (
+    <section class="relative py-16 sm:py-20">
+      <div class="container-page">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center rounded-full border border-slate-700 bg-dark-900/50 px-4 py-1.5 text-xs font-medium text-slate-400">
+            Product views
+          </div>
+          <h2 class="mt-4 text-2xl font-bold text-white sm:text-3xl">View from different angles</h2>
+        </div>
+        
+        <div class="grid gap-6 sm:grid-cols-3">
+          {brand.images.front && (
+            <div class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-dark-900/60 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div class="aspect-square overflow-hidden">
+                <img
+                  src={brand.images.front}
+                  alt={`${brand.name} front view`}
+                  class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark-999/90 to-transparent p-4">
+                <span class={`text-sm font-medium ${brandTheme.primary === 'neon-purple' ? 'text-neon-purple' : brandTheme.primary === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-orange'}`}>Front view</span>
+              </div>
+            </div>
+          )}
+          
+          {brand.images.side && (
+            <div class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-dark-900/60 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div class="aspect-square overflow-hidden">
+                <img
+                  src={brand.images.side}
+                  alt={`${brand.name} side view`}
+                  class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark-999/90 to-transparent p-4">
+                <span class={`text-sm font-medium ${brandTheme.primary === 'neon-purple' ? 'text-neon-purple' : brandTheme.primary === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-orange'}`}>Side view</span>
+              </div>
+            </div>
+          )}
+          
+          {brand.images.ports && (
+            <div class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-dark-900/60 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div class="aspect-square overflow-hidden">
+                <img
+                  src={brand.images.ports}
+                  alt={`${brand.name} ports view`}
+                  class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark-999/90 to-transparent p-4">
+                <span class={`text-sm font-medium ${brandTheme.primary === 'neon-purple' ? 'text-neon-purple' : brandTheme.primary === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-orange'}`}>Ports view</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div class="mt-10 text-center">
+          <p class="text-slate-400 mb-4">Need more photos or detailed configuration?</p>
+          <a href="/request-quote" class={`inline-flex items-center gap-2 text-sm font-medium ${brandTheme.primary === 'neon-purple' ? 'text-neon-purple' : brandTheme.primary === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-orange'} hover:underline`}>
+            Request a quote for the full gallery and specs →
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Positioning -->
   <Section
     eyebrow="Positioning"
@@ -148,6 +215,98 @@ const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === '
     <div class="mt-8 text-sm text-slate-400">
       See the full shared platform spec on the
       <a href={`/workstations/${sharedPlatform.slug}`} class={`text-${brandTheme.primary} underline`}>shared platform page</a>.
+    </div>
+  </Section>
+
+  <!-- Technical Specifications -->
+  <Section
+    eyebrow="Technical"
+    title="Detailed specifications"
+    align="left"
+  >
+    <div class={`card border-${brandTheme.primary}/30 bg-dark-900/60`}>
+      <div class="overflow-hidden rounded-xl border border-slate-800/60">
+        <div class="grid divide-y divide-slate-800">
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">Processor</div>
+            <div class="text-sm text-white">{sharedPlatform.processor.name}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">Architecture</div>
+            <div class="text-sm text-white">{sharedPlatform.processor.architecture}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">Cores / Threads</div>
+            <div class="text-sm text-white">{sharedPlatform.processor.cores}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">Max Boost</div>
+            <div class="text-sm text-white">{sharedPlatform.processor.boost}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">AI Performance</div>
+            <div class="text-sm text-white">{sharedPlatform.processor.aiPerformance}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">NPU</div>
+            <div class="text-sm text-white">{sharedPlatform.processor.npu}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">Memory Type</div>
+            <div class="text-sm text-white">{sharedPlatform.memory.type}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">Memory Capacity</div>
+            <div class="text-sm text-white">{sharedPlatform.memory.capacity}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">Memory Interface</div>
+            <div class="text-sm text-white">{sharedPlatform.memory.bandwidth}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">Storage Slots</div>
+            <div class="text-sm text-white">{sharedPlatform.storage.slots}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">Typical Storage</div>
+            <div class="text-sm text-white">{sharedPlatform.storage.capacity}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">Graphics</div>
+            <div class="text-sm text-white">{sharedPlatform.graphics.integrated}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">Graphics Architecture</div>
+            <div class="text-sm text-white">{sharedPlatform.graphics.architecture}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">High-Speed I/O</div>
+            <div class="text-sm text-white">{sharedPlatform.connectivity.usb4}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">Networking</div>
+            <div class="text-sm text-white">{sharedPlatform.connectivity.networking}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">Wireless</div>
+            <div class="text-sm text-white">{sharedPlatform.connectivity.wireless}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4 bg-dark-800/30">
+            <div class="text-sm font-medium text-slate-400">Form Factor</div>
+            <div class="text-sm text-white">{sharedPlatform.formFactor.class}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 px-6 py-4">
+            <div class="text-sm font-medium text-slate-400">Cooling</div>
+            <div class="text-sm text-white">{sharedPlatform.powerAndCooling.cooling}</div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 text-center">
+        <p class="text-sm text-slate-400">Brand-specific dimensions, exact port layout, and power supply specs vary. </p>
+        <a href="/request-quote" class={`inline-flex items-center gap-2 mt-2 text-sm font-medium ${brandTheme.primary === 'neon-purple' ? 'text-neon-purple' : brandTheme.primary === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-orange'} hover:underline`}>
+          Request a quote for complete brand-specific specifications →
+        </a>
+      </div>
     </div>
   </Section>
 

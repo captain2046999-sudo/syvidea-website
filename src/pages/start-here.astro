@@ -1,13 +1,13 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/Section.astro';
-import { AnimatedCard, AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated';
+import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated';
 ---
 <PageLayout
   title="Start Here — Syvidea"
   description="Choose how you want to run local AI. Match real workloads with the right workstation configuration across three partner platforms."
 >
-  <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32" onload="setSource('start-here')">
+  <section class="relative overflow-hidden pt-8 pb-10 sm:pt-10 sm:pb-12" onload="setSource('start-here')">
     <div class="absolute inset-0 bg-dark-999"></div>
     <div class="absolute inset-0 cyber-bg"></div>
     <div class="absolute inset-0 grid-bg opacity-30"></div>
@@ -25,97 +25,236 @@ import { AnimatedCard, AnimatedText, AnimatedLink, GlowingCard } from '../compon
         <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
           <AnimatedText delay={0.1} class="gradient-text">Start here</AnimatedText>
           <br />
-          <AnimatedText delay={0.2} class="text-white">choose how you want to run local AI</AnimatedText>
+          <AnimatedText delay={0.2} class="text-white">— workload-based AI system selection</AnimatedText>
         </h1>
         <AnimatedText delay={0.3}>
           <p class="mt-6 text-lg text-slate-400 text-balance max-w-2xl mx-auto">
-            Syvidea helps you match real local AI workloads with the right workstation configuration across three partner platforms.
+            We evaluate your workload context and map your requirements to optimized hardware configurations. Every recommendation is manually reviewed and validated within 24–48 hours.
           </p>
+        </AnimatedText>
+        <AnimatedText delay={0.4}>
+          <div class="mt-6 p-4 rounded-xl border border-neon-purple/30 bg-dark-900/50 max-w-xl mx-auto">
+            <p class="text-sm font-medium text-neon-purple">What this means for you:</p>
+            <p class="mt-2 text-sm text-slate-400">
+              You are guided through a structured decision path instead of selecting hardware directly.
+              All configurations are manually reviewed and validated within 24–48 hours.
+            </p>
+          </div>
         </AnimatedText>
       </div>
     </div>
   </section>
 
   <Section
-    eyebrow="Choose your path"
-    title="Three ways to get started"
+    eyebrow="How to Get Started"
+    title="Select the path that matches your current stage"
     align="left"
   >
     <div class="grid gap-6 md:grid-cols-3">
-      <GlowingCard class="group card-neon" glowColor="purple" delay={0.1}>
+      <GlowingCard class="group card-neon border border-neon-purple/30 bg-dark-900/60 rounded-2xl" glowColor="purple" delay={0.1}>
         <div class="flex h-full flex-col p-6">
           <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-neon-purple/20">
             <svg class="h-6 w-6 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white">I want to run Local LLMs or RAG systems</h3>
+          <h3 class="text-xl font-semibold text-white">Path A: I know my workload</h3>
+          <p class="mt-1 text-sm text-neon-purple font-medium">I have specific models or frameworks in mind</p>
           <p class="mt-3 text-sm text-slate-400 flex-1">
-            Explore validated use cases and see which workloads map to which hardware configuration.
+            You know exactly what you need. We'll validate your requirements against our hardware and provide a tailored configuration proposal.
           </p>
-          <div class="mt-5 flex items-center text-sm font-medium">
-            <a href="/use-cases" onclick="trackEvent('start_here_click', { path: 'use_cases', action: 'Explore use cases' })" class="text-neon-purple hover:opacity-80 transition-opacity">Explore use cases</a>
-            <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+          <div class="mt-5">
+            <a href="/request-quote" onclick="trackEvent('start_here_click', { path: 'request_quote', action: 'Request a config' })" class="btn-primary w-full inline-flex items-center justify-center">
+              Request a Config
+              <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
           </div>
         </div>
       </GlowingCard>
 
-      <GlowingCard class="group card-cyan" glowColor="cyan" delay={0.2}>
+      <GlowingCard class="group card-cyan border border-neon-cyan/30 bg-dark-900/60 rounded-2xl" glowColor="cyan" delay={0.2}>
         <div class="flex h-full flex-col p-6">
           <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-neon-cyan/20">
             <svg class="h-6 w-6 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-              <line x1="9" y1="9" x2="15" y2="9" />
-              <line x1="9" y1="15" x2="15" y2="15" />
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white">I want to build AI agents or development workflows</h3>
+          <h3 class="text-xl font-semibold text-white">Path B: I need validation</h3>
+          <p class="mt-1 text-sm text-neon-cyan font-medium">I'm not sure if local inference fits my budget</p>
           <p class="mt-3 text-sm text-slate-400 flex-1">
-            Compare the three partner platforms and understand their optimization focus for different development needs.
+            You're exploring options. We'll share benchmark data and help you understand what's possible with local AI.
           </p>
-          <div class="mt-5 flex items-center text-sm font-medium">
-            <a href="/workstations" onclick="trackEvent('start_here_click', { path: 'workstations', action: 'Compare workstations' })" class="text-neon-cyan hover:opacity-80 transition-opacity">Compare workstations</a>
-            <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+          <div class="mt-5">
+            <a href="/workstations/platform" onclick="trackEvent('start_here_click', { path: 'platform', action: 'View benchmark data' })" class="btn-primary w-full inline-flex items-center justify-center bg-neon-cyan/20 border-neon-cyan text-white hover:bg-neon-cyan/30">
+              View Benchmark Data
+              <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
           </div>
         </div>
       </GlowingCard>
 
-      <GlowingCard class="group card-orange" glowColor="orange" delay={0.3}>
+      <GlowingCard class="group card-orange border border-neon-orange/30 bg-dark-900/60 rounded-2xl" glowColor="orange" delay={0.3}>
         <div class="flex h-full flex-col p-6">
           <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-neon-orange/20">
             <svg class="h-6 w-6 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white">Path C: Complex deployment</h3>
+          <p class="mt-1 text-sm text-neon-orange font-medium">I need custom software stack or multi-node</p>
+          <p class="mt-3 text-sm text-slate-400 flex-1">
+            You have advanced requirements. Let's discuss your specific needs and design a complete solution.
+          </p>
+          <div class="mt-5">
+            <a href="/contact" onclick="trackEvent('start_here_click', { path: 'contact', action: 'Book a consultation' })" class="btn-primary w-full inline-flex items-center justify-center bg-neon-orange/20 border-neon-orange text-white hover:bg-neon-orange/30">
+              Book a Consultation
+              <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+          <p class="mt-3 text-xs text-slate-500 italic">*For custom software stacks, multi-node setups, or enterprise deployments.*</p>
+        </div>
+      </GlowingCard>
+    </div>
+    <div class="mt-6 text-center">
+      <p class="text-sm text-slate-400">
+        All three paths lead to a manually reviewed, validated configuration proposal within 24–48 hours.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Workload Optimization"
+    title="What You Get: Workload-Specific Optimization"
+    subtitle="We don't just ship hardware. We pre-configure the software stack based on your use case."
+    align="left"
+  >
+    <div class="card border border-slate-800/60 bg-dark-900/50 rounded-3xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-slate-700/50">
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Your Workload</th>
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Our Configuration</th>
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Key Optimizations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-700/30 hover:bg-dark-800/30 transition-colors">
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <span class="badge">Local LLM Chat</span>
+                  <span class="text-xs text-slate-500">(Llama 3, Qwen)</span>
+                </div>
+              </td>
+              <td class="p-4 text-sm text-slate-300">Optimized VRAM allocation, LM Studio pre-installed</td>
+              <td class="p-4 text-sm text-slate-300">96GB dynamic VRAM, model library pre-loaded</td>
+            </tr>
+            <tr class="border-b border-slate-700/30 hover:bg-dark-800/30 transition-colors">
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <span class="badge-cyan">RAG Pipeline</span>
+                  <span class="text-xs text-slate-500">(Vector DB, knowledge base)</span>
+                </div>
+              </td>
+              <td class="p-4 text-sm text-slate-300">Vector DB optimization, high-speed storage indexing</td>
+              <td class="p-4 text-sm text-slate-300">SSD I/O tuning, embeddings cache optimization</td>
+            </tr>
+            <tr class="border-b border-slate-700/30 hover:bg-dark-800/30 transition-colors">
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <span class="badge-orange">AI Agents</span>
+                  <span class="text-xs text-slate-500">(Tool-using, coding agents)</span>
+                </div>
+              </td>
+              <td class="p-4 text-sm text-slate-300">Multi-process allocation, background task management</td>
+              <td class="p-4 text-sm text-slate-300">Parallel processing, resource pooling</td>
+            </tr>
+            <tr class="hover:bg-dark-800/30 transition-colors">
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs badge bg-neon-pink/20 text-neon-pink border-neon-pink/30">Multimodal</span>
+                  <span class="text-xs text-slate-500">(Vision/Audio/Video)</span>
+                </div>
+              </td>
+              <td class="p-4 text-sm text-slate-300">NPU driver tuning, mixed-precision setup</td>
+              <td class="p-4 text-sm text-slate-300">XDNA 2 acceleration, media pipeline optimization</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="The Process"
+    title="Four steps to your configured workstation"
+    align="left"
+  >
+    <div class="relative">
+      <div class="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-neon-purple via-neon-cyan via-neon-green to-neon-orange opacity-30"></div>
+      <div class="grid gap-8 md:grid-cols-4">
+        <div class="relative flex flex-col items-center text-center">
+          <div class="relative z-10 flex items-center justify-center w-14 h-14 rounded-full bg-neon-purple/20 border-2 border-neon-purple text-neon-purple font-bold shadow-lg shadow-neon-purple/30">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white">I want to request a workstation quote</h3>
-          <p class="mt-3 text-sm text-slate-400 flex-1">
-            Skip the research and submit your requirements directly. We will provide a tailored configuration and quote.
-          </p>
-          <div class="mt-5 flex items-center text-sm font-medium">
-            <a href="/request-quote" onclick="trackEvent('start_here_click', { path: 'request_quote', action: 'Request a quote' })" class="text-neon-orange hover:opacity-80 transition-opacity">Request a quote</a>
-            <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
+          <h3 class="mt-4 text-lg font-semibold text-white">Submit Requirements</h3>
+          <p class="mt-2 text-sm text-slate-400">Describe your workload, model size, and use case.</p>
+        </div>
+        <div class="relative flex flex-col items-center text-center">
+          <div class="relative z-10 flex items-center justify-center w-14 h-14 rounded-full bg-neon-cyan/20 border-2 border-neon-cyan text-neon-cyan font-bold shadow-lg shadow-neon-cyan/30">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
+          <h3 class="mt-4 text-lg font-semibold text-white">Manual Validation</h3>
+          <p class="mt-2 text-sm text-slate-400">We evaluate your needs against our hardware specifications.</p>
         </div>
-      </GlowingCard>
+        <div class="relative flex flex-col items-center text-center">
+          <div class="relative z-10 flex items-center justify-center w-14 h-14 rounded-full bg-neon-green/20 border-2 border-neon-green text-neon-green font-bold shadow-lg shadow-neon-green/30">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-white">Pre-configuration</h3>
+          <p class="mt-2 text-sm text-slate-400">Software stack optimized for your specific workload.</p>
+        </div>
+        <div class="relative flex flex-col items-center text-center">
+          <div class="relative z-10 flex items-center justify-center w-14 h-14 rounded-full bg-neon-orange/20 border-2 border-neon-orange text-neon-orange font-bold shadow-lg shadow-neon-orange/30">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-white">Shipping</h3>
+          <p class="mt-2 text-sm text-slate-400">Workstation delivered with your custom setup.</p>
+        </div>
+      </div>
     </div>
   </Section>
 
   <Section
     eyebrow="Not sure yet?"
     title="Use the recommendation engine"
-    subtitle="Answer a few questions about your workload, model size, and preferences. The engine will map your needs to the right hardware."
+    subtitle="Answer 5 questions about your AI workload. We'll instantly map your needs to the best hardware configuration."
     align="left"
   >
-    <div class="card text-center">
+    <div class="card text-center border border-neon-purple/30 bg-dark-900/60">
       <p class="text-lg text-slate-300 max-w-2xl mx-auto">
         Map your workload to hardware without spending hours researching specifications.
       </p>

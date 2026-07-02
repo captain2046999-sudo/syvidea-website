@@ -12,7 +12,7 @@ export const faqs = [
       },
       {
         q: 'Who actually manufactures these workstations?',
-        a: 'Syvidea is not a hardware manufacturer. The workstations are produced by our hardware partners (BOSGAME, PELAND, BITPC). Syvidea acts as a sourcing and advisory layer, helping you choose the right option, get a quote, and coordinate delivery.',
+        a: 'The workstations are produced by our hardware partners (BOSGAME, PELAND, BITPC). Syvidea acts as your sourcing and advisory partner, helping you choose the right option, get a quote, and coordinate delivery.',
       },
     ],
   },

@@ -8,7 +8,7 @@ export const siteConfig = {
   region: '',
   tagline: 'Local AI Workstation Sourcing & Advisory',
   shortDescription:
-    'Not a hardware brand. A sourcing and advisory service for local AI workstations built on the AMD Strix Halo / AI Max+ 395 platform.',
+    'Your local AI workstation sourcing partner. We help you choose, compare, and source AMD Strix Halo / AI Max+ 395 workstations from trusted hardware partners.',
   twitter: '@syvidea',
   facebook: 'syvidea',
   locale: 'en_US',

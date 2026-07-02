@@ -18,6 +18,11 @@ export const brands = [
       'Active cooling design',
     ],
     note: 'BOSGAME-specific chassis, port layout, and supply batches apply.',
+    images: {
+      front: '/images/bosgame-front.jpg',
+      side: '/images/bosgame-side.jpg',
+      ports: '/images/bosgame-ports.jpg',
+    },
   },
   {
     name: 'PELAND',
@@ -33,6 +38,11 @@ export const brands = [
       'Quiet operation focus',
     ],
     note: 'PELAND-specific BIOS tuning, thermals, and warranty terms apply.',
+    images: {
+      front: '/images/peland-front.jpg',
+      side: '/images/peland-side.jpg',
+      ports: '/images/peland-ports.jpg',
+    },
   },
   {
     name: 'BITPC',
@@ -48,6 +58,7 @@ export const brands = [
       'Brand-specific chassis and port layout',
     ],
     note: 'BITPC-specific chassis, accessories, and packaging configuration apply.',
+    images: null,
   },
 ];
 
@@ -56,31 +67,43 @@ export const useCases = [
   {
     title: 'Local LLM Development',
     description: 'Run 70B-class quantized models locally with sufficient unified memory for context and experimentation.',
-    models: ['Qwen3 32B', 'Qwen3 70B (quantized)', 'DeepSeek-style reasoning', 'Llama 3.x variants'],
+    models: ['Llama 3.3 70B', 'Qwen2 72B', 'Mistral Large', 'Phi-3.5'],
+    recommended: 'PELAND',
+    imagePrompt: 'Professional software developer working on AI model development with code editor showing LLM code, dark theme, tech workspace, multiple monitors with model architecture diagrams',
   },
   {
     title: 'Private RAG Systems',
     description: 'Keep documents, prompts, and knowledge bases on hardware you control. No data leaves your environment by default.',
     models: ['Open WebUI', 'Private knowledge bases', 'Vector DB workflows'],
+    recommended: 'PELAND',
+    imagePrompt: 'Enterprise knowledge management system dashboard with document search interface, secure data visualization, private server environment, dark cyberpunk UI',
   },
   {
     title: 'AI Agents & Coding Agents',
     description: 'Run tool-using agents, local coding agents, and long-running automation tasks on a dedicated local machine.',
     models: ['OpenHands', 'Local coding agents', 'Tool-using agents'],
+    recommended: 'BOSGAME',
+    imagePrompt: 'AI coding assistant interface with terminal showing automated code generation, agent workflow visualization, developer workspace, futuristic UI design',
   },
   {
     title: 'Multimodal AI Workflows',
     description: 'Image generation, voice models, and vision workflows with sufficient memory for multiple concurrent tools.',
     models: ['Flux', 'SDXL', 'CosyVoice', 'GPT-SoVITS', 'Qwen-VL'],
+    recommended: 'BOSGAME',
+    imagePrompt: 'Creative AI workspace with image generation results, video editing tools, voice synthesis interface, colorful visual output, modern dark theme',
   },
   {
     title: 'Homelab & Personal AI Server',
     description: 'A compact local AI server for always-available personal AI infrastructure without recurring cloud GPU bills.',
     models: ['Multi-tool AI stacks', 'Local model management', 'Private experiments'],
+    recommended: 'BITPC',
+    imagePrompt: 'Compact home server setup with mini PC tower, network cables, glowing LED indicators, tech enthusiast workspace, dark room ambient lighting',
   },
   {
     title: 'Small Team AI Workspace',
     description: 'A shared local AI workstation for small teams running RAG, internal tools, and workflow experiments together.',
     models: ['Team RAG', 'Internal demos', 'Workflow validation'],
+    recommended: 'BITPC',
+    imagePrompt: 'Small team collaborative workspace with multiple developers around AI workstation, project planning board, modern office environment, tech startup vibe',
   },
 ];
