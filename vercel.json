@@ -6,6 +6,9 @@
   "installCommand": "npm install",
   "trailingSlash": false,
   "cleanUrls": true,
+  "static": {
+    "prefix": "/"
+  },
   "redirects": [
     { "source": "/workstations/amd-strix-halo-platform", "destination": "/workstations/platform", "permanent": true },
     { "source": "/workstations/amd-strix-halo-platform/:path*", "destination": "/workstations/platform/:path*", "permanent": true },
