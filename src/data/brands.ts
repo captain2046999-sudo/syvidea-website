@@ -7,7 +7,7 @@ export const brands = [
   {
     name: 'BOSGAME',
     slug: 'bosgame',
-    region: 'Partner brand — global sourcing',
+    region: '',
     summary: 'A compact local AI workstation built around the AMD Strix Halo platform with 128GB unified memory and dual PCIe 4.0 SSD slots.',
     positioning: 'Compact, well-rounded option for developers and homelab users',
     highlights: [
@@ -27,7 +27,7 @@ export const brands = [
   {
     name: 'PELAND',
     slug: 'peland',
-    region: 'Partner brand — global sourcing',
+    region: '',
     summary: 'A local AI workstation built on the AMD Strix Halo platform with 128GB unified memory, designed for sustained local LLM and RAG workloads.',
     positioning: 'Sustained-workload option for AI builders',
     highlights: [
@@ -47,7 +47,7 @@ export const brands = [
   {
     name: 'BITPC',
     slug: 'bitpc',
-    region: 'Partner brand — global sourcing',
+    region: '',
     summary: 'A compact AMD Strix Halo local AI workstation with 128GB unified memory, positioned for developers, creators, and small AI teams.',
     positioning: 'Developer-focused compact AI workstation',
     highlights: [

@@ -109,9 +109,11 @@ import { sharedPlatform } from '../../data/platform';
           <a href={`/workstations/${brand.slug}`} onclick="trackEvent('workstation_click', { brand: `${brand.name}` })" class={`group relative flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-2 ${brandCardClass} shadow-xl shadow-black/20`}>
             <div class="relative overflow-hidden">
               <ProductMock variant="card" brand={brand.name} />
-              <div class="absolute top-4 left-4">
-                <span class={brandBadgeClass}>{brand.region}</span>
-              </div>
+              {brand.region && (
+                <div class="absolute top-4 left-4">
+                  <span class={brandBadgeClass}>{brand.region}</span>
+                </div>
+              )}
             </div>
             <div class="flex flex-1 flex-col p-6">
               <h3 class="text-2xl font-bold text-white">{brand.name}</h3>

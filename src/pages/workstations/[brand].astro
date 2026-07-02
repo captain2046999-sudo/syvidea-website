@@ -352,9 +352,11 @@ const brandTheme = brand.name === 'BOSGAME'
           <a href={`/workstations/${b.slug}`} class={`group relative flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-2 ${otherBrandTheme} shadow-xl shadow-black/20`}>
             <div class="relative overflow-hidden">
               <ProductMock variant="card" brand={b.name} />
-              <div class="absolute top-4 left-4">
-                <span class={otherBadgeClass}>{b.region}</span>
-              </div>
+              {b.region && (
+                <div class="absolute top-4 left-4">
+                  <span class={otherBadgeClass}>{b.region}</span>
+                </div>
+              )}
             </div>
             <div class="flex flex-1 flex-col p-6">
               <h3 class="text-xl font-bold text-white">{b.name}</h3>
