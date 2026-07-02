@@ -119,12 +119,12 @@ const brandTheme = (name: string) => {
               <p class="mt-1 text-sm text-slate-400">{brand.positioning}</p>
               <p class="mt-3 text-sm text-slate-300">{brand.summary}</p>
               <div class="mt-4">
-                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Highlights</div>
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Highlights</div>
                 <ul class="mt-2 space-y-1 text-sm text-slate-400">
                   {brand.highlights.map((h) => <li>• {h}</li>)}
                 </ul>
               </div>
-              <p class="mt-4 text-xs italic text-slate-500">{brand.note}</p>
+              <p class="mt-4 text-xs italic text-slate-400">{brand.note}</p>
             </div>
             <div class="mt-6">
               <a href={`/workstations/${brand.slug}`} class={`text-sm font-medium ${theme.text}`}>View {brand.name} details →</a>

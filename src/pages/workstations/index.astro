@@ -118,12 +118,12 @@ import { sharedPlatform } from '../../data/platform';
               <p class="mt-1 text-sm font-medium text-slate-300">{getTagline()}</p>
               <p class="mt-3 text-slate-300">{brand.summary}</p>
               <div class="mt-5">
-                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Highlights</div>
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Highlights</div>
                 <ul class="mt-2 space-y-1.5 text-sm text-slate-400">
                   {brand.highlights.map((h) => <li>• {h}</li>)}
                 </ul>
               </div>
-              <p class="mt-4 text-xs italic text-slate-500">{brand.note}</p>
+              <p class="mt-4 text-xs italic text-slate-400">{brand.note}</p>
               <div class={`mt-6 flex items-center text-sm font-medium ${brandTextClass}`}>
                 View {brand.name} details
                 <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

@@ -128,7 +128,7 @@ import { sharedPlatform } from '../data/platform';
           <div class="card">
             <div class="grid gap-6 md:grid-cols-3" onclick="trackEvent('use_case_click', { useCase: `${useCase.title}`, recommendedBrand: `${recommendedBrand}` })">
             <div class="md:col-span-1">
-              <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Use case {idx + 1}</div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Use case {idx + 1}</div>
               <h3 class="mt-1 text-2xl font-bold">{useCase.title}</h3>
             </div>
             <div class="md:col-span-2">
@@ -140,7 +140,7 @@ import { sharedPlatform } from '../data/platform';
                   </span>
                 ))}
               </div>
-              <p class="mt-4 text-sm text-slate-500">
+              <p class="mt-4 text-sm text-slate-400">
                 <span class="font-medium">Recommended hardware:</span>{' '}
                 <span class={`font-semibold ${colorClass}`}>{recommendedBrand}</span>
                 {' '}(based on workload intensity and memory demand)
