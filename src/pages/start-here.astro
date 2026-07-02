@@ -7,35 +7,35 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
   title="Start Here — Syvidea"
   description="Choose how you want to run local AI. Match real workloads with the right workstation configuration across three partner platforms."
 >
-  <section class="relative overflow-hidden pt-8 pb-10 sm:pt-10 sm:pb-12" onload="setSource('start-here')">
+  <section class="relative overflow-hidden pt-6 pb-8 sm:pt-8 sm:pb-10" onload="setSource('start-here')">
     <div class="absolute inset-0 bg-dark-999"></div>
     <div class="absolute inset-0 cyber-bg"></div>
     <div class="absolute inset-0 grid-bg opacity-30"></div>
-    <div class="glow-bg top-0 left-1/4 h-96 w-96 bg-neon-purple/20 animate-glow-pulse"></div>
-    <div class="glow-bg top-20 right-1/4 h-80 w-80 bg-neon-cyan/15 animate-glow-pulse" style="animation-delay: -2s;"></div>
+    <div class="glow-bg top-0 left-1/4 h-72 w-72 bg-neon-purple/20 animate-glow-pulse sm:h-96 sm:w-96"></div>
+    <div class="glow-bg top-20 right-1/4 h-64 w-64 bg-neon-cyan/15 animate-glow-pulse sm:h-80 sm:w-80" style="animation-delay: -2s;"></div>
 
     <div class="container-page relative">
       <div class="max-w-3xl mx-auto text-center">
-        <div class="mb-6 inline-flex">
+        <div class="mb-4 inline-flex">
           <span class="badge">
             <span class="mr-1.5 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-neon-purple"></span>
             Decision entry point
           </span>
         </div>
-        <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+        <h1 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
           <AnimatedText delay={0.1} class="gradient-text">Start here</AnimatedText>
           <br />
           <AnimatedText delay={0.2} class="text-white">— workload-based AI system selection</AnimatedText>
         </h1>
         <AnimatedText delay={0.3}>
-          <p class="mt-6 text-lg text-slate-400 text-balance max-w-2xl mx-auto">
+          <p class="mt-4 text-base text-slate-400 text-balance max-w-2xl mx-auto sm:text-lg">
             We evaluate your workload context and map your requirements to optimized hardware configurations. Every recommendation is manually reviewed and validated within 24–48 hours.
           </p>
         </AnimatedText>
         <AnimatedText delay={0.4}>
-          <div class="mt-6 p-4 rounded-xl border border-neon-purple/30 bg-dark-900/50 max-w-xl mx-auto">
+          <div class="mt-4 p-3 rounded-xl border border-neon-purple/30 bg-dark-900/50 max-w-xl mx-auto">
             <p class="text-sm font-medium text-neon-purple">What this means for you:</p>
-            <p class="mt-2 text-sm text-slate-400">
+            <p class="mt-1.5 text-sm text-slate-400">
               You are guided through a structured decision path instead of selecting hardware directly.
               All configurations are manually reviewed and validated within 24–48 hours.
             </p>
@@ -50,23 +50,23 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
     title="Select the path that matches your current stage"
     align="left"
   >
-    <div class="grid gap-6 md:grid-cols-3">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <GlowingCard class="group card-neon border border-neon-purple/30 bg-dark-900/60 rounded-2xl" glowColor="purple" delay={0.1}>
-        <div class="flex h-full flex-col p-6">
-          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-neon-purple/20">
-            <svg class="h-6 w-6 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="flex h-full flex-col p-5 sm:p-6">
+          <div class="mb-3 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-neon-purple/20">
+            <svg class="h-5 w-5 sm:h-6 sm:w-6 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white">Path A: I know my workload</h3>
-          <p class="mt-1 text-sm text-neon-purple font-medium">I have specific models or frameworks in mind</p>
-          <p class="mt-3 text-sm text-slate-400 flex-1">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">Path A: I know my workload</h3>
+          <p class="mt-1 text-xs sm:text-sm text-neon-purple font-medium">I have specific models or frameworks in mind</p>
+          <p class="mt-2 text-xs sm:text-sm text-slate-400 flex-1">
             You know exactly what you need. We'll validate your requirements against our hardware and provide a tailored configuration proposal.
           </p>
-          <div class="mt-5">
-            <a href="/request-quote" onclick="trackEvent('start_here_click', { path: 'request_quote', action: 'Request a config' })" class="btn-primary w-full inline-flex items-center justify-center">
+          <div class="mt-4">
+            <a href="/request-quote" onclick="trackEvent('start_here_click', { path: 'request_quote', action: 'Request a config' })" class="btn-primary w-full inline-flex items-center justify-center text-sm">
               Request a Config
-              <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="ml-2 h-3 w-3 sm:h-4 sm:w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
@@ -76,22 +76,22 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
       </GlowingCard>
 
       <GlowingCard class="group card-cyan border border-neon-cyan/30 bg-dark-900/60 rounded-2xl" glowColor="cyan" delay={0.2}>
-        <div class="flex h-full flex-col p-6">
-          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-neon-cyan/20">
-            <svg class="h-6 w-6 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="flex h-full flex-col p-5 sm:p-6">
+          <div class="mb-3 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-neon-cyan/20">
+            <svg class="h-5 w-5 sm:h-6 sm:w-6 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white">Path B: I need validation</h3>
-          <p class="mt-1 text-sm text-neon-cyan font-medium">I'm not sure if local inference fits my budget</p>
-          <p class="mt-3 text-sm text-slate-400 flex-1">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">Path B: I need validation</h3>
+          <p class="mt-1 text-xs sm:text-sm text-neon-cyan font-medium">I'm not sure if local inference fits my budget</p>
+          <p class="mt-2 text-xs sm:text-sm text-slate-400 flex-1">
             You're exploring options. We'll share benchmark data and help you understand what's possible with local AI.
           </p>
-          <div class="mt-5">
-            <a href="/workstations/platform" onclick="trackEvent('start_here_click', { path: 'platform', action: 'View benchmark data' })" class="btn-primary w-full inline-flex items-center justify-center bg-neon-cyan/20 border-neon-cyan text-white hover:bg-neon-cyan/30">
+          <div class="mt-4">
+            <a href="/workstations/platform" onclick="trackEvent('start_here_click', { path: 'platform', action: 'View benchmark data' })" class="btn-primary w-full inline-flex items-center justify-center bg-neon-cyan/20 border-neon-cyan text-white hover:bg-neon-cyan/30 text-sm">
               View Benchmark Data
-              <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="ml-2 h-3 w-3 sm:h-4 sm:w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
@@ -101,33 +101,33 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
       </GlowingCard>
 
       <GlowingCard class="group card-orange border border-neon-orange/30 bg-dark-900/60 rounded-2xl" glowColor="orange" delay={0.3}>
-        <div class="flex h-full flex-col p-6">
-          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-neon-orange/20">
-            <svg class="h-6 w-6 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="flex h-full flex-col p-5 sm:p-6">
+          <div class="mb-3 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-neon-orange/20">
+            <svg class="h-5 w-5 sm:h-6 sm:w-6 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white">Path C: Complex deployment</h3>
-          <p class="mt-1 text-sm text-neon-orange font-medium">I need custom software stack or multi-node</p>
-          <p class="mt-3 text-sm text-slate-400 flex-1">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">Path C: Complex deployment</h3>
+          <p class="mt-1 text-xs sm:text-sm text-neon-orange font-medium">I need custom software stack or multi-node</p>
+          <p class="mt-2 text-xs sm:text-sm text-slate-400 flex-1">
             You have advanced requirements. Let's discuss your specific needs and design a complete solution.
           </p>
-          <div class="mt-5">
-            <a href="/contact" onclick="trackEvent('start_here_click', { path: 'contact', action: 'Book a consultation' })" class="btn-primary w-full inline-flex items-center justify-center bg-neon-orange/20 border-neon-orange text-white hover:bg-neon-orange/30">
+          <div class="mt-4">
+            <a href="/contact" onclick="trackEvent('start_here_click', { path: 'contact', action: 'Book a consultation' })" class="btn-primary w-full inline-flex items-center justify-center bg-neon-orange/20 border-neon-orange text-white hover:bg-neon-orange/30 text-sm">
               Book a Consultation
-              <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="ml-2 h-3 w-3 sm:h-4 sm:w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
           </div>
-          <p class="mt-3 text-xs text-slate-500 italic">*For custom software stacks, multi-node setups, or enterprise deployments.*</p>
+          <p class="mt-2 text-xs text-slate-500 italic">*For custom software stacks, multi-node setups, or enterprise deployments.*</p>
         </div>
       </GlowingCard>
     </div>
-    <div class="mt-6 text-center">
-      <p class="text-sm text-slate-400">
+    <div class="mt-4 text-center">
+      <p class="text-xs sm:text-sm text-slate-400">
         All three paths lead to a manually reviewed, validated configuration proposal within 24–48 hours.
       </p>
     </div>

@@ -170,8 +170,8 @@
     visibility: visible;
   }
   .section {
-    @apply py-8 sm:py-10 lg:py-12;
-  }
+  @apply py-6 sm:py-8 lg:py-10;
+}
   .section-title {
     @apply text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl;
   }
