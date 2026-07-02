@@ -26,7 +26,7 @@ const imagePath = hasImages ? (brandData.images as Record<string, string>)[image
   <div
     class:list={[
       'relative overflow-hidden',
-      variant === 'hero' && 'aspect-[16/10] w-full',
+      variant === 'hero' && 'aspect-[16/10] w-full max-h-[240px] sm:max-h-[320px]',
       variant === 'card' && 'aspect-[4/3] w-full',
       variant === 'detail' && 'aspect-video w-full',
     ]}
@@ -34,18 +34,18 @@ const imagePath = hasImages ? (brandData.images as Record<string, string>)[image
   >
     <div class="absolute inset-0 bg-gradient-to-br from-dark-999 via-dark-950 to-dark-900"></div>
 
-    <div class="absolute -top-20 -left-20 h-72 w-72 rounded-full opacity-25 blur-3xl animate-glow-pulse" style={`background:${colors.primary};`}></div>
-    <div class="absolute -bottom-20 -right-20 h-72 w-72 rounded-full opacity-20 blur-3xl animate-glow-pulse" style={`background:${colors.secondary};animation-delay:-2s;`}></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full opacity-10 blur-3xl" style={`background:${colors.accent};`}></div>
+    <div class="absolute -top-10 -left-10 sm:-top-20 sm:-left-20 h-48 w-48 sm:h-72 sm:w-72 rounded-full opacity-25 blur-3xl animate-glow-pulse" style={`background:${colors.primary};`}></div>
+    <div class="absolute -bottom-10 -right-10 sm:-bottom-20 sm:-right-20 h-48 w-48 sm:h-72 sm:w-72 rounded-full opacity-20 blur-3xl animate-glow-pulse" style={`background:${colors.secondary};animation-delay:-2s;`}></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 sm:h-96 sm:w-96 rounded-full opacity-10 blur-3xl" style={`background:${colors.accent};`}></div>
 
     <div class="absolute inset-0 grid-bg opacity-20"></div>
 
-    <div class="absolute inset-0 flex items-center justify-center p-8">
+    <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
       <div class="relative w-full max-w-lg animate-float">
         <img
           src={imagePath}
           alt={brand}
-          class="w-full h-auto rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
+          class="w-full h-auto max-h-[200px] sm:max-h-[280px] object-contain rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
           style={`box-shadow:0 0 30px ${colors.primary}20, 0 0 60px ${colors.primary}10, 0 25px 50px -12px rgba(0,0,0,0.5);`}
         />
         <div class="absolute top-4 left-4 flex items-center gap-2">
