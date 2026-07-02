@@ -1,7 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/Section.astro';
-import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated';
+
 ---
 <PageLayout
   title="Start Here — Syvidea"
@@ -23,16 +23,16 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
           </span>
         </div>
         <h1 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-          <AnimatedText delay={0.1} class="gradient-text">Start here</AnimatedText>
+          <span class="gradient-text animate-fade-in-up">Start here</span>
           <br />
-          <AnimatedText delay={0.2} class="text-white">— workload-based AI system selection</AnimatedText>
+          <span class="text-white animate-fade-in-up animation-delay-200">— workload-based AI system selection</span>
         </h1>
-        <AnimatedText delay={0.3}>
+        <div class="animate-fade-in-up animation-delay-300">
           <p class="mt-4 text-base text-slate-400 text-balance max-w-2xl mx-auto sm:text-lg">
             We evaluate your workload context and map your requirements to optimized hardware configurations. Every recommendation is manually reviewed and validated within 24–48 hours.
           </p>
-        </AnimatedText>
-        <AnimatedText delay={0.4}>
+        </div>
+        <div class="animate-fade-in-up animation-delay-400">
           <div class="mt-4 p-3 rounded-xl border border-neon-purple/30 bg-dark-900/50 max-w-xl mx-auto">
             <p class="text-sm font-medium text-neon-purple">What this means for you:</p>
             <p class="mt-1.5 text-sm text-slate-400">
@@ -40,7 +40,7 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
               All configurations are manually reviewed and validated within 24–48 hours.
             </p>
           </div>
-        </AnimatedText>
+        </div>
       </div>
     </div>
   </section>
@@ -51,7 +51,7 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
     align="left"
   >
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <GlowingCard class="group card-neon border border-neon-purple/30 bg-dark-900/60 rounded-2xl" glowColor="purple" delay={0.1}>
+      <div class="group card-neon border border-neon-purple/30 bg-dark-900/60 rounded-2xl animate-fade-in-up">
         <div class="flex h-full flex-col p-5 sm:p-6">
           <div class="mb-3 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-neon-purple/20">
             <svg class="h-5 w-5 sm:h-6 sm:w-6 text-neon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -73,9 +73,9 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
             </a>
           </div>
         </div>
-      </GlowingCard>
+      </div>
 
-      <GlowingCard class="group card-cyan border border-neon-cyan/30 bg-dark-900/60 rounded-2xl" glowColor="cyan" delay={0.2}>
+      <div class="group card-cyan border border-neon-cyan/30 bg-dark-900/60 rounded-2xl animate-fade-in-up animation-delay-200">
         <div class="flex h-full flex-col p-5 sm:p-6">
           <div class="mb-3 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-neon-cyan/20">
             <svg class="h-5 w-5 sm:h-6 sm:w-6 text-neon-cyan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -98,9 +98,9 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
             </a>
           </div>
         </div>
-      </GlowingCard>
+      </div>
 
-      <GlowingCard class="group card-orange border border-neon-orange/30 bg-dark-900/60 rounded-2xl" glowColor="orange" delay={0.3}>
+      <div class="group card-orange border border-neon-orange/30 bg-dark-900/60 rounded-2xl animate-fade-in-up animation-delay-300">
         <div class="flex h-full flex-col p-5 sm:p-6">
           <div class="mb-3 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-neon-orange/20">
             <svg class="h-5 w-5 sm:h-6 sm:w-6 text-neon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -124,7 +124,7 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
           </div>
           <p class="mt-2 text-xs text-slate-400 italic">*For custom software stacks, multi-node setups, or enterprise deployments.*</p>
         </div>
-      </GlowingCard>
+      </div>
     </div>
     <div class="mt-4 text-center">
       <p class="text-xs sm:text-sm text-slate-400">
@@ -259,13 +259,13 @@ import { AnimatedText, AnimatedLink, GlowingCard } from '../components/Animated'
         Map your workload to hardware without spending hours researching specifications.
       </p>
       <div class="mt-8">
-        <AnimatedLink href="/recommendation-engine" class="btn-primary inline-flex items-center">
+        <a href="/recommendation-engine" class="btn-primary inline-flex items-center">
           Try Recommendation Engine
           <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
           </svg>
-        </AnimatedLink>
+        </a>
       </div>
     </div>
   </Section>
