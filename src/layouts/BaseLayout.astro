@@ -7,9 +7,6 @@ export interface Props {
   description?: string;
   ogImage?: string;
   canonical?: string;
-  ogType?: string;
-  twitterCreator?: string;
-  jsonLd?: string;
 }
 
 const {
@@ -17,29 +14,12 @@ const {
   description = siteConfig.description,
   ogImage = '/og-default.png',
   canonical,
-  ogType = 'website',
-  twitterCreator = siteConfig.twitter,
-  jsonLd,
 } = Astro.props;
 
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
 
 const ga4Id = import.meta.env.PUBLIC_GA4_ID;
 const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
-
-const defaultJsonLd = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: siteConfig.name,
-  url: siteConfig.url,
-  description: siteConfig.description,
-  logo: `${siteConfig.url}/favicon.svg`,
-  contactPoint: {
-    '@type': 'ContactPoint',
-    email: siteConfig.email,
-    contactType: 'customer service',
-  },
-});
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth">
@@ -68,7 +48,6 @@ const defaultJsonLd = JSON.stringify({
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
-    <meta name="twitter:creator" content={twitterCreator} />
     <meta name="twitter:site" content={siteConfig.twitter} />
 
     <!-- Facebook -->
@@ -76,7 +55,19 @@ const defaultJsonLd = JSON.stringify({
 
     <!-- JSON-LD -->
     <script type="application/ld+json">
-      {jsonLd || defaultJsonLd}
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Syvidea",
+        "url": "https://www.syvidea.com",
+        "description": "Local AI Workstation Sourcing & Advisory",
+        "logo": "https://www.syvidea.com/favicon.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@syvidea.com",
+          "contactType": "customer service"
+        }
+      }
     </script>
 
     <!-- Fonts -->

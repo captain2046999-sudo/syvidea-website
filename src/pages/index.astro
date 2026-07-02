@@ -336,6 +336,7 @@ import { useCases } from '../data/brands';
               <img
                 src={`https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=${encodeURIComponent(useCase.imagePrompt)}&image_size=landscape_16_9`}
                 alt={useCase.title}
+                loading="lazy"
                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-dark-999 via-dark-999/50 to-transparent"></div>
@@ -630,7 +631,7 @@ import { useCases } from '../data/brands';
         { step: '2', title: 'Receive a quote', desc: 'We confirm configuration, availability, and a written quote for your destination.' },
         { step: '3', title: 'Confirm and pay', desc: 'Approve the quote and arrange payment via a payment link or deposit.' },
         { step: '4', title: 'Delivery & support', desc: 'We coordinate shipment and share setup resources.' },
-      ].map((s, i) => (
+      ].map((s) => (
         <div class="card relative overflow-hidden animate-fade-in-up">
           <div class="absolute top-0 right-0 h-20 w-20 rounded-bl-full bg-gradient-to-br from-neon-purple/20 to-transparent"></div>
           <div class="relative">

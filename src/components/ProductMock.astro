@@ -45,6 +45,7 @@ const imagePath = hasImages ? (brandData.images as Record<string, string>)[image
         <img
           src={imagePath}
           alt={brand}
+          loading="lazy"
           class="w-full h-auto max-h-[200px] sm:max-h-[280px] object-contain rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
           style={`box-shadow:0 0 30px ${colors.primary}20, 0 0 60px ${colors.primary}10, 0 25px 50px -12px rgba(0,0,0,0.5);`}
         />

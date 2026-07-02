@@ -20,8 +20,7 @@ const brandTheme = brand.name === 'BOSGAME'
   ? { primary: 'neon-cyan', secondary: 'neon-blue', gradient: 'from-neon-cyan via-neon-blue to-neon-green', glow: 'shadow-neon-cyan/30' }
   : { primary: 'neon-orange', secondary: 'neon-yellow', gradient: 'from-neon-orange via-neon-yellow to-neon-pink', glow: 'shadow-neon-orange/30' };
 
-const brandBadgeClass = brand.name === 'BOSGAME' ? 'badge' : brand.name === 'PELAND' ? 'badge-cyan' : 'badge-orange';
-const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === 'PELAND' ? 'card-cyan' : 'card-orange';
+
 ---
 <PageLayout
   title={`${brand.name} — Local AI Workstation Option | Syvidea`}
@@ -98,6 +97,7 @@ const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === '
                 <img
                   src={brand.images.front}
                   alt={`${brand.name} front view`}
+                  loading="lazy"
                   class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -113,6 +113,7 @@ const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === '
                 <img
                   src={brand.images.side}
                   alt={`${brand.name} side view`}
+                  loading="lazy"
                   class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -128,6 +129,7 @@ const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === '
                 <img
                   src={brand.images.ports}
                   alt={`${brand.name} ports view`}
+                  loading="lazy"
                   class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
