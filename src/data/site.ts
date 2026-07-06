@@ -25,11 +25,7 @@ export const siteConfig = {
   footer: {
     product: [
       { label: 'Workstations', href: '/workstations' },
-      { label: 'Compare', href: '/workstations/compare' },
       { label: 'Shared Platform', href: '/workstations/platform' },
-      { label: 'S1 Base', href: '/workstations/s1-base' },
-      { label: 'S1 Pro', href: '/workstations/s1-pro' },
-      { label: 'S1 Max', href: '/workstations/s1-max' },
       { label: 'Recommendation Engine', href: '/recommendation-engine' },
     ],
     resources: [

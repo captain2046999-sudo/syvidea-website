@@ -7,8 +7,8 @@ export const faqs = [
         a: 'All curated partner workstations are built on the AMD Strix Halo platform, featuring the AMD Ryzen AI Max+ 395 processor, 128GB LPDDR5X unified memory (256-bit interface), 2TB SSD, and integrated Radeon 8060S graphics. Brand-specific differences exist in chassis, I/O details, dimensions, wireless modules, thermals, BIOS, packaging, and warranty.',
       },
       {
-        q: 'Are the three S1 Series models the same machine?',
-        a: 'They share the same core AMD Strix Halo / AI Max+ 395 platform specifications, but they are not identical units. Differences may include the chassis design, port layout, dimensions, wireless modules, cooling solution, BIOS tuning, packaging, warranty terms, and supply batches. Syvidea helps you compare these options based on your actual AI workflow.',
+        q: 'What does Syvidea\'s workload evaluation include?',
+        a: 'Syvidea evaluates your AI workload (model types, context length, inference requirements) and recommends the optimal configuration built on the AMD Strix Halo / AI Max+ 395 platform. We consider factors like thermal design, chassis form factor, and deployment environment to match the right hardware to your specific use case.',
       },
       {
         q: 'Who actually manufactures these workstations?',
