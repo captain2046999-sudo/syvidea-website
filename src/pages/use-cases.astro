@@ -47,14 +47,14 @@ import { sharedPlatform } from '../data/platform';
     <div class="mt-6 card border-neon-purple/30 bg-dark-900/50">
       <p class="text-sm font-medium text-neon-purple">What this means for you:</p>
       <p class="mt-2 text-sm text-slate-400">
-        The shared platform specifications ensure consistent performance across all three partner brands. Your choice comes down to chassis preference, I/O requirements, and supply availability, not raw specs.
+        The shared platform specifications ensure consistent performance across all three S1 Series models. Your choice comes down to chassis preference, I/O requirements, and supply availability, not raw specs.
       </p>
     </div>
   </Section>
 
   <Section
     eyebrow="Use case mapping"
-    title="Workload → Recommended brand"
+    title="Workload → Recommended model"
     align="left"
   >
     <div class="card">
@@ -69,27 +69,27 @@ import { sharedPlatform } from '../data/platform';
           <tbody>
             <tr class="border-b border-slate-800">
               <td class="py-3 px-4 text-slate-400">Local LLM Development</td>
-              <td class="py-3 px-4 text-neon-cyan font-semibold">PELAND</td>
+              <td class="py-3 px-4 text-neon-cyan font-semibold">S1 Pro</td>
             </tr>
             <tr class="border-b border-slate-800">
               <td class="py-3 px-4 text-slate-400">Private RAG Systems</td>
-              <td class="py-3 px-4 text-neon-cyan font-semibold">PELAND</td>
+              <td class="py-3 px-4 text-neon-cyan font-semibold">S1 Pro</td>
             </tr>
             <tr class="border-b border-slate-800">
               <td class="py-3 px-4 text-slate-400">AI Agents & Coding Agents</td>
-              <td class="py-3 px-4 text-neon-purple font-semibold">BOSGAME</td>
+              <td class="py-3 px-4 text-neon-purple font-semibold">S1 Base</td>
             </tr>
             <tr class="border-b border-slate-800">
               <td class="py-3 px-4 text-slate-400">Multimodal AI Workflows</td>
-              <td class="py-3 px-4 text-neon-purple font-semibold">BOSGAME</td>
+              <td class="py-3 px-4 text-neon-purple font-semibold">S1 Base</td>
             </tr>
             <tr class="border-b border-slate-800">
               <td class="py-3 px-4 text-slate-400">Homelab / Personal AI</td>
-              <td class="py-3 px-4 text-neon-orange font-semibold">BITPC</td>
+              <td class="py-3 px-4 text-neon-orange font-semibold">S1 Max</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-slate-400">Small Team AI Workspace</td>
-              <td class="py-3 px-4 text-neon-orange font-semibold">BITPC</td>
+              <td class="py-3 px-4 text-neon-orange font-semibold">S1 Max</td>
             </tr>
           </tbody>
         </table>
@@ -103,30 +103,30 @@ import { sharedPlatform } from '../data/platform';
   >
     <div class="space-y-6">
       {useCases.map((useCase, idx) => {
-        const getRecommendedBrand = () => {
+        const getRecommendedModel = () => {
           switch(useCase.title) {
-            case 'Local LLM Development': return 'PELAND';
-            case 'Private RAG Systems': return 'PELAND';
-            case 'AI Agents & Coding Agents': return 'BOSGAME';
-            case 'Multimodal AI Workflows': return 'BOSGAME';
-            case 'Homelab & Personal AI Server': return 'BITPC';
-            case 'Small Team AI Workspace': return 'BITPC';
-            default: return 'BOSGAME / PELAND / BITPC';
+            case 'Local LLM Development': return 'Syvidea S1 Pro';
+            case 'Private RAG Systems': return 'Syvidea S1 Pro';
+            case 'AI Agents & Coding Agents': return 'Syvidea S1 Base';
+            case 'Multimodal AI Workflows': return 'Syvidea S1 Base';
+            case 'Homelab & Personal AI Server': return 'Syvidea S1 Max';
+            case 'Small Team AI Workspace': return 'Syvidea S1 Max';
+            default: return 'Syvidea S1 Series';
           }
         };
-        const getBrandColor = (brand: string) => {
-          switch(brand) {
-            case 'PELAND': return 'text-neon-cyan';
-            case 'BOSGAME': return 'text-neon-purple';
-            case 'BITPC': return 'text-neon-orange';
+        const getModelColor = (model: string) => {
+          switch(model) {
+            case 'Syvidea S1 Pro': return 'text-neon-cyan';
+            case 'Syvidea S1 Base': return 'text-neon-purple';
+            case 'Syvidea S1 Max': return 'text-neon-orange';
             default: return 'text-slate-400';
           }
         };
-        const recommendedBrand = getRecommendedBrand();
-        const colorClass = getBrandColor(recommendedBrand);
+        const recommendedModel = getRecommendedModel();
+        const colorClass = getModelColor(recommendedModel);
         return (
           <div class="card">
-            <div class="grid gap-6 md:grid-cols-3" onclick="trackEvent('use_case_click', { useCase: `${useCase.title}`, recommendedBrand: `${recommendedBrand}` })">
+            <div class="grid gap-6 md:grid-cols-3" onclick="trackEvent('use_case_click', { useCase: `${useCase.title}`, recommendedModel: `${recommendedModel}` })">
             <div class="md:col-span-1">
               <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Use case {idx + 1}</div>
               <h3 class="mt-1 text-2xl font-bold">{useCase.title}</h3>
@@ -142,7 +142,7 @@ import { sharedPlatform } from '../data/platform';
               </div>
               <p class="mt-4 text-sm text-slate-400">
                 <span class="font-medium">Recommended hardware:</span>{' '}
-                <span class={`font-semibold ${colorClass}`}>{recommendedBrand}</span>
+                <span class={`font-semibold ${colorClass}`}>{recommendedModel}</span>
                 {' '}(based on workload intensity and memory demand)
               </p>
             </div>

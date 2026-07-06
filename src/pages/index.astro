@@ -8,7 +8,7 @@ import { useCases } from '../data/brands';
 ---
 <PageLayout
   title="Syvidea - Local AI Workstation Sourcing & Advisory"
-  description="Syvidea helps developers, creators and small teams choose and source selected local AI workstations from hardware partners. AMD Strix Halo / AI Max+ 395, 128GB unified memory."
+  description="Syvidea builds and delivers local AI workstations powered by AMD Strix Halo / AI Max+ 395. Run 70B-class models locally with 128GB unified memory."
 >
   <section class="relative overflow-hidden pt-4 pb-4 sm:pt-6 sm:pb-8">
     <div class="absolute inset-0 bg-dark-999"></div>
@@ -34,9 +34,9 @@ import { useCases } from '../data/brands';
           </h1>
           <div class="animate-fade-in-up animation-delay-300">
             <p class="mt-4 text-base text-slate-400 text-balance max-w-xl sm:text-lg">
-              Syvidea provides a workload-driven evaluation layer for local AI infrastructure,
-              mapping inference requirements to optimized AMD Strix Halo configurations across
-              BOSGAME, PELAND, and BITPC systems.
+              Syvidea builds and delivers local AI workstations powered by AMD Strix Halo,
+              mapping inference requirements to optimized configurations across our S1 Base,
+              S1 Pro, and S1 Max models.
             </p>
           </div>
           <div class="animate-fade-in-up animation-delay-300">
@@ -81,8 +81,8 @@ import { useCases } from '../data/brands';
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
                 <div>
-                  <div class="text-sm font-bold text-white">3 Brands</div>
-                  <div class="text-xs text-slate-400">Curated</div>
+                  <div class="text-sm font-bold text-white">3 Models</div>
+                  <div class="text-xs text-slate-400">S1 Series</div>
                 </div>
               </div>
               <div class="flex items-center gap-3 p-3 rounded-xl border border-neon-green/20 bg-dark-900/30">
@@ -122,7 +122,7 @@ import { useCases } from '../data/brands';
               <svg class="h-4 w-4 text-neon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              3 curated brands
+              3 S1 Series models
             </div>
             <div class="flex items-center gap-2">
               <svg class="h-4 w-4 text-neon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -366,15 +366,15 @@ import { useCases } from '../data/brands';
   </Section>
 
   <Section
-    eyebrow="Partner brands"
-    title="Three ODM Partners, One Unified Platform"
-    subtitle="We source from three trusted ODM partners. While all share the same AMD Strix Halo core specifications (128GB/2TB), they differ in chassis design and thermal solutions to suit different deployment environments."
+    eyebrow="S1 Series"
+    title="Three Models, One Unified Platform"
+    subtitle="Syvidea offers three curated models built on the AMD Strix Halo platform. While all share the same core specifications (128GB/2TB), they differ in chassis design and thermal solutions to suit different deployment environments."
   >
     <div class="grid gap-4 md:hidden">
       <div class="card border border-neon-purple/30 bg-dark-900/50 rounded-2xl p-4">
         <div class="flex items-center gap-3 mb-3">
-          <span class="badge">BOSGAME</span>
-          <span class="text-xs text-slate-400">Performance Focus</span>
+          <span class="badge">S1 Base</span>
+          <span class="text-xs text-slate-400">Entry-level</span>
         </div>
         <div class="space-y-2 text-sm">
           <div class="flex justify-between">
@@ -397,8 +397,8 @@ import { useCases } from '../data/brands';
       </div>
       <div class="card border border-neon-cyan/30 bg-dark-900/50 rounded-2xl p-4">
         <div class="flex items-center gap-3 mb-3">
-          <span class="badge-cyan">PELAND</span>
-          <span class="text-xs text-slate-400">Compact Design</span>
+          <span class="badge-cyan">S1 Pro</span>
+          <span class="text-xs text-slate-400">Performance</span>
         </div>
         <div class="space-y-2 text-sm">
           <div class="flex justify-between">
@@ -421,8 +421,8 @@ import { useCases } from '../data/brands';
       </div>
       <div class="card border border-neon-orange/30 bg-dark-900/50 rounded-2xl p-4">
         <div class="flex items-center gap-3 mb-3">
-          <span class="badge-orange">BITPC</span>
-          <span class="text-xs text-slate-400">Enterprise Ready</span>
+          <span class="badge-orange">S1 Max</span>
+          <span class="text-xs text-slate-400">Enterprise</span>
         </div>
         <div class="space-y-2 text-sm">
           <div class="flex justify-between">
@@ -449,7 +449,7 @@ import { useCases } from '../data/brands';
         <table class="w-full">
           <thead>
             <tr class="border-b border-slate-700/50">
-              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-400">Brand</th>
+              <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-400">Model</th>
               <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-400">Design Focus</th>
               <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-400">Best For</th>
               <th class="text-left p-4 text-xs font-semibold uppercase tracking-wider text-slate-400">Thermal Solution</th>
@@ -460,7 +460,7 @@ import { useCases } from '../data/brands';
             <tr class="border-b border-slate-700/30 hover:bg-dark-800/30 transition-colors">
               <td class="p-4">
                 <div class="flex items-center gap-3">
-                  <span class="badge">BOSGAME</span>
+                  <span class="badge">S1 Base</span>
                 </div>
               </td>
               <td class="p-4 text-sm text-slate-300">Performance tuning & active cooling</td>
@@ -471,7 +471,7 @@ import { useCases } from '../data/brands';
             <tr class="border-b border-slate-700/30 hover:bg-dark-800/30 transition-colors">
               <td class="p-4">
                 <div class="flex items-center gap-3">
-                  <span class="badge-cyan">PELAND</span>
+                  <span class="badge-cyan">S1 Pro</span>
                 </div>
               </td>
               <td class="p-4 text-sm text-slate-300">Compact form factor, quiet operation</td>
@@ -482,7 +482,7 @@ import { useCases } from '../data/brands';
             <tr class="hover:bg-dark-800/30 transition-colors">
               <td class="p-4">
                 <div class="flex items-center gap-3">
-                  <span class="badge-orange">BITPC</span>
+                  <span class="badge-orange">S1 Max</span>
                 </div>
               </td>
               <td class="p-4 text-sm text-slate-300">Enterprise-grade build quality</td>
@@ -496,7 +496,7 @@ import { useCases } from '../data/brands';
     </div>
     <div class="p-4 bg-dark-800/50 rounded-xl mt-4">
       <p class="text-xs text-slate-400 text-center">
-        *All brands support the same AI workloads and performance targets. The core AMD Strix Halo specifications (128GB LPDDR5X, 2TB SSD, 50 TOPS NPU) are identical across all partners.*
+        *All models support the same AI workloads and performance targets. The core AMD Strix Halo specifications (128GB LPDDR5X, 2TB SSD, 50 TOPS NPU) are identical across all models.*
       </p>
     </div>
   </Section>
@@ -627,7 +627,7 @@ import { useCases } from '../data/brands';
   >
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {[
-        { step: '1', title: 'Submit a request', desc: 'Tell us your use case, destination, and preferred partner brand via the Tally form.' },
+        { step: '1', title: 'Submit a request', desc: 'Tell us your use case, destination, and preferred S1 model via the Tally form.' },
         { step: '2', title: 'Receive a quote', desc: 'We confirm configuration, availability, and a written quote for your destination.' },
         { step: '3', title: 'Confirm and pay', desc: 'Approve the quote and arrange payment via a payment link or deposit.' },
         { step: '4', title: 'Delivery & support', desc: 'We coordinate shipment and share setup resources.' },
