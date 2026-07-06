@@ -16,14 +16,14 @@ const differenceAreas = [
 ];
 
 const brandTheme = (name: string) => {
-  if (name === 'BOSGAME') return { card: 'card-neon', badge: 'badge', text: 'text-neon-purple' };
-  if (name === 'PELAND') return { card: 'card-cyan', badge: 'badge-cyan', text: 'text-neon-cyan' };
+  if (name.includes('S1 Base')) return { card: 'card-neon', badge: 'badge', text: 'text-neon-purple' };
+  if (name.includes('S1 Pro')) return { card: 'card-cyan', badge: 'badge-cyan', text: 'text-neon-cyan' };
   return { card: 'card-orange', badge: 'badge-orange', text: 'text-neon-orange' };
 };
 ---
 <PageLayout
-  title="Compare Partner Workstation Options — Syvidea"
-  description="Compare BOSGAME, PELAND, and BITPC options built on the shared AMD Strix Halo / AI Max+ 395 platform. Differences are in chassis, I/O, thermals, BIOS, warranty, and supply."
+  title="Compare S1 Series Models — Syvidea"
+  description="Compare S1 Base, S1 Pro, and S1 Max options built on the shared AMD Strix Halo / AI Max+ 395 platform. Differences are in chassis, I/O, thermals, BIOS, warranty, and supply."
 >
   <section class="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
     <div class="absolute inset-0 bg-dark-999"></div>

@@ -63,17 +63,17 @@ import { sharedPlatform } from '../../data/platform';
   >
     <div class="grid gap-4 sm:grid-cols-3">
       <div class="card border-neon-purple/30 bg-dark-900/50">
-        <div class="text-sm font-semibold text-neon-purple">BOSGAME</div>
+        <div class="text-sm font-semibold text-neon-purple">S1 Base</div>
         <div class="mt-2 text-lg font-bold text-white">Optimized for general AI workloads</div>
         <p class="mt-1 text-sm text-slate-400">We evaluate balanced compute and memory scenarios.</p>
       </div>
       <div class="card border-neon-cyan/30 bg-dark-900/50">
-        <div class="text-sm font-semibold text-neon-cyan">PELAND</div>
+        <div class="text-sm font-semibold text-neon-cyan">S1 Pro</div>
         <div class="mt-2 text-lg font-bold text-white">Optimized for memory-intensive inference</div>
         <p class="mt-1 text-sm text-slate-400">We evaluate long-context AI workloads.</p>
       </div>
       <div class="card border-neon-orange/30 bg-dark-900/50">
-        <div class="text-sm font-semibold text-neon-orange">BITPC</div>
+        <div class="text-sm font-semibold text-neon-orange">S1 Max</div>
         <div class="mt-2 text-lg font-bold text-white">Optimized for compact deployment</div>
         <p class="mt-1 text-sm text-slate-400">We evaluate small-scale AI systems.</p>
       </div>
@@ -86,24 +86,22 @@ import { sharedPlatform } from '../../data/platform';
     </div>
   </Section>
 
-  <!-- Brand options -->
+  <!-- Model options -->
   <Section
-    eyebrow="Partner brand options"
-    title="Choose a brand option"
+    eyebrow="S1 Series models"
+    title="Choose a model"
     subtitle="Not sure which option fits? Use the side-by-side comparison or the recommendation engine."
   >
     <div class="grid gap-8 lg:grid-cols-3">
       {brands.map((brand) => {
-        const brandCardClass = brand.name === 'BOSGAME' ? 'card-neon' : brand.name === 'PELAND' ? 'card-cyan' : 'card-orange';
-        const brandBadgeClass = brand.name === 'BOSGAME' ? 'badge' : brand.name === 'PELAND' ? 'badge-cyan' : 'badge-orange';
-        const brandTextClass = brand.name === 'BOSGAME' ? 'text-neon-purple' : brand.name === 'PELAND' ? 'text-neon-cyan' : 'text-neon-orange';
+        const brandCardClass = brand.name.includes('S1 Base') ? 'card-neon' : brand.name.includes('S1 Pro') ? 'card-cyan' : 'card-orange';
+        const brandBadgeClass = brand.name.includes('S1 Base') ? 'badge' : brand.name.includes('S1 Pro') ? 'badge-cyan' : 'badge-orange';
+        const brandTextClass = brand.name.includes('S1 Base') ? 'text-neon-purple' : brand.name.includes('S1 Pro') ? 'text-neon-cyan' : 'text-neon-orange';
         const getTagline = () => {
-          switch(brand.name) {
-            case 'BOSGAME': return 'Best for developers and general AI workflows.';
-            case 'PELAND': return 'Best for sustained LLM / RAG workloads and memory-heavy tasks.';
-            case 'BITPC': return 'Best for compact deployment and small team setups.';
-            default: return '';
-          }
+          if (brand.name.includes('S1 Base')) return 'Best for developers and general AI workflows.';
+          if (brand.name.includes('S1 Pro')) return 'Best for sustained LLM / RAG workloads and memory-heavy tasks.';
+          if (brand.name.includes('S1 Max')) return 'Best for compact deployment and small team setups.';
+          return '';
         };
         return (
           <a href={`/workstations/${brand.slug}`} onclick="trackEvent('workstation_click', { brand: `${brand.name}` })" class={`group relative flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-2 ${brandCardClass} shadow-xl shadow-black/20`}>

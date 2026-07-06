@@ -14,9 +14,9 @@ export function getStaticPaths() {
 
 const { brand } = Astro.props;
 
-const brandTheme = brand.name === 'BOSGAME' 
+const brandTheme = brand.name.includes('S1 Base')
   ? { primary: 'neon-purple', secondary: 'neon-pink', gradient: 'from-neon-purple via-neon-pink to-neon-cyan', glow: 'shadow-neon-purple/30' }
-  : brand.name === 'PELAND'
+  : brand.name.includes('S1 Pro')
   ? { primary: 'neon-cyan', secondary: 'neon-blue', gradient: 'from-neon-cyan via-neon-blue to-neon-green', glow: 'shadow-neon-cyan/30' }
   : { primary: 'neon-orange', secondary: 'neon-yellow', gradient: 'from-neon-orange via-neon-yellow to-neon-pink', glow: 'shadow-neon-orange/30' };
 
@@ -38,7 +38,7 @@ const brandTheme = brand.name === 'BOSGAME'
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <div class="mb-5 inline-flex">
-            <span class="badge">Partner brand option</span>
+            <span class="badge">S1 Series model</span>
           </div>
           <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl" style={`background:linear-gradient(90deg,var(--color-${brandTheme.primary}),var(--color-${brandTheme.secondary}));-webkit-background-clip:text;background-clip:text;color:transparent;`}>
             {brand.name}
@@ -341,13 +341,13 @@ const brandTheme = brand.name === 'BOSGAME'
   <!-- Other options -->
   <Section
     eyebrow="Not a fit?"
-    title="See other partner options"
+    title="See other S1 Series models"
   >
     <div class="grid gap-8 sm:grid-cols-2">
       {brands.filter((b) => b.slug !== brand.slug).map((b) => {
-        const otherBrandTheme = b.name === 'BOSGAME' ? 'card-neon' : b.name === 'PELAND' ? 'card-cyan' : 'card-orange';
-        const otherBadgeClass = b.name === 'BOSGAME' ? 'badge' : b.name === 'PELAND' ? 'badge-cyan' : 'badge-orange';
-        const otherTextClass = b.name === 'BOSGAME' ? 'text-neon-purple' : b.name === 'PELAND' ? 'text-neon-cyan' : 'text-neon-orange';
+        const otherBrandTheme = b.name.includes('S1 Base') ? 'card-neon' : b.name.includes('S1 Pro') ? 'card-cyan' : 'card-orange';
+        const otherBadgeClass = b.name.includes('S1 Base') ? 'badge' : b.name.includes('S1 Pro') ? 'badge-cyan' : 'badge-orange';
+        const otherTextClass = b.name.includes('S1 Base') ? 'text-neon-purple' : b.name.includes('S1 Pro') ? 'text-neon-cyan' : 'text-neon-orange';
         return (
           <a href={`/workstations/${b.slug}`} class={`group relative flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-2 ${otherBrandTheme} shadow-xl shadow-black/20`}>
             <div class="relative overflow-hidden">

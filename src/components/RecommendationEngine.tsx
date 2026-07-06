@@ -75,16 +75,16 @@ const recommend = (formData: {
   if (useCase === 'llm-dev' || useCase === 'rag') {
     if (modelSize === '70b+' || memory === '128gb') {
       return {
-        recommended: 'PELAND',
-        reason: 'PELAND is optimized for sustained LLM / RAG workloads and memory-heavy tasks. It handles large model inference with better thermal management.',
-        alternative: 'BOSGAME for lighter development workflows.',
+        recommended: 'S1 Pro',
+        reason: 'S1 Pro is optimized for sustained LLM / RAG workloads and memory-heavy tasks. It handles large model inference with better thermal management.',
+        alternative: 'S1 Base for lighter development workflows.',
         fit: 'strong',
       };
     }
     return {
-      recommended: 'PELAND',
-      reason: 'PELAND excels at LLM development and RAG systems with balanced memory allocation and workload optimization.',
-      alternative: 'BITPC for compact homelab deployments.',
+      recommended: 'S1 Pro',
+      reason: 'S1 Pro excels at LLM development and RAG systems with balanced memory allocation and workload optimization.',
+      alternative: 'S1 Max for compact homelab deployments.',
       fit: 'good',
     };
   }
@@ -92,16 +92,16 @@ const recommend = (formData: {
   if (useCase === 'agent' || useCase === 'multimodal') {
     if (modelSize === '70b+' || budget === '3000-5000' || budget === '5000+') {
       return {
-        recommended: 'BOSGAME',
-        reason: 'BOSGAME is best for developers building AI agents and coding workflows. It offers better I/O for development tools and multi-tasking.',
-        alternative: 'PELAND for memory-intensive agent workloads.',
+        recommended: 'S1 Base',
+        reason: 'S1 Base is best for developers building AI agents and coding workflows. It offers better I/O for development tools and multi-tasking.',
+        alternative: 'S1 Pro for memory-intensive agent workloads.',
         fit: 'strong',
       };
     }
     return {
-      recommended: 'BOSGAME',
-      reason: 'BOSGAME is optimized for AI agent development and multimodal workflows with flexible configuration options.',
-      alternative: 'BITPC for budget-friendly development setups.',
+      recommended: 'S1 Base',
+      reason: 'S1 Base is optimized for AI agent development and multimodal workflows with flexible configuration options.',
+      alternative: 'S1 Max for budget-friendly development setups.',
       fit: 'good',
     };
   }
@@ -109,16 +109,16 @@ const recommend = (formData: {
   if (useCase === 'homelab') {
     if (budget === 'under-2000' || budget === '2000-3000') {
       return {
-        recommended: 'BITPC',
-        reason: 'BITPC offers the most compact form factor and budget-friendly options for personal AI and homelab setups.',
-        alternative: 'PELAND for larger model support.',
+        recommended: 'S1 Max',
+        reason: 'S1 Max offers the most compact form factor and budget-friendly options for personal AI and homelab setups.',
+        alternative: 'S1 Pro for larger model support.',
         fit: 'strong',
       };
     }
     return {
-      recommended: 'BITPC',
-      reason: 'BITPC is designed for compact deployment, making it ideal for homelab and personal AI server use.',
-      alternative: 'BOSGAME if you need more development features.',
+      recommended: 'S1 Max',
+      reason: 'S1 Max is designed for compact deployment, making it ideal for homelab and personal AI server use.',
+      alternative: 'S1 Base if you need more development features.',
       fit: 'good',
     };
   }
@@ -126,30 +126,30 @@ const recommend = (formData: {
   if (useCase === 'team') {
     if (memory === '128gb' || budget === '3000-5000') {
       return {
-        recommended: 'PELAND',
-        reason: 'PELAND provides the best balance for team deployments with good memory capacity and thermal design for shared use.',
-        alternative: 'BOSGAME for developer-focused teams.',
+        recommended: 'S1 Pro',
+        reason: 'S1 Pro provides the best balance for team deployments with good memory capacity and thermal design for shared use.',
+        alternative: 'S1 Base for developer-focused teams.',
         fit: 'strong',
       };
     }
     if (budget === 'under-2000' || budget === '2000-3000') {
       return {
-        recommended: 'BITPC',
-        reason: 'BITPC offers cost-effective solutions for small team AI workspaces with compact deployment.',
-        alternative: 'PELAND for larger team requirements.',
+        recommended: 'S1 Max',
+        reason: 'S1 Max offers cost-effective solutions for small team AI workspaces with compact deployment.',
+        alternative: 'S1 Pro for larger team requirements.',
         fit: 'good',
       };
     }
     return {
-      recommended: 'PELAND',
-      reason: 'PELAND is well-suited for team AI workspaces with balanced performance and scalability.',
-      alternative: 'BITPC for smaller teams on tighter budgets.',
+      recommended: 'S1 Pro',
+      reason: 'S1 Pro is well-suited for team AI workspaces with balanced performance and scalability.',
+      alternative: 'S1 Max for smaller teams on tighter budgets.',
       fit: 'good',
     };
   }
 
   return {
-    recommended: 'BOSGAME / PELAND',
+    recommended: 'S1 Base / S1 Pro',
     reason: 'Based on your inputs, multiple options could work. Consider your specific workload needs.',
     alternative: 'Use the comparison page to decide.',
     fit: 'fair',
@@ -199,9 +199,9 @@ export function RecommendationEngine() {
   };
 
   const getBrandColor = (brand: string) => {
-    if (brand.includes('PELAND')) return 'text-neon-cyan';
-    if (brand.includes('BOSGAME')) return 'text-neon-purple';
-    if (brand.includes('BITPC')) return 'text-neon-orange';
+    if (brand.includes('S1 Pro')) return 'text-neon-cyan';
+    if (brand.includes('S1 Base')) return 'text-neon-purple';
+    if (brand.includes('S1 Max')) return 'text-neon-orange';
     return 'text-slate-400';
   };
 

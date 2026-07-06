@@ -7,12 +7,12 @@ export const faqs = [
         a: 'All curated partner workstations are built on the AMD Strix Halo platform, featuring the AMD Ryzen AI Max+ 395 processor, 128GB LPDDR5X unified memory (256-bit interface), 2TB SSD, and integrated Radeon 8060S graphics. Brand-specific differences exist in chassis, I/O details, dimensions, wireless modules, thermals, BIOS, packaging, and warranty.',
       },
       {
-        q: 'Are the three brands (BOSGAME, PELAND, BITPC) the same machine?',
+        q: 'Are the three S1 Series models the same machine?',
         a: 'They share the same core AMD Strix Halo / AI Max+ 395 platform specifications, but they are not identical units. Differences may include the chassis design, port layout, dimensions, wireless modules, cooling solution, BIOS tuning, packaging, warranty terms, and supply batches. Syvidea helps you compare these options based on your actual AI workflow.',
       },
       {
         q: 'Who actually manufactures these workstations?',
-        a: 'The workstations are produced by our hardware partners (BOSGAME, PELAND, BITPC). Syvidea acts as your sourcing and advisory partner, helping you choose the right option, get a quote, and coordinate delivery.',
+        a: 'The workstations are produced by trusted hardware partners. Syvidea curates and configures these systems exclusively for local AI applications, helping you choose the right option, get a quote, and coordinate delivery.',
       },
     ],
   },
@@ -69,8 +69,8 @@ export const faqs = [
         a: 'Cloud introduces recurring cost and data transfer constraints. Local AI workstations provide predictable upfront costs, no per-token charges, and complete data privacy for sensitive workloads.',
       },
       {
-        q: 'Why three brands instead of one?',
-        a: 'They optimize for different workload profiles on the same architecture. BOSGAME for developers, PELAND for sustained workloads, and BITPC for compact deployment — giving you choice based on your specific needs.',
+        q: 'Why three models instead of one?',
+        a: 'They optimize for different workload profiles on the same architecture. S1 Base for value-focused users, S1 Pro for mainstream AI builders, and S1 Max for enterprise deployments — giving you choice based on your specific needs.',
       },
     ],
   },

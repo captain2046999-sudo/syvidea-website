@@ -101,13 +101,13 @@ const specGroups = [
   <!-- Shared platform section -->
   <Section
     eyebrow="Why a shared platform page"
-    title="Because the three partner brands share the same core spec"
-    subtitle="This page describes the shared platform that all three partner workstation options are built on. For brand-specific differences (chassis, I/O details, dimensions, wireless, thermals, BIOS, packaging, warranty, supply), see each brand's detail page or the comparison page."
+    title="Because the three S1 Series models share the same core spec"
+    subtitle="This page describes the shared platform that all three S1 Series models are built on. For model-specific differences (chassis, I/O details, dimensions, wireless, thermals, BIOS, packaging, warranty, supply), see each model's detail page or the comparison page."
     align="left"
   >
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {brands.map((b) => {
-        const brandColor = b.name === 'BOSGAME' ? 'text-neon-purple' : b.name === 'PELAND' ? 'text-neon-cyan' : 'text-neon-orange';
+        const brandColor = b.name.includes('S1 Base') ? 'text-neon-purple' : b.name.includes('S1 Pro') ? 'text-neon-cyan' : 'text-neon-orange';
         return (
           <a href={`/workstations/${b.slug}`} class="card group flex flex-col">
             <h3 class="text-lg font-bold text-slate-200 group-hover:text-white transition-colors">{b.name}</h3>
@@ -124,7 +124,7 @@ const specGroups = [
   <Section
     eyebrow="Specification"
     title="Shared platform spec"
-    subtitle="Identical across BOSGAME, PELAND, and BITPC configurations."
+    subtitle="Identical across S1 Base, S1 Pro, and S1 Max configurations."
     align="left"
   >
     <div class="grid gap-6 lg:grid-cols-2">

@@ -1,6 +1,6 @@
 // Shared AMD Strix Halo / AI Max+ 395 Platform Specifications
-// All three partner brands (BOSGAME, PELAND, BITPC) use this shared platform
-// Brand-specific differences are in chassis, I/O details, dimensions, wireless,
+// All three S1 Series models use this shared platform
+// Model-specific differences are in chassis, I/O details, dimensions, wireless,
 // thermals, BIOS, packaging, warranty, and supply batches
 
 export const sharedPlatform = {

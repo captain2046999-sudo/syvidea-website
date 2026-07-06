@@ -3,7 +3,7 @@ export const resources = [
     category: 'Guides',
     slug: 'guides',
     title: 'Selection Guides',
-    description: 'Step-by-step guides to help you decide whether the AMD Strix Halo / AI Max+ 395 platform is right for your AI workflow, and how to choose between partner brands.',
+    description: 'Step-by-step guides to help you decide whether the AMD Strix Halo / AI Max+ 395 platform is right for your AI workflow, and how to choose between S1 Series models.',
     items: [
       {
         title: 'Is 128GB unified memory right for your AI workload?',
@@ -14,8 +14,8 @@ export const resources = [
         excerpt: 'A positioning comparison to help you decide between unified memory local AI and dedicated CUDA GPUs.',
       },
       {
-        title: 'How to compare BOSGAME, PELAND, and BITPC',
-        excerpt: 'Where the three partner brands differ in chassis, I/O, thermals, BIOS, warranty, and supply.',
+        title: 'How to compare S1 Base, S1 Pro, and S1 Max',
+        excerpt: 'Where the three S1 Series models differ in chassis, I/O, thermals, BIOS, warranty, and supply.',
       },
     ],
   },
@@ -59,11 +59,11 @@ export const resources = [
     category: 'Drivers',
     slug: 'drivers',
     title: 'Drivers & Downloads',
-    description: 'Official driver and download entry points for the shared AMD Strix Halo platform and partner brands.',
+    description: 'Official driver and download entry points for the shared AMD Strix Halo platform and S1 Series models.',
     items: [
       { title: 'AMD Ryzen AI Max drivers', excerpt: 'Official AMD driver package entry point.' },
       { title: 'Radeon 8060S graphics drivers', excerpt: 'AMD Adrenalin / integrated GPU drivers.' },
-      { title: 'Partner brand firmware & BIOS notes', excerpt: 'Brand-specific firmware / BIOS entry points (BOSGAME, PELAND, BITPC).' },
+      { title: 'S1 Series firmware & BIOS notes', excerpt: 'Model-specific firmware / BIOS entry points (S1 Base, S1 Pro, S1 Max).' },
     ],
   },
 ];
